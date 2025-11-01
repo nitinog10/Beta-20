@@ -16,6 +16,150 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../')));
 
+// Handle file uploads
+const multer = require('multer');
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, path.join(__dirname, '../uploads/reviews'))
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + '-' + file.originalname)
+    }
+});
+const upload = multer({ storage: storage });
+
+// Reviews endpoints
+app.post('/api/reviews', upload.single('image'), async (req, res) => {
+    try {
+        const { userId, placeId, rating, comment, title } = req.body;
+        const imagePath = req.file ? `/uploads/reviews/${req.file.filename}` : null;
+        
+        const review = {
+            id: `review_${Date.now()}`,
+            userId,
+            placeId,
+            rating: parseInt(rating),
+            comment,
+            title,
+            imagePath,
+            createdAt: new Date().toISOString(),
+            likes: 0,
+            replies: []
+        };
+
+        // Store in localStorage (in production, this would be a database)
+        const reviews = JSON.parse(localStorage.getItem('bharattrip_reviews') || '[]');
+        reviews.push(review);
+        localStorage.setItem('bharattrip_reviews', JSON.stringify(reviews));
+
+        res.json({ success: true, review });
+    } catch (error) {
+        console.error('Error saving review:', error);
+        res.status(500).json({ success: false, error: 'Failed to save review' });
+    }
+});
+
+app.get('/api/reviews/:placeId', (req, res) => {
+    try {
+        const { placeId } = req.params;
+        const reviews = JSON.parse(localStorage.getItem('bharattrip_reviews') || '[]');
+        const placeReviews = reviews.filter(review => review.placeId === placeId);
+        res.json({ success: true, reviews: placeReviews });
+    } catch (error) {
+        console.error('Error fetching reviews:', error);
+        res.status(500).json({ success: false, error: 'Failed to fetch reviews' });
+    }
+});
+
+// Tourist Guide Data
+const touristGuides = {
+    "golden-temple": [
+        {
+            id: "guide1",
+            name: "Harpreet Singh",
+            experience: "10+ years",
+            languages: ["English", "Hindi", "Punjabi"],
+            speciality: "Religious & Cultural Tours",
+            rating: 4.8,
+            contact: "+91-9876543210",
+            image: "/guide-images/harpreet.jpg",
+            background: "Expert in Sikh history and Golden Temple architecture. Certified guide with extensive knowledge of Punjab's culture.",
+            price: "₹2000/day",
+            reviews: 150
+        },
+        {
+            id: "guide2",
+            name: "Mandeep Kaur",
+            experience: "8 years",
+            languages: ["English", "Hindi", "Punjabi", "French"],
+            speciality: "Heritage Walks",
+            rating: 4.7,
+            contact: "+91-9876543211",
+            image: "/guide-images/mandeep.jpg",
+            background: "Former history professor, now a full-time guide. Expert in local cuisine and traditions.",
+            price: "₹1800/day",
+            reviews: 120
+        }
+    ],
+    "kedarnath": [
+        {
+            id: "guide3",
+            name: "Rajesh Rawat",
+            experience: "15+ years",
+            languages: ["English", "Hindi", "Garhwali"],
+            speciality: "Himalayan Treks & Temple History",
+            rating: 4.9,
+            contact: "+91-9876543212",
+            image: "/guide-images/rajesh.jpg",
+            background: "Local mountaineer and spiritual guide. Expert in Kedarnath temple history and safe mountain navigation.",
+            price: "₹2500/day",
+            reviews: 200
+        },
+        {
+            id: "guide4",
+            name: "Sunita Negi",
+            experience: "12 years",
+            languages: ["English", "Hindi", "Garhwali", "Sanskrit"],
+            speciality: "Spiritual Tours",
+            rating: 4.8,
+            contact: "+91-9876543213",
+            image: "/guide-images/sunita.jpg",
+            background: "Sanskrit scholar and experienced trek guide. Deep knowledge of local mythology and customs.",
+            price: "₹2200/day",
+            reviews: 180
+        }
+    ]
+};
+
+// Add more locations and guides as needed
+const defaultGuides = [
+    {
+        id: "guide-default1",
+        name: "Rahul Sharma",
+        experience: "7 years",
+        languages: ["English", "Hindi"],
+        speciality: "General Tourism",
+        rating: 4.6,
+        contact: "+91-9876543214",
+        image: "/guide-images/rahul.jpg",
+        background: "Professional tour guide with knowledge of multiple Indian destinations. Expert in local history and culture.",
+        price: "₹1500/day",
+        reviews: 90
+    }
+];
+
+// Tourist Guide Endpoints
+app.get('/api/tourist-guides/:location', (req, res) => {
+    try {
+        const { location } = req.params;
+        const locationGuides = touristGuides[location] || defaultGuides;
+        res.json({ success: true, guides: locationGuides });
+    } catch (error) {
+        console.error('Error fetching tourist guides:', error);
+        res.status(500).json({ success: false, error: 'Failed to fetch tourist guides' });
+    }
+});
+
 // OpenAI Configuration
 const { Configuration, OpenAIApi } = require('openai');
 const configuration = new Configuration({
