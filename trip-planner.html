@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BharatTrip AI Planner</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    
+    <!-- React -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .animate-fade-in {
+            animation: fade-in 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-slate-900">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState } = React;
+        
+        function TripPlannerPage() {
+            const [planType, setPlanType] = useState('single');
+            const [destination, setDestination] = useState('');
+            const [selectedInterests, setSelectedInterests] = useState([]);
+            const [startDate, setStartDate] = useState('');
+            const [endDate, setEndDate] = useState('');
+            const [budget, setBudget] = useState('Medium');
+            const [travelMode, setTravelMode] = useState('Train');
+            const [itinerary, setItinerary] = useState(null);
+            
+            const toggleInterest = (interest) => {
+                setSelectedInterests(prev => 
+                    prev.includes(interest) 
+                        ? prev.filter(i => i !== interest)
+                        : [...prev, interest]
+                );
+            };
+            
+            const isFormValid = () => {
+                return destination && 
+                       selectedInterests.length > 0 && 
+                       startDate && 
+                       endDate;
+            };
+            
+            const generateItinerary = async () => {
+                try {
+                    setItinerary({ 
+                        days: [{
+                            activities: [{
+                                time: "9:00 AM",
+                                name: "Visit City Palace",
+                                description: "Explore the magnificent City Palace, showcasing a blend of Rajasthani and Mughal architecture."
+                            }, {
+                                time: "12:00 PM",
+                                name: "Lunch at Local Restaurant",
+                                description: "Enjoy authentic local cuisine at a traditional restaurant."
+                            }]
+                        }, {
+                            activities: [{
+                                time: "10:00 AM",
+                                name: "Amber Fort Tour",
+                                description: "Visit the historic Amber Fort, known for its artistic Hindu style elements."
+                            }]
+                        }]
+                    });
+                } catch (error) {
+                    console.error('Error:', error);
+                    setItinerary({
+                        days: [{
+                            activities: [{
+                                time: "Error",
+                                name: "Failed to generate itinerary",
+                                description: "Please try again later."
+                            }]
+                        }]
+                    });
+                }
+            };
+            
+            return (
+                <div className="min-h-screen py-8 px-4">
+                    <div className="max-w-4xl mx-auto">
+                        <div className="text-center mb-8">
+                            <h2 className="text-4xl font-bold text-white flex items-center justify-center">
+                                <span className="text-5xl mr-3">🤖</span> AI Trip Planner
+                            </h2>
+                            <p className="text-slate-400 mt-2">Create your perfect Indian travel itinerary powered by AI</p>
+                        </div>
+
+                        {!itinerary ? (
+                            <div className="bg-slate-800/80 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 shadow-2xl shadow-slate-950/50">
+                                <div className="space-y-8">
+                                    {/* Plan Type Selection */}
+                                    <div className="flex justify-center mb-8">
+                                        <div className="bg-slate-800 rounded-lg p-1 flex space-x-1">
+                                            <button 
+                                                onClick={() => setPlanType('single')}
+                                                className={`px-6 py-2 rounded-md font-semibold transition-colors duration-200 ${
+                                                    planType === 'single' 
+                                                        ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white' 
+                                                        : 'text-slate-300 hover:bg-slate-700'
+                                                }`}
+                                            >
+                                                <i className="fas fa-map-marker-alt mr-2"></i>Single Destination
+                                            </button>
+                                            <button 
+                                                onClick={() => setPlanType('multi')}
+                                                className={`px-6 py-2 rounded-md font-semibold transition-colors duration-200 ${
+                                                    planType === 'multi' 
+                                                        ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white' 
+                                                        : 'text-slate-300 hover:bg-slate-700'
+                                                }`}
+                                            >
+                                                <i className="fas fa-route mr-2"></i>Multi-City Plan
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    {/* Destination */}
+                                    <div>
+                                        <label className="block text-sm font-semibold text-slate-300 mb-2">
+                                            <i className="fas fa-location-dot text-red-400 mr-2"></i>DESTINATION
+                                        </label>
+                                        <input 
+                                            type="text" 
+                                            value={destination}
+                                            onChange={(e) => setDestination(e.target.value)}
+                                            placeholder="e.g., Jaipur, Kerala, Goa, Varanasi..." 
+                                            className="w-full bg-slate-700/50 border border-slate-600 rounded-lg p-3 focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 outline-none transition text-white"
+                                        />
+                                    </div>
+
+                                    {/* Interests */}
+                                    <div>
+                                        <label className="block text-sm font-semibold text-slate-300 mb-2">
+                                            <i className="fas fa-heart text-pink-400 mr-2"></i>INTERESTS
+                                        </label>
+                                        <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
+                                            {['Heritage', 'Nature', 'Food', 'Adventure', 'Wellness', 'Culture'].map(interest => (
+                                                <button
+                                                    key={interest}
+                                                    onClick={() => toggleInterest(interest)}
+                                                    className={`flex flex-col items-center justify-center p-3 rounded-lg font-medium transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${
+                                                        selectedInterests.includes(interest)
+                                                            ? 'bg-slate-600 ring-2 ring-cyan-400 text-white'
+                                                            : 'bg-slate-700/50 text-slate-300 hover:bg-slate-700'
+                                                    }`}
+                                                >
+                                                    <i className={`text-2xl mb-2 fas ${
+                                                        {
+                                                            'Heritage': 'fa-landmark',
+                                                            'Nature': 'fa-leaf',
+                                                            'Food': 'fa-utensils',
+                                                            'Adventure': 'fa-person-hiking',
+                                                            'Wellness': 'fa-spa',
+                                                            'Culture': 'fa-masks-theater'
+                                                        }[interest]
+                                                    }`}></i>
+                                                    <span className="text-sm">{interest}</span>
+                                                </button>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* Dates */}
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div>
+                                            <label className="block text-sm font-semibold text-slate-300 mb-2">
+                                                <i className="fas fa-calendar-alt text-blue-400 mr-2"></i>START DATE
+                                            </label>
+                                            <input 
+                                                type="date" 
+                                                value={startDate}
+                                                onChange={(e) => setStartDate(e.target.value)}
+                                                className="w-full bg-slate-700/50 border border-slate-600 rounded-lg p-3 focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 outline-none transition text-white"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-semibold text-slate-300 mb-2">
+                                                <i className="fas fa-calendar-alt text-blue-400 mr-2"></i>END DATE
+                                            </label>
+                                            <input 
+                                                type="date" 
+                                                value={endDate}
+                                                onChange={(e) => setEndDate(e.target.value)}
+                                                className="w-full bg-slate-700/50 border border-slate-600 rounded-lg p-3 focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 outline-none transition text-white"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    {/* Budget & Travel Mode */}
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                        <div>
+                                            <label className="block text-sm font-semibold text-slate-300 mb-2">
+                                                <i className="fas fa-wallet text-yellow-400 mr-2"></i>BUDGET
+                                            </label>
+                                            <div className="grid grid-cols-3 gap-3">
+                                                {['Low', 'Medium', 'Premium'].map(b => (
+                                                    <button
+                                                        key={b}
+                                                        onClick={() => setBudget(b)}
+                                                        className={`p-3 rounded-lg font-medium transition-colors duration-200 ${
+                                                            budget === b
+                                                                ? 'bg-blue-600 text-white'
+                                                                : 'bg-slate-700/50 text-slate-300 hover:bg-slate-700'
+                                                        }`}
+                                                    >
+                                                        {b}
+                                                    </button>
+                                                ))}
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-semibold text-slate-300 mb-2">
+                                                <i className="fas fa-map-signs text-green-400 mr-2"></i>TRAVEL MODE
+                                            </label>
+                                            <div className="grid grid-cols-2 gap-3">
+                                                {['Train', 'Flight', 'Bus', 'Self-Drive'].map(mode => (
+                                                    <button
+                                                        key={mode}
+                                                        onClick={() => setTravelMode(mode)}
+                                                        className={`p-3 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center ${
+                                                            travelMode === mode
+                                                                ? 'bg-blue-600 text-white'
+                                                                : 'bg-slate-700/50 text-slate-300 hover:bg-slate-700'
+                                                        }`}
+                                                    >
+                                                        <i className={`mr-2 fas fa-${
+                                                            {
+                                                                'Train': 'train',
+                                                                'Flight': 'plane',
+                                                                'Bus': 'bus',
+                                                                'Self-Drive': 'car'
+                                                            }[mode]
+                                                        }`}></i>
+                                                        {mode}
+                                                    </button>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Submit Button */}
+                                    <div className="mt-10">
+                                        <button
+                                            onClick={generateItinerary}
+                                            disabled={!isFormValid()}
+                                            className="w-full bg-gradient-to-r from-blue-500 to-cyan-400 hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-4 px-4 rounded-lg text-lg transition-all duration-300 transform hover:scale-105"
+                                        >
+                                            ✨ Generate Smart Itinerary <i className="fas fa-arrow-right ml-2"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        ) : (
+                            <div className="bg-slate-800 rounded-xl p-6 animate-fade-in">
+                                {/* Itinerary View */}
+                                <div className="flex justify-between items-center mb-6">
+                                    <h3 className="text-2xl font-bold text-white">Your Itinerary</h3>
+                                    <button
+                                        onClick={() => setItinerary(null)}
+                                        className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
+                                    >
+                                        <i className="fas fa-arrow-left mr-2"></i>Start Over
+                                    </button>
+                                </div>
+                                
+                                {/* Timeline View */}
+                                <div className="space-y-6">
+                                    {itinerary.days.map((day, index) => (
+                                        <div key={index} className="bg-slate-700/50 rounded-lg p-6">
+                                            <h4 className="text-xl font-bold text-white mb-4">Day {index + 1}</h4>
+                                            <div className="space-y-4">
+                                                {day.activities.map((activity, actIndex) => (
+                                                    <div key={actIndex} className="bg-slate-800 rounded-lg p-4">
+                                                        <h5 className="text-lg font-semibold text-white mb-2">{activity.time} - {activity.name}</h5>
+                                                        <p className="text-slate-300">{activity.description}</p>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<TripPlannerPage />, document.getElementById('root'));
+    </script>
+</body>
+</html>
