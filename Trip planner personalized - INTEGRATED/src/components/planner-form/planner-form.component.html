@@ -1,0 +1,98 @@
+<div class="w-full max-w-4xl mx-auto">
+  <div class="text-center mb-8">
+    <h2 class="text-4xl font-bold text-white flex items-center justify-center">
+      <span class="text-5xl mr-3">🤖</span> AI Trip Planner
+    </h2>
+    <p class="text-slate-400 mt-2">Create your perfect Indian travel itinerary powered by AI</p>
+  </div>
+
+  <div class="flex justify-center mb-8">
+    <div class="bg-slate-800 rounded-lg p-1 flex space-x-1">
+      <button (click)="setPlanType('Single Destination')" [class]="planType() === 'Single Destination' ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white' : 'text-slate-300 hover:bg-slate-700'" class="px-6 py-2 rounded-md font-semibold transition-colors duration-200">
+        <i class="fa-solid fa-map-marker-alt mr-2"></i>Single Destination
+      </button>
+      <button (click)="setPlanType('Multi-City Plan')" [class]="planType() === 'Multi-City Plan' ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white' : 'text-slate-300 hover:bg-slate-700'" class="px-6 py-2 rounded-md font-semibold transition-colors duration-200">
+        <i class="fa-solid fa-route mr-2"></i>Multi-City Plan
+      </button>
+    </div>
+  </div>
+
+  <div class="bg-slate-800/80 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 shadow-2xl shadow-slate-950/50">
+    <div class="space-y-8">
+      <!-- Destination -->
+      <div>
+        <label class="block text-sm font-semibold text-slate-300 mb-2"><i class="fa-solid fa-location-dot text-red-400 mr-2"></i>DESTINATION</label>
+        <input type="text" (input)="destination.set($any($event.target).value)" placeholder="e.g., Jaipur, Kerala, Goa, Varanasi..." class="w-full bg-slate-700/50 border border-slate-600 rounded-lg p-3 focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 outline-none transition">
+      </div>
+
+      <!-- Interests -->
+      <div>
+        <label class="block text-sm font-semibold text-slate-300 mb-2"><i class="fa-solid fa-heart text-pink-400 mr-2"></i>INTERESTS</label>
+        <div class="grid grid-cols-3 sm:grid-cols-6 gap-3">
+          @for (interest of interests; track interest) {
+            <button (click)="toggleInterest(interest)" [class]="selectedInterests().has(interest) ? 'bg-slate-600 ring-2 ring-cyan-400 text-white' : 'bg-slate-700/50 text-slate-300 hover:bg-slate-700'" class="flex flex-col items-center justify-center p-3 rounded-lg font-medium transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+              <i class="text-2xl mb-2" [class]="{
+                'fa-solid fa-landmark': interest === 'Heritage',
+                'fa-solid fa-leaf': interest === 'Nature',
+                'fa-solid fa-utensils': interest === 'Food',
+                'fa-solid fa-person-hiking': interest === 'Adventure',
+                'fa-solid fa-spa': interest === 'Wellness',
+                'fa-solid fa-masks-theater': interest === 'Culture'
+              }"></i>
+              <span class="text-sm">{{ interest }}</span>
+            </button>
+          }
+        </div>
+      </div>
+
+      <!-- Dates -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label class="block text-sm font-semibold text-slate-300 mb-2"><i class="fa-solid fa-calendar-alt text-blue-400 mr-2"></i>START DATE</label>
+          <input type="date" (input)="startDate.set($any($event.target).value)" class="w-full bg-slate-700/50 border border-slate-600 rounded-lg p-3 focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 outline-none transition appearance-none" style="color-scheme: dark;">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-slate-300 mb-2"><i class="fa-solid fa-calendar-alt text-blue-400 mr-2"></i>END DATE</label>
+          <input type="date" (input)="endDate.set($any($event.target).value)" class="w-full bg-slate-700/50 border border-slate-600 rounded-lg p-3 focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 outline-none transition appearance-none" style="color-scheme: dark;">
+        </div>
+      </div>
+
+      <!-- Budget & Travel Mode -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <label class="block text-sm font-semibold text-slate-300 mb-2"><i class="fa-solid fa-wallet text-yellow-400 mr-2"></i>BUDGET</label>
+          <div class="grid grid-cols-3 gap-3">
+            @for (budget of budgets; track budget) {
+              <button (click)="selectBudget(budget)" [class]="selectedBudget() === budget ? 'bg-blue-600 text-white' : 'bg-slate-700/50 text-slate-300 hover:bg-slate-700'" class="p-3 rounded-lg font-medium transition-colors duration-200">
+                {{ budget }}
+              </button>
+            }
+          </div>
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-slate-300 mb-2"><i class="fa-solid fa-map-signs text-green-400 mr-2"></i>TRAVEL MODE</label>
+          <div class="grid grid-cols-2 gap-3">
+             @for (mode of travelModes; track mode) {
+              <button (click)="selectTravelMode(mode)" [class]="selectedTravelMode() === mode ? 'bg-blue-600 text-white' : 'bg-slate-700/50 text-slate-300 hover:bg-slate-700'" class="p-3 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center">
+                 @switch (mode) {
+                  @case ('Train') {<i class="fa fa-train mr-2"></i>}
+                  @case ('Flight') {<i class="fa fa-plane mr-2"></i>}
+                  @case ('Bus') {<i class="fa fa-bus mr-2"></i>}
+                  @case ('Self-Drive') {<i class="fa fa-car mr-2"></i>}
+                }
+                {{ mode }}
+              </button>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="mt-10">
+      <button (click)="generateItinerary()" [disabled]="!isFormValid()" class="w-full bg-gradient-to-r from-blue-500 to-cyan-400 hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-4 px-4 rounded-lg text-lg transition-all duration-300 transform hover:scale-105">
+        ✨ Generate Smart Itinerary <i class="fa fa-arrow-right ml-2"></i>
+      </button>
+    </div>
+  </div>
+</div>

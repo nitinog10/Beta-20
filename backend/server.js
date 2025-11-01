@@ -193,7 +193,231 @@ app.get('/api/geocode/:address', async (req, res) => {
     }
 });
 
-// Trip planning AI endpoint
+// Enhanced AI Trip Planner endpoint with personalized features
+app.post('/api/generate-itinerary', async (req, res) => {
+    try {
+        const { destination, interests, startDate, endDate, budget, travelMode, userId, preferences } = req.body;
+        
+        // Calculate duration
+        const start = new Date(startDate);
+        const end = new Date(endDate);
+        const duration = Math.ceil((end - start) / (1000 * 60 * 60 * 24)) + 1;
+        
+        console.log(`[Itinerary] Generating ${duration}-day itinerary for ${destination} (${startDate} to ${endDate})`);
+        
+        // Create personalized prompt based on user preferences
+        let personalizedContext = '';
+        if (preferences) {
+            personalizedContext = `User preferences: Travel style: ${preferences.style}, Pace: ${preferences.pace}, Budget preference: ${preferences.budget}. `;
+        }
+        
+        const prompt = `${personalizedContext}Create a detailed ${duration}-day personalized itinerary for ${destination}, India.
+
+Trip Details:
+- Destination: ${destination}
+- Duration: EXACTLY ${duration} days (${startDate} to ${endDate})
+- Interests: ${interests.join(', ')}
+- Budget: ${budget}
+- Travel Mode: ${travelMode}
+
+IMPORTANT: You MUST create exactly ${duration} days in the dailyPlan array. No more, no less.
+
+Create a JSON response with this exact structure:
+{
+  "title": "${destination} ${duration}-Day Adventure",
+  "dailyPlan": [
+    {
+      "day": 1,
+      "title": "Day 1: Arrival & First Impressions",
+      "activities": [
+        {
+          "name": "Activity name",
+          "description": "Detailed description of the activity",
+          "reason": "Why this activity is special and worth visiting"
+        }
+      ]
+    }${duration > 1 ? `,
+    {
+      "day": 2,
+      "title": "Day 2: Exploration",
+      "activities": [...]
+    }` : ''}${duration > 2 ? `
+    ... continue for all ${duration} days` : ''}
+  ]
+}
+
+Generate exactly ${duration} day objects in the dailyPlan array. Include 3-4 activities per day. Make each activity description engaging and informative. The "reason" should explain the cultural, historical, or experiential significance.
+
+Day progression should be logical:
+- Day 1: Arrival, orientation, nearby attractions
+- Middle days: Main attractions, experiences
+- Last day: Final experiences, departure preparation`;
+
+        const completion = await openai.createChatCompletion({
+            model: "gpt-3.5-turbo",
+            messages: [
+                { role: "system", content: "You are an expert travel planner for India with deep knowledge of local attractions, cuisine, and culture. Always respond with valid JSON only." },
+                { role: "user", content: prompt }
+            ],
+            temperature: 0.7,
+            max_tokens: 1500
+        });
+
+        let itineraryData;
+        try {
+            const responseText = completion.data.choices[0].message.content.trim();
+            // Remove any markdown formatting
+            const cleanedResponse = responseText.replace(/```json\n?|\n?```/g, '');
+            itineraryData = JSON.parse(cleanedResponse);
+            
+            // Validate that we have the correct number of days
+            if (!itineraryData.dailyPlan || itineraryData.dailyPlan.length !== duration) {
+                console.log(`Warning: Generated ${itineraryData.dailyPlan?.length || 0} days, expected ${duration}. Adjusting...`);
+                
+                // If we have fewer days than needed, generate additional days
+                if (itineraryData.dailyPlan && itineraryData.dailyPlan.length < duration) {
+                    for (let i = itineraryData.dailyPlan.length + 1; i <= duration; i++) {
+                        itineraryData.dailyPlan.push({
+                            day: i,
+                            title: `Day ${i}: ${i === duration ? 'Departure & Final Experiences' : 'Continued Exploration'}`,
+                            activities: [
+                                {
+                                    name: `Day ${i} Activities`,
+                                    description: `Explore more of ${destination} with activities suited to your interests: ${interests.join(', ')}`,
+                                    reason: "Continue discovering the unique charm and attractions of this destination"
+                                }
+                            ]
+                        });
+                    }
+                }
+                
+                // If we have more days than needed, trim to the correct duration
+                if (itineraryData.dailyPlan && itineraryData.dailyPlan.length > duration) {
+                    itineraryData.dailyPlan = itineraryData.dailyPlan.slice(0, duration);
+                }
+            }
+            
+        } catch (parseError) {
+            console.error('JSON parsing error:', parseError);
+            // Fallback: Generate the correct number of days
+            itineraryData = {
+                title: `${destination} ${duration}-Day Travel Itinerary`,
+                dailyPlan: []
+            };
+            
+            for (let i = 1; i <= duration; i++) {
+                itineraryData.dailyPlan.push({
+                    day: i,
+                    title: `Day ${i}: ${i === 1 ? 'Arrival & Exploration' : i === duration ? 'Final Day & Departure' : 'Continued Discovery'}`,
+                    activities: [
+                        {
+                            name: `${destination} Exploration`,
+                            description: `Discover the best of ${destination} with activities tailored to your interests: ${interests.join(', ')}. Enjoy local attractions, cuisine, and culture.`,
+                            reason: "Experience the authentic local culture and must-see attractions"
+                        },
+                        {
+                            name: "Local Cuisine Experience",
+                            description: "Try authentic local dishes and visit popular restaurants or street food spots",
+                            reason: "Food is an integral part of understanding local culture"
+                        },
+                        {
+                            name: "Cultural Activity",
+                            description: "Engage in cultural activities based on your interests and local offerings",
+                            reason: "Immerse yourself in the local way of life and traditions"
+                        }
+                    ]
+                });
+            }
+        }
+
+        res.json({
+            success: true,
+            itinerary: itineraryData
+        });
+    } catch (error) {
+        console.error('Enhanced trip planning error:', error);
+        res.status(500).json({
+            success: false,
+            error: 'Failed to generate enhanced itinerary'
+        });
+    }
+});
+
+// Get alternative activities endpoint
+app.post('/api/get-alternatives', async (req, res) => {
+    try {
+        const { dayPlan, userRequest, destination, interests } = req.body;
+        
+        const prompt = `A user is modifying their itinerary for ${destination}. Their current plan for Day ${dayPlan.day} is: ${dayPlan.activities.map(a => a.name).join(', ')}.
+
+The user said: "${userRequest}".
+
+Based on their request, suggest 3 distinct alternative activities for them to do on that day in ${destination}, keeping in mind their interests are ${interests.join(', ')}.
+
+Respond with JSON in this exact format:
+{
+  "alternatives": [
+    {
+      "name": "Activity name",
+      "description": "Activity description",
+      "reason": "Why this is a good alternative"
+    }
+  ]
+}`;
+
+        const completion = await openai.createChatCompletion({
+            model: "gpt-3.5-turbo",
+            messages: [
+                { role: "system", content: "You are a helpful travel assistant. Always respond with valid JSON only." },
+                { role: "user", content: prompt }
+            ],
+            temperature: 0.8,
+            max_tokens: 600
+        });
+
+        let alternatives;
+        try {
+            const responseText = completion.data.choices[0].message.content.trim();
+            const cleanedResponse = responseText.replace(/```json\n?|\n?```/g, '');
+            alternatives = JSON.parse(cleanedResponse);
+        } catch (parseError) {
+            console.error('JSON parsing error for alternatives:', parseError);
+            // Fallback alternatives
+            alternatives = {
+                alternatives: [
+                    {
+                        name: "Local Market Visit",
+                        description: "Explore authentic local markets and street food",
+                        reason: "Experience local culture and cuisine"
+                    },
+                    {
+                        name: "Heritage Walk",
+                        description: "Guided tour of historical landmarks",
+                        reason: "Learn about local history and architecture"
+                    },
+                    {
+                        name: "Nature Spot",
+                        description: "Visit nearby parks or natural attractions",
+                        reason: "Relax and enjoy natural beauty"
+                    }
+                ]
+            };
+        }
+
+        res.json({
+            success: true,
+            alternatives: alternatives.alternatives
+        });
+    } catch (error) {
+        console.error('Get alternatives error:', error);
+        res.status(500).json({
+            success: false,
+            error: 'Failed to get alternative activities'
+        });
+    }
+});
+
+// Original trip planning endpoint (kept for backward compatibility)
 app.post('/api/trip/plan', async (req, res) => {
     try {
         const { destination, interests, duration, budget, travelMode } = req.body;
