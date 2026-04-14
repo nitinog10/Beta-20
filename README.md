@@ -228,3 +228,9 @@ This project is created for the MANIT Hackathon and is open for educational and 
 ---
 
 **Made with ❤️ for exploring Incredible India!**
+
+## Code Improvements Applied
+
+- Add regression tests for `backend/server.js`, `backend/test-apis.js`, `backend/generate-alternatives.js`.
+- Extract shared utility code into a dedicated module.
+- Re-index and regenerate documentation post-structural changes.
