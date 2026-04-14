@@ -1,4 +1,6 @@
+```
 const openai = require('./openai-config');
+const { parseResponse, generateFallbackAlternatives } = require('./utils');
 
 // Function to generate alternative activities for an itinerary day
 async function generateAlternatives(currentDay, currentActivities, destination = 'the location', preferences = {}) {
@@ -41,21 +43,7 @@ async function generateAlternatives(currentDay, currentActivities, destination =
             max_tokens: 1000
         });
 
-        // Parse and validate the response
-        let responseText = completion.data.choices[0].message.content.trim();
-        let parsedResponse = JSON.parse(responseText);
-
-        // Ensure proper structure and add IDs
-        if (!parsedResponse.alternatives || !Array.isArray(parsedResponse.alternatives)) {
-            throw new Error('Invalid response format');
-        }
-
-        const alternatives = parsedResponse.alternatives.map((alt, index) => ({
-            id: index + 1,
-            title: alt.title,
-            description: alt.description,
-            reason: alt.reason
-        }));
+        const alternatives = parseResponse(completion.data.choices[0].message.content.trim());
 
         return {
             success: true,
@@ -64,33 +52,57 @@ async function generateAlternatives(currentDay, currentActivities, destination =
 
     } catch (error) {
         console.error('Generate alternatives error:', error);
-        
-        // Return fallback alternatives on error
         return {
             success: false,
             error: 'Failed to generate alternatives',
-            alternatives: [
-                {
-                    id: 1,
-                    title: "Local Cultural Experience",
-                    description: "Immerse yourself in local traditions with a guided cultural tour, including traditional art demonstrations and local music.",
-                    reason: "Get authentic insights into local culture"
-                },
-                {
-                    id: 2,
-                    title: "Adventure Activity",
-                    description: "Enjoy outdoor activities like hiking, cycling, or local adventure sports suitable for the location.",
-                    reason: "Active and engaging way to explore the area"
-                },
-                {
-                    id: 3,
-                    title: "Food and Market Tour",
-                    description: "Explore local markets, try street food, and learn about regional cuisine with a food expert.",
-                    reason: "Experience the destination through its flavors"
-                }
-            ]
+            alternatives: generateFallbackAlternatives()
         };
     }
 }
 
 module.exports = generateAlternatives;
+```
+
+```
+// File: backend/utils.js
+
+function parseResponse(responseText) {
+    let parsedResponse = JSON.parse(responseText);
+
+    if (!parsedResponse.alternatives ||!Array.isArray(parsedResponse.alternatives)) {
+        throw new Error('Invalid response format');
+    }
+
+    return parsedResponse.alternatives.map((alt, index) => ({
+        id: index + 1,
+        title: alt.title,
+        description: alt.description,
+        reason: alt.reason
+    }));
+}
+
+function generateFallbackAlternatives() {
+    return [
+        {
+            id: 1,
+            title: "Local Cultural Experience",
+            description: "Immerse yourself in local traditions with a guided cultural tour, including traditional art demonstrations and local music.",
+            reason: "Get authentic insights into local culture"
+        },
+        {
+            id: 2,
+            title: "Adventure Activity",
+            description: "Enjoy outdoor activities like hiking, cycling, or local adventure sports suitable for the location.",
+            reason: "Active and engaging way to explore the area"
+        },
+        {
+            id: 3,
+            title: "Food and Market Tour",
+            description: "Explore local markets, try street food, and learn about regional cuisine with a food expert.",
+            reason: "Experience the destination through its flavors"
+        }
+    ];
+}
+
+module.exports = { parseResponse, generateFallbackAlternatives };
+```
