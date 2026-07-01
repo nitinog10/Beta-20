@@ -1,51 +1,57 @@
-# Beta-20
+# Beta-20 - Documentation
 
-## Overview
+## Project Overview
 
-BharatTrip AI is an intelligent travel planning platform tailored for India. It leverages AI to provide personalized trip recommendations, cultural insights, and smart multi-city planning. The project is built using a React frontend and a Node.js backend, with additional scripts for environment setup, backend checks, and automated fixes. The repository includes detailed documentation for quick start, feature showcase, troubleshooting, and new features integration. The platform is intended for travel enthusiasts and planners looking for a smart, AI-driven approach to trip planning in India. The folder structure is organized to separate frontend, backend, and static assets, with batch and shell scripts for environment and service management.
+The `repo_a054cd3d9581` repository is a comprehensive project for an AI-driven trip planning application called BharatTrip AI. This application assists users in planning trips across India by providing personalized recommendations, cultural insights, and smart planning features. The tech stack includes React for the frontend, Node.js for the backend, and various Markdown files for documentation and setup instructions.
+
+The project is structured to separate frontend and backend components, with the `backend` folder containing server scripts, configuration files, and API test cases. The root directory includes batch and shell scripts for environment setup, backend checks, and application start-up. Markdown files provide detailed guides on configuration, feature showcases, troubleshooting, and new feature documentation.
+
+Users of this project include travel enthusiasts looking for personalized trip planning, developers interested in AI-driven applications, and project maintainers who need clear documentation for setup, features, and troubleshooting. The application integrates AI to offer smart insights and personalized trip plans, making it a valuable tool for anyone planning a trip to India.
 
 ## Architecture
 
-```markdown
-## Architecture
+### Code Organization
 
-### Overview
-The BharatTrip AI project is structured to facilitate easy setup, development, and maintenance. The codebase is organized into distinct layers and modules, with clear documentation and automation scripts to streamline common tasks.
+The codebase is organized into several key directories and files, primarily divided into frontend and backend components. 
+
+- **Root Directory**: Contains configuration files, batch scripts for automation, markdown documentation, and HTML files for the frontend.
+- **`backend/` Directory**: Houses the server-side logic, including the main server file, API test cases, and environment configuration.
 
 ### Layers and Modules
-The project is divided into the following main layers and modules:
 
-- **Frontend**: Contains the React application responsible for the user interface and user interactions.
-- **Backend**: Houses the server-side logic, API endpoints, and data processing scripts.
-- **Documentation**: Includes markdown files that provide guides, setup instructions, feature showcases, and troubleshooting tips.
-- **Automation Scripts**: Batch and shell scripts that automate common tasks such as environment setup, backend checks, and application restarts.
-- **Assets**: Contains images and other static assets used by the application.
+- **Frontend**: 
+  - **HTML Files**: `bharattripai.html`, `index.html`, `test.html`, `trip-planner.html`
+  - **React Application**: Managed through scripts like `start-react.bat` and `start-react.sh`.
+- **Backend**: 
+  - **Server Logic**: Contained in `server.js`.
+  - **API Test Cases**: Located in `test-apis.js`.
+  - **Alternative Activity Generation**: Handled by `generate-alternatives.js`.
 
 ### Data Flow
-Data flows through the system in the following manner:
-1. **User Interaction**: Users interact with the frontend via the React application.
-2. **API Requests**: The frontend sends API requests to the backend for data retrieval and processing.
-3. **Backend Processing**: The backend processes these requests, interacts with any necessary databases or external services, and generates responses.
-4. **Response Handling**: The frontend receives the responses and updates the UI accordingly.
+
+1. **User Interaction**: Users interact with the frontend via HTML pages and the React application.
+2. **API Requests**: Frontend sends API requests to the backend.
+3. **Backend Processing**: 
+   - The `server.js` handles incoming requests and routes them to appropriate handlers.
+   - `generate-alternatives.js` generates alternative activities based on user input.
+4. **Response**: Backend sends responses back to the frontend, which updates the UI accordingly.
 
 ### Key Design Patterns
-- **MVC (Model-View-Controller)**: The backend follows an MVC pattern, separating concerns into models (data), views (responses), and controllers (request handling).
-- **Modularization**: The codebase is modular, with distinct files and directories for different functionalities (e.g., `backend/generate-alternatives.js` for alternative trip generation).
-- **Environment Configuration**: Uses environment variables for configuration, stored in files like `backend/env.example`.
+
+- **MVC (Model-View-Controller)**: 
+  - **Model**: Data and business logic (e.g., `generate-alternatives.js`).
+  - **View**: Frontend HTML and React components.
+  - **Controller**: Backend routes and middleware in `server.js`.
+- **Automation Scripts**: Batch files (`.bat`) and shell scripts (`.sh`) for environment setup and automation tasks.
 
 ### Main Entry Points
-- **Frontend**: The main entry point for the React application is `index.html`, which bootstraps the React app.
-- **Backend**: The primary entry point for the backend server is `backend/server.js`, which initializes the Express server and defines API routes.
-- **Automation Scripts**: Key scripts include `setup-env.bat` and `setup-env.sh` for environment setup, and `start-react.bat` and `start-react.sh` for starting the React application.
 
-### Practical Notes for Developers
-- **Environment Setup**: Use `setup-env.bat` or `setup-env.sh` to configure the environment variables.
-- **Running the Application**: Start the React frontend with `start-react.bat` or `start-react.sh`, and ensure the backend is running with `backend/server.js`.
-- **Documentation**: Refer to `README.md` and other markdown files for detailed guides and instructions.
-- **Automation**: Utilize batch files like `CHECK_BACKEND.bat` and `RESTART_BACKEND.bat` for common tasks.
-```
+- **Frontend**: 
+  - `start-react.bat` and `start-react.sh` to launch the React application.
+- **Backend**: 
+  - `server.js` as the main server entry point.
 
-## Folder Structure
+## Directory Structure
 
 ```
 ├── AI_TRIP_ADVISOR_CONFIG.md
@@ -124,7 +130,7 @@ Data flows through the system in the following manner:
 │   ├── Tungnath.jpg
 │   ├── Western Ghats.jpg
 │   └── kangchenjunga.jpeg
-├── nitinog10-Beta-20-fe6032d/
+├── nitinog10-Beta-20-ddc4040/
 │   ├── AI_TRIP_ADVISOR_CONFIG.md
 │   ├── APPLY_FIXES.bat
 │   ├── CHECK_BACKEND.bat
@@ -231,293 +237,1231 @@ Data flows through the system in the following manner:
 
 No dependency manifest found.
 
-## File Documentation
+## File Reference
+
+This section contains detailed documentation for each source file in the repository.
 
 ### `AI_TRIP_ADVISOR_CONFIG.md`
+**Language:** Md
 
 #### Module Overview
 
-This file provides the configuration details for the BharatTrip Maps AI, an intelligent Indian tourism map assistant embedded in the BharatTrip AI travel planning application. It outlines the setup, integration, and usage guidelines for the ElevenLabs voice assistant widget.
+This document outlines the configuration steps for the BharatTrip Maps AI, an intelligent voice assistant designed to help users explore India through the BharatTrip AI travel planning application. It details the agent setup, system prompts, configuration steps, widget appearance, user experience flow, integration with app features, sample conversation scripts, success metrics, continuous improvement strategies, troubleshooting tips, and additional resources.
 
 #### Dependencies
 
-- **ElevenLabs Conversational AI**: Provides the voice assistant capabilities and integration framework.
+- **ElevenLabs Conversational AI**: For voice assistant capabilities.
+- **Google Maps API**: For location-based services and map features.
 
 #### Configuration
 
-##### Agent Details
+### Agent Configuration
 - **Name**: BharatTrip Maps AI
 - **Agent ID**: `agent_1101k8xp04j6ebesx1jnqhm7djwb`
 - **Type**: Conversational AI with voice capabilities
 - **Language Support**: English, Hindi, and other Indian languages
 
-##### System Prompt / Agent Instructions
-```markdown
-You are BharatTrip Maps AI, an intelligent Indian tourism map assistant built into the BharatTrip AI travel planning application.
+### System Prompt
+The system prompt provides detailed instructions for the AI, including interaction style, constraints, and example responses.
 
-Your role is to help travelers explore India by providing:
-
-1. NEARBY ATTRACTIONS
-   - Suggest popular tourist spots based on user's location
-   - Provide historical context and cultural significance
-   - Recommend best times to visit
-   - Share visitor tips and crowd levels
-
-2. LOCAL EATERIES & FOOD
-   - Recommend authentic Indian restaurants and street food
-   - Suggest must-try local dishes
-   - Provide price ranges and dietary options
-   - Share food safety tips
-
-3. CULTURAL PLACES
-   - Guide users to temples, mosques, churches, gurudwaras
-   - Explain cultural etiquette and dress codes
-   - Share festival dates and special events
-   - Provide photography guidelines
-
-4. EVENTS & FESTIVALS
-   - Inform about ongoing local events
-   - Share festival calendars
-   - Suggest cultural performances
-   - Recommend local markets and fairs
-
-5. TRAVEL ROUTES & NAVIGATION
-   - Suggest optimal routes between destinations
-   - Provide travel mode recommendations (train, bus, flight, car)
-   - Share travel time estimates
-   - Warn about traffic or weather conditions
-
-6. MAP GUIDANCE
-   - Help users navigate the interactive weather map
-   - Explain weather layer meanings (temperature, wind, precipitation, clouds, pressure)
-   - Guide on switching between map styles (satellite, dark, terrain)
-   - Assist with location search and live location features
-
-INTERACTION STYLE:
-- Be conversational and friendly
-- Use Indian context and cultural references
-- Provide concise but helpful answers
-- Ask clarifying questions when needed
-- Use emojis occasionally for warmth (🗺️ 🏛️ 🍲 ☀️)
-- Switch between English and Hindi if user prefers
-
-CONSTRAINTS:
-- Focus only on Indian destinations
-- Provide realistic travel advice
-- Don't make up information - say "I don't know" if unsure
-- Prioritize user safety and comfort
-- Respect cultural sensitivities
-```
-
-##### Configuration Steps
+### Configuration Steps
 1. **Access ElevenLabs Dashboard**
-   - Go to [ElevenLabs Conversational AI](https://elevenlabs.io/conversational-ai)
-   - Log in to your account
-   - Navigate to your agent: `agent_1101k8xp04j6ebesx1jnqhm7djwb`
-
+   - Log in and navigate to the agent.
 2. **Update Agent Settings**
-   - **Basic Information**
-     ```markdown
-     Name: BharatTrip Maps AI
-     Description: Intelligent Indian tourism map assistant
-     Primary Language: English (India)
-     Secondary Languages: Hindi, Tamil, Bengali
-     ```
-   - **Voice Settings**
-     ```markdown
-     Voice: Select a warm, friendly Indian accent
-     Speed: Medium (clear and easy to understand)
-     Stability: High (consistent pronunciation)
-     Similarity: Medium-High
-     ```
-   - **Conversation Settings**
-     ```markdown
-     First Message: "Hello! I'm BharatTrip Maps AI, your voice guide for exploring India. Ask me about nearby places, food recommendations, or how to use the weather map! 🗺️"
-
-     Conversation Style: Friendly and informative
-     Context Window: Large (remember conversation history)
-     Max Response Length: 100-150 words (concise but helpful)
-     ```
-
+   - Configure basic information, voice settings, and conversation settings.
 3. **Knowledge Base Integration (Optional)**
-   - **Indian Destinations Database**
-     ```markdown
-     - Major cities and tourist spots
-     - Popular festivals and dates
-     - Common travel routes
-     - Regional cuisines
-     - Cultural etiquette guidelines
-     ```
-   - **App-Specific Knowledge**
-     ```markdown
-     - How to use the weather map
-     - Weather layer explanations
-     - Map style options
-     - Search functionality
-     - Live location features
-     ```
-
+   - Add Indian destinations database and app-specific knowledge.
 4. **Testing Prompts**
-   - **Navigation Help**
-     ```markdown
-     - "How do I search for a location?"
-     - "What do the weather colors mean?"
-     - "Show me the satellite view"
-     ```
-   - **Travel Recommendations**
-     ```markdown
-     - "What should I visit in Jaipur?"
-     - "Where can I find good biryani?"
-     - "Best time to visit Kerala?"
-     ```
-   - **Map Features**
-     ```markdown
-     - "What's the temperature layer?"
-     - "How do I see wind patterns?"
-     - "Can you show my current location?"
-     ```
+   - Use provided queries to test the agent.
 
-##### Widget Appearance
-- **Position**
-  ```css
-  Bottom-right corner of screen
-  Accessible from all pages
-  Floating above content (z-index: 9999)
-  ```
-- **Visual Style**
-  ```markdown
-  Color Scheme: Matches app theme (red-orange gradient)
-  Size: Compact when closed, expandable when active
-  Animation: Smooth fade-in on page load
-  Icon: Microphone or map marker
-  ```
+### Widget Appearance
+- **Position**: Bottom-right corner, floating above content.
+- **Visual Style**: Matches app theme, compact when closed, expandable when active.
 
-##### User Experience Flow
-- **Scenario 1: New User Exploring Map**
-  ```markdown
-  User opens Explore page
-  → Sees floating AI widget
-  → Clicks widget
-  → AI greets: "Hi! I see you're on the Explore page. Want to know how to use the weather map or looking for places nearby?"
-  → User asks about weather layers
-  → AI explains with visual references
-  ```
-- **Scenario 2: Planning Trip**
-  ```markdown
-  User on Trip Planner page
-  → Clicks AI widget
-  → Asks: "Best 3-day itinerary for Goa"
-  → AI suggests beaches, water sports, food spots
-  → Offers to help add destinations to planner
-  ```
-- **Scenario 3: Food Recommendation**
-  ```markdown
-  User searches "Mumbai" on map
-  → Clicks AI widget
-  → Asks: "Where should I eat?"
-  → AI suggests street food at Juhu Beach, vada pav spots, fine dining
-  → Provides price ranges and timings
-  ```
+#### User Experience Flow
 
-##### Integration with App Features
-- **Sync with Map**
-  When user interacts with map, AI can reference:
-  - Current map view location
-  - Active weather layer
-  - Selected map style
-  - Search history
-- **Sync with Trip
+### Scenarios
+1. **New User Exploring Map**
+   - AI greets and offers help with map features.
+2. **Planning Trip**
+   - AI suggests itinerary based on user interests.
+3. **Food Recommendation**
+   - AI provides local eatery suggestions.
+
+#### Integration with App Features
+
+- **Sync with Map**: AI references current map view, weather layer, and map style.
+- **Sync with Trip Planner**: AI helps suggest destinations and optimize itinerary.
+- **Sync with Chat**: Voice queries logged to text chat, providing multilingual continuity.
+
+#### Sample Conversation Scripts
+
+- **Complete Map Guidance**
+- **Destination Recommendation**
+- **Weather Assistance**
+
+#### Success Metrics
+
+- **Usage Metrics**: Voice interactions, conversation length, common queries, user satisfaction.
+- **Feature Adoption**: Percentage of users trying voice assistant, weather map usage, trip planning completion rate.
+- **Quality Metrics**: Response accuracy, average response time, user retention, language switch frequency.
+
+#### Continuous Improvement
+
+- **Regular Updates**: Monthly, seasonal, quarterly, and yearly updates.
+- **User Feedback Integration**: Collect ratings, analyze drop-off points, identify confusing responses, add requested features.
+
+#### Troubleshooting
+
+- **Widget Not Appearing**: Check script, agent ID, browser console, internet connection.
+- **Voice Not Working**: Check microphone permissions, browser compatibility, ElevenLabs service status.
+- **AI Not Understanding Queries**: Speak clearly, use simple sentences, provide context, try text chat.
+
+#### Additional Resources
+
+- [ElevenLabs Documentation](https://elevenlabs.io/docs)
+- [Conversational AI Best Practices](https://elevenlabs.io/conversational-ai)
+- Indian Tourism Guidelines
+- Google Maps API Documentation
+
+#### Notes
+
+- Ensure the agent ID is correctly configured to avoid issues with the widget appearance.
+- Regularly update the knowledge base to keep the AI informed about new destinations and events.
+- Monitor user feedback closely to identify areas for improvement in the AI's responses and functionality.
+
+---
 
 ### `APPLY_FIXES.bat`
+#### Module Overview
 
-This batch file automates the process of applying fixes to the BharatTrip AI application, ensuring that backend processes are updated and the frontend is launched with the necessary changes.
+The `APPLY_FIXES.bat` file is a script designed to streamline the process of applying fixes to the BharatTrip AI application. It sequentially stops old backend processes, starts an updated backend, waits for the backend to initialize, and finally opens the fixed application in a browser. This script ensures that all necessary fixes are applied and the application is ready for use.
 
 #### Dependencies
 
 - **taskkill**: Used to forcefully terminate processes.
-- **timeout**: Provides a delay between steps.
+- **timeout**: Provides a delay between script steps.
 - **cd**: Changes the current directory.
-- **start**: Launches a new command prompt or application.
+- **start**: Launches a new command prompt window or application.
 
 #### Functions
 
-| Step | Command | Description |
-|------|---------|-------------|
-| 1/4  | `taskkill /F /IM node.exe` | Forcefully stops any running `node.exe` processes. |
-| 2/4  | `start /MIN cmd /k "echo Starting BharatTrip AI Backend... && npm start"` | Opens a new minimized command prompt to start the backend. |
-| 3/4  | `timeout /t 10 /nobreak` | Waits for 10 seconds to allow the backend to initialize. |
-| 4/4  | `start "" "bharattrip-react.html"` | Launches the frontend application in a new window. |
+| Step | Description |
+|------|-------------|
+| 1/4 | Stops old backend processes using `taskkill`. |
+| 2/4 | Starts the updated backend by navigating to the `backend` directory and running `npm start`. |
+| 3/4 | Waits for the backend to initialize with a delay. |
+| 4/4 | Opens the fixed application in the default browser. |
 
 #### Notes
 
-- Ensure that the `backend` directory exists and contains the necessary `package.json` file with `npm start` script.
-- The `bharattrip-react.html` file should be located in the same directory as this batch file.
-- The script assumes the backend runs on `http://localhost:3001` and the frontend is an HTML file.
-- After running the script, wait 5 seconds before pressing F5 to refresh the frontend and test the fixes.
+- Ensure that `node.exe` is running before executing this script.
+- The script assumes the backend is located in a `backend` directory relative to the script's location.
+- The frontend application (`bharattrip-react.html`) should be accessible in the same directory as the script.
+- After the browser opens, wait 5 seconds before pressing F5 to refresh and test the fixes.
+
+---
 
 ### `CHECK_BACKEND.bat`
+#### Module Overview
 
-This batch file runs a series of checks to verify the status and functionality of the BharatTrip AI Backend service. It uses `curl` to test backend endpoints and provides a simple troubleshooting guide if issues are detected.
+This batch file, `CHECK_BACKEND.bat`, automates the verification of the BharatTrip AI Backend's operational status. It performs two main checks: the health endpoint and a POST request to a specific endpoint. If the backend is functioning correctly, it will display "OK" for the health check and no errors for the POST request. If an error is detected, it provides a solution to restart the backend.
 
 #### Dependencies
 
-- **curl**: A command-line tool for making HTTP requests.
+This script relies on the `curl` command-line tool to make HTTP requests. It does not import any external libraries or modules.
+
+#### Functions
+
+| Function | Parameters | Returns | Description |
+| --- | --- | --- | --- |
+| `curl` | URL, Headers, Data | HTTP Response | Makes HTTP GET and POST requests to backend endpoints. |
+
+#### Notes
+
+- Ensure `curl` is installed and available in the system's PATH.
+- If the backend is not running, the script will indicate an error and provide a step-by-step solution to restart it.
+- The script pauses at the end to allow the user to review the output before closing the command window.
+
+---
+
+### `CLEANUP_COMPLETE.md`
+**Language:** Md
+
+#### Module Overview
+
+This markdown file serves as the final summary and documentation for the BharatTrip AI project after thorough cleanup and optimization. It details the removed files, the final project structure, essential documentation, and deployment checklist. The document ensures that the project is production-ready, with all features, APIs, and documentation in place.
+
+#### Dependencies
+
+- **None**: This is a markdown file with no code dependencies.
+
+#### Configuration
+
+- **env.config**: Contains API keys and configurations for the backend server.
+
+#### Notes
+
+- Ensure all API keys in `env.config` are correctly set before deployment.
+- The project is designed to be deployed on static hosting services for the frontend and Node.js hosting services for the backend.
+- Post-deployment steps are crucial for setting up the custom domain, HTTPS, and monitoring.
+
+---
+
+### `FEATURES_SHOWCASE.md`
+**Language:** Md
+
+#### Module Overview
+
+The `FEATURES_SHOWCASE.md` file serves as a comprehensive guide to BharatTrip AI's feature set, highlighting its unique capabilities and competitive advantages. It provides detailed explanations of each feature, example use cases, and technical insights into the AI architecture and algorithms used. This document is essential for understanding the full scope of BharatTrip AI's offerings and how it stands out in the travel planning market.
+
+#### Dependencies
+
+- **OpenWeatherMap API**: Provides real-time weather data and forecasts.
+- **Google Maps API**: Offers location search, geocoding, and route optimization.
+- **OpenAI GPT-3.5**: Powers the text-based AI chat for detailed trip planning.
+- **ElevenLabs**: Enables the voice AI trip advisor for hands-free guidance.
+- **Leaflet**: Used for rendering the interactive weather map.
+- **Custom Algorithms**: Implements visit scoring, crowd prediction, and route optimization.
+
+#### Classes
+
+| Class | Purpose | Key Methods |
+|-------|---------|-------------|
+| `VisitScoreCalculator` | Calculates the visit score based on weather, crowds, and transport | `calculateScore()` |
+| `CrowdPredictor` | Predicts crowd levels and best visiting times | `predictCrowdLevel()` |
+| `RouteOptimizer` | Finds the optimal transport routes | `findBestRoute()` |
 
 #### Functions
 
 | Function | Parameters | Returns | Description |
 |----------|------------|---------|-------------|
-| `curl -s http://localhost:3001/api/health` | None | HTTP response | Checks the health endpoint of the backend service. |
-| `curl -X POST http://localhost:3001/api/cultural/insights -H "Content-Type: application/json" -d "{\"destination\":\"Test\"}"` | None | HTTP response | Posts a test request to the cultural insights endpoint. |
+| `getSmartInsights` | `destination`, `interests`, `dates` | `SmartInsights` object | Retrieves comprehensive travel insights for a given destination |
+| `generateItinerary` | `destination`, `interests`, `dates` | `Itinerary` object | Creates a day-by-day travel itinerary |
+| `getWeatherMap` | `location` | `WeatherMap` object | Retrieves the interactive weather map for a location |
 
 #### Configuration
 
-- **Endpoint URLs**:
-  - Health check: `http://localhost:3001/api/health`
-  - Cultural insights: `http://localhost:3001/api/cultural/insights`
+- **API Keys**: Stored securely in environment variables for OpenWeatherMap, Google Maps, and OpenAI.
+- **Default Settings**: Initial map style set to `Default`, temperature layer enabled by default.
+
+#### Constants
+
+- **OPTIMAL_TEMPERATURE_RANGE**: `15-28°C`
+- **OPTIMAL_HUMIDITY_RANGE**: `40-70%`
+- **PEAK_CROWD_HOURS**: `['10:00-12:00', '16:00-19:00']`
 
 #### Notes
 
-- If the health check returns "OK", the backend is running.
-- If the cultural insights endpoint returns an error, the backend may need to be restarted.
-- Follow the troubleshooting steps listed in the script to restart the backend and ensure all endpoints are operational.
+- Ensure all API keys are kept confidential and not hard-coded in the source files.
+- The `VisitScoreCalculator` algorithm penalizes scores for temperatures outside the optimal range, high humidity, rainy days, and peak crowd times.
+- The `CrowdPredictor` considers day of the week, time of day, seasonal factors, and local events when predicting crowd levels.
+- The `RouteOptimizer` selects the best transport mode based on cost, time, comfort, and user preferences.
 
-### `CLEANUP_COMPLETE.md`
+---
 
-##### Module Overview
-This file documents the final cleanup and organization of the BharatTrip AI project, detailing removed files, current structure, and essential components for a production-ready deployment.
-
-#### Dependencies
-
-None. This is a markdown file providing project summary and instructions.
-
-#### Functions
-
-None. This is a markdown file providing project summary and instructions.
-
-#### Configuration
-
-None. This is a markdown file providing project summary and instructions.
-
-#### Notes
-
-- The project is now streamlined for easy deployment and maintenance.
-- All unnecessary files have been removed, and only essential components remain.
-- Comprehensive documentation is provided for quick setup and understanding of the project.
-
-### `FEATURES_SHOWCASE.md`
+### `FINAL_SUMMARY.md`
+**Language:** Md
 
 #### Module Overview
 
-This file provides a comprehensive overview of BharatTrip AI's features, showcasing its unique capabilities in travel planning for India. It highlights the integration of AI, real-time data, and user-centric design to offer unparalleled travel insights.
+This markdown file serves as the final summary of the BharatTrip AI project after a thorough cleanup. It details the changes made, the current project structure, removed files, and the benefits of the cleanup. It also provides a guide on how to run the project, key features, demo flow for hackathons, security notes, documentation order, deployment instructions, success metrics, and a final checklist to ensure the project is production-ready.
+
+#### Dependencies
+
+None. This is a static markdown file.
+
+#### Notes
+
+- The project is now significantly cleaner and more maintainable.
+- Ensure API keys are kept secure and not exposed in the frontend.
+- Follow the provided documentation order for new team members to get up to speed quickly.
+- The project is ready for deployment and demonstration in hackathons.
+
+---
+
+### `FIX_NOW.bat`
+#### Module Overview
+
+This `FIX_NOW.bat` script is designed to automate the process of resetting the BharatTrip AI system. It stops the old backend, starts a fresh one, and launches the frontend application in a browser. This script is useful for developers who need to quickly reset the system without manual intervention.
+
+#### Dependencies
+
+- **taskkill**: Command to terminate processes.
+- **timeout**: Command to introduce delays.
+- **start**: Command to initiate new command windows or applications.
+- **cd**: Command to change directories.
+- **npm start**: Command to start the backend server.
+
+#### Functions
+
+| Function | Parameters | Returns | Description |
+| --- | --- | --- | --- |
+| `taskkill /F /IM node.exe /FI "WINDOWTITLE eq npm*"` | None | None | Kills any running node processes with a title matching "npm*". |
+| `timeout /t 2 /nobreak > nul` | None | None | Pauses for 2 seconds. |
+| `start /MIN cmd /c "npm start"` | None | None | Starts the backend server in a minimized command window. |
+| `timeout /t 8 /nobreak > nul` | None | None | Pauses for 8 seconds to allow backend initialization. |
+| `start "" "bharattrip-react.html"` | None | None | Opens the frontend application in the default browser. |
+| `pause` | None | None | Pauses the script to allow the user to read the final messages. |
+
+#### Notes
+
+- Ensure that the backend server and frontend application paths are correct.
+- This script assumes that the backend runs on `http://localhost:3001`.
+- The script waits for the user to confirm completion before exiting.
+- The script does not handle errors or exceptions; it assumes a clean state to operate.
+
+---
+
+### `NEW_FEATURES.md`
+**Language:** Md
+
+#### Module Overview
+
+This documentation outlines the newly added features to BharatTrip AI: Cultural Insights and Smart Multi-City Planner. These features enhance user experience by providing comprehensive cultural information for destinations and optimizing multi-city travel plans with AI-driven recommendations.
+
+#### Dependencies
+
+- **OpenAI API**: For generating cultural insights using GPT-3.5.
+- **React**: Frontend framework for building interactive UI components.
+- **Axios**: For making HTTP requests to backend APIs.
+
+#### Classes
+
+None
+
+#### Functions
+
+| Function                   | Parameters                         | Returns                           | Description                                                                                       |
+|----------------------------|------------------------------------|-----------------------------------|---------------------------------------------------------------------------------------------------|
+| `getCulturalInsights`      | `destination`, `language`          | `culturalInsights`                | Fetches cultural information for a given destination and language.                               |
+| `generateSmartPlan`        | `destinations[]`, `duration`, `budget`, `people`, `interests` | `smartPlan`                       | Generates an optimized multi-city travel plan based on user inputs.                              |
+| `calculateBudget`          | `itinerary`, `numberOfPeople`, `splitEqually` | `budgetBreakdown`                 | Calculates the budget breakdown for a trip, including per person costs.                          |
+| `getEcoRoutes`             | `origin`, `destination`, `preferences` | `ecoRoutes`                       | Provides eco-friendly route options and carbon footprint analysis.                              |
+
+#### Configuration
+
+- **API Endpoints**: 
+  - `/api/cultural/insights`
+  - `/api/planner/smart`
+  - `/api/budget/calculate`
+  - `/api/eco/routes`
+
+#### Constants
+
+None
+
+#### Notes
+
+- Ensure accurate and up-to-date cultural information by regularly reviewing and updating the AI model's training data.
+- Optimize backend APIs for performance to maintain quick response times, especially for the Cultural Insights feature.
+- Consider implementing caching mechanisms for repeated queries to improve efficiency.
+
+---
+
+### `PERSONALIZED_TRIP_PLANNER_INTEGRATION.md`
+**Language:** Md
+
+#### Module Overview
+
+The `PERSONALIZED_TRIP_PLANNER_INTEGRATION.md` file provides a comprehensive guide on the integration of the personalized AI trip planner into the BharatTrip application. It outlines the key enhancements, technical changes, and benefits of the integration, along with instructions on how to test the new features.
+
+#### Dependencies
+
+| Dependency | Purpose |
+|------------|---------|
+| `OpenAI` | For generating structured itineraries and activity suggestions |
+| `React` | For the frontend trip planner component |
+| `Express` | For the backend API endpoints |
+
+#### Functions
+
+| Function | Parameters | Returns | Description |
+|----------|------------|---------|-------------|
+| `generateItinerary` | User preferences, destination, dates, budget, travel mode | Structured itinerary JSON | Generates a detailed itinerary based on user input |
+| `getAlternatives` | Activity ID | List of alternative activities | Provides AI-powered alternatives for a selected activity |
+
+#### Notes
+
+- Ensure the backend is running before testing the frontend.
+- The system gracefully falls back to the original planner if the new endpoints are unavailable.
+- Future enhancements include AI-generated destination images and multi-language support.
+
+---
+
+### `QUICK_START.md`
+**Language:** Md
+
+#### Module Overview
+
+The `QUICK_START.md` file serves as a comprehensive guide for new developers to set up and run the BharatTrip AI project efficiently. It outlines the necessary steps to configure the environment, install backend dependencies, and start the application. Additionally, it provides insights into the key features and functionalities of the project, along with troubleshooting tips for common issues.
+
+#### Dependencies
+
+- **Node.js**: Required for running JavaScript server-side.
+- **npm**: Node package manager, used for installing dependencies.
+
+#### Configuration
+
+- **Environment Variables**: API keys are stored in `backend/.env`. Ensure this file is kept secure and not shared or committed to version control.
+
+#### Notes
+
+- Ensure you have the necessary permissions to execute scripts on your machine.
+- Always check for error messages in the console if something isn't working as expected.
+
+---
+
+### `REACT_VERSION_GUIDE.md`
+**Language:** Md
+
+#### Module Overview
+
+This document provides an in-depth guide for the new React-based BharatTrip AI frontend, detailing its features, usage, architecture, and customization options. It serves as a comprehensive resource for understanding how the React version integrates with the backend, the improvements over the original implementation, and how to deploy and troubleshoot the application.
+
+#### Dependencies
+
+- **React**: Core library for building the UI components.
+- **Tailwind CSS**: For styling the components with a modern, responsive design.
+- **Leaflet**: For advanced map functionalities.
+- **OpenAI API**: For AI-generated content and chatbot responses.
+- **Google Maps API**: For geocoding and map display.
+- **OpenWeather API**: For real-time weather data.
+
+#### Classes
+
+| Class            | Purpose                              | Key Methods            |
+|------------------|--------------------------------------|------------------------|
+| App              | Main application component           | render()               |
+| HomePage         | Displays the home page content       | render()               |
+| ExplorePage      | Handles the explore page functionality| render(), searchLocation() |
+| TripPlannerPage  | Manages the trip planning interface  | render(), generateItinerary() |
+| ChatPage         | Interface for the AI chatbot         | render(), sendMessage() |
+| ProfilePage      | User profile and preferences display | render()               |
+
+#### Functions
+
+| Function         | Parameters               | Returns     | Description                                    |
+|------------------|--------------------------|-------------|------------------------------------------------|
+| searchLocation   | location: string         | void        | Searches for a location and updates the map    |
+| generateItinerary| destination: string, interests: string[], dates: DateRange | void        | Generates an AI-based travel itinerary         |
+| sendMessage      | message: string          | void        | Sends a message to the AI chatbot              |
+
+#### Configuration
+
+- **API_BASE**: The base URL for the backend API, configurable in the HTML file.
+- **Tailwind Config**: Customizable theme colors and extensions defined in a script tag.
+
+#### Constants
+
+- **API_BASE**: The base URL for API requests, set to `localhost:3001/api` by default.
+
+#### Notes
+
+- Ensure the backend is running before using the frontend to avoid "Offline" status.
+- For location searches, include the state name to improve accuracy.
+- The frontend relies on the backend for all API interactions, never making direct calls to external services.
+- CORS is enabled for development but should be restricted in production for security reasons.
+
+---
+
+### `README.md`
+**Language:** Md
+
+File too large for inline documentation.
+
+---
+
+### `RESTART_BACKEND.bat`
+#### Module Overview
+
+The `RESTART_BACKEND.bat` file automates the process of restarting the BharatTrip AI backend service. It first stops any running backend processes and then initiates a fresh server start. This script is useful for developers to quickly reset the backend without manually navigating through the terminal commands.
+
+#### Dependencies
+
+This script does not rely on any external libraries or dependencies beyond the basic Windows command-line utilities.
+
+#### Functions
+
+| Function | Parameters | Returns | Description |
+| --- | --- | --- | --- |
+| `echo` | Text | None | Outputs text to the console. |
+| `taskkill` | `/F`, `/IM`, `/FI` | None | Kills running processes matching the specified criteria. |
+| `timeout` | `/t` | None | Pauses execution for a specified time. |
+| `cd` | Directory | None | Changes the current directory. |
+| `start` | Command | None | Starts a new command prompt and runs the specified command. |
+| `pause` | None | None | Pauses execution and waits for user input. |
+
+#### Notes
+
+- Ensure that the backend directory is correctly referenced in the script.
+- The script assumes that the backend runs on `http://localhost:3001`. Adjust the URL if the port changes.
+- The `taskkill` command targets `node.exe` processes with a window title containing "npm". This may need adjustment if the backend uses a different setup.
+- The script waits for 2 seconds before starting the new backend process to ensure any lingering processes are terminated.
+
+---
+
+### `SMART_INSIGHTS_GUIDE.md`
+**Language:** Md
+
+#### Module Overview
+
+The `SMART_INSIGHTS_GUIDE.md` file serves as a comprehensive manual for leveraging the Smart Insights feature, which utilizes AI to analyze various data sources and deliver intelligent travel recommendations. This includes optimal visit times, route planning, and crowd management strategies, enhancing the overall travel experience.
+
+#### Dependencies
+
+- **OpenWeatherMap API**: Provides real-time weather data.
+- **Google Maps Directions API**: Offers route optimization and transport data.
+- **Historical Data**: Used for crowd analysis and pattern recognition.
+
+#### Classes
+
+| Class | Purpose | Key Methods |
+|-------|---------|-------------|
+| `InsightsGenerator` | Generates travel insights based on user input | `analyzeDestination()`, `calculateVisitScore()` |
+| `WeatherAnalyzer` | Analyzes weather data for travel recommendations | `getForecast()`, `calculateComfortScore()` |
+| `CrowdAnalyzer` | Predicts crowd levels using AI | `predictCrowdDensity()`, `getBestVisitTimes()` |
+| `TransportOptimizer` | Provides optimal transport routes and costs | `getRoutes()`, `estimateCosts()` |
+
+#### Functions
+
+| Function | Parameters | Returns | Description |
+|----------|------------|---------|-------------|
+| `calculateVisitScore` | `temp`, `humidity`, `rainDays` | `score` | Calculates a visit score based on weather conditions |
+| `getWeatherForecast` | `destination` | `forecastData` | Retrieves weather forecast for a destination |
+| `predictCrowdLevels` | `destination`, `date` | `crowdData` | Predicts crowd levels for a destination on a given date |
+| `optimizeTransport` | `origin`, `destination`, `mode` | `transportData` | Provides optimized transport routes and costs |
+
+#### Configuration
+
+- **API Keys**: Stored in `.env` file for OpenWeatherMap and Google Maps APIs.
+- **Data Update Frequency**: Weather data updates every hour; transport data in real-time.
+
+#### Constants
+
+- **IDEAL_TEMPERATURE_RANGE**: 15-28°C
+- **IDEAL_HUMIDITY_RANGE**: 40-70%
+- **RAIN_PENALTY**: 5 points per rainy day
+
+#### Notes
+
+- Ensure valid Indian city names are used for destination input.
+- Check for API key validity and backend service availability when insights fail to generate.
+- Low visit scores may indicate unfavorable travel conditions; consider alternative dates or preparations.
+
+---
+
+### `TROUBLESHOOTING.md`
+**Language:** Md
+
+#### Module Overview
+
+This file serves as a comprehensive troubleshooting guide for addressing common issues encountered during the development and operation of our project. It provides detailed steps for diagnosing and resolving problems related to backend connectivity, endpoint availability, and API integration, ensuring smooth functionality of key features like Cultural Insights and Smart Planner.
+
+#### Dependencies
+
+None. This is a markdown file with plain text instructions.
+
+#### Configuration
+
+- `backend/.env`: Contains essential API keys and configuration settings.
+- `RESTART_BACKEND.bat`: Batch file to restart the backend server.
+- `start-react.bat`: Batch file to start the React application.
+- `CHECK_BACKEND.bat`: Batch file to check backend endpoints.
+
+#### Notes
+
+- The most common fix for issues is to restart the backend.
+- Always ensure the backend terminal is visible to monitor for errors.
+- Verify API keys and internet connection when encountering issues.
+
+---
+
+### `bharattripai.html`
+**Language:** Html
+
+File too large for inline documentation.
+
+---
+
+### `index.html`
+**Language:** Html
+
+Empty file.
+
+---
+
+### `setup-env.bat`
+#### Module Overview
+
+The `setup-env.bat` script is designed to initialize the environment for the BharatTrip AI backend. It checks if an existing `.env` file is present and offers to overwrite it if necessary. If the `.env` file doesn't exist, it creates one from the `env.config` template, configuring essential API keys. This script ensures that the backend has the necessary environment variables to function correctly.
+
+#### Dependencies
+
+This script doesn't rely on external libraries or modules but assumes the presence of `env.config` in the same directory.
+
+#### Functions
+
+| Function | Parameters | Returns | Description |
+| --- | --- | --- | --- |
+| `copy env.config .env /Y` | None | Boolean success status | Copies env.config to.env if it doesn't exist or overwrites it if it does. |
+
+#### Configuration
+
+No specific configuration is required for this script to function. It operates based on the presence of `env.config` and the user's input for overwriting the `.env` file.
+
+#### Notes
+
+- Always ensure that the `.env` file is not shared or committed to version control due to security concerns.
+- API keys should be kept secret and regenerated periodically, especially after development.
+- If the `.env` file creation fails, rename `env.config` to `.env` manually.
+
+---
+
+### `setup-env.sh`
+**Language:** Sh
+
+#### Module Overview
+
+This script, `setup-env.sh`, automates the setup of the environment for the BharatTrip AI backend. It ensures that the `.env` file, which holds essential API keys and configurations, is correctly created and populated from the `env.config` template. It also includes a check to prevent accidental overwriting of existing `.env` files and provides important security reminders regarding the handling of sensitive information.
+
+#### Dependencies
+
+This script does not rely on external libraries or modules. It uses basic shell commands for file operations and conditional checks.
+
+#### Functions
+
+| Function | Parameters | Returns | Description |
+|----------|------------|---------|-------------|
+| `setup-env.sh` | None | None | Main script to set up the environment by creating and configuring the `.env` file. |
+
+#### Configuration
+
+No specific configuration is required for this script to function. It operates directly on the `env.config` file located in the `backend` directory.
+
+#### Notes
+
+- Always ensure that the `.env` file is not shared or committed to version control to avoid exposing sensitive information.
+- If the `.env` file creation fails, manually rename `env.config` to `.env`.
+- Consider regenerating API keys after development to maintain security.
+
+---
+
+### `start-react.bat`
+#### Module Overview
+
+The `start-react.bat` file automates the process of launching the backend server and opening the React frontend of the BharatTrip AI application. It ensures both the backend and frontend are running and ready for development or testing.
+
+#### Dependencies
+
+This script does not import any external libraries but relies on the following commands and tools:
+- `cmd`: Windows command processor.
+- `npm start`: Starts the backend server.
+- `start`: Opens a new command window to run the specified program or command.
+
+#### Functions
+
+| Function | Parameters | Returns | Description |
+|----------|------------|---------|-------------|
+| `@echo off` | None | None | Disables command echoing. |
+| `echo` | Text | None | Displays text to the console. |
+| `cd` | Directory | None | Changes the current directory. |
+| `start` | URL/Path | None | Opens a new window to run the specified program. |
+| `timeout` | Duration | None | Waits for a specified time without breaking the command flow. |
+
+#### Configuration
+
+No specific configuration is required for this script. It assumes the backend server is located in a `backend` directory and the frontend is launched via `bharattrip-react.html`.
+
+#### Notes
+
+- The script waits 5 seconds for the backend server to start before launching the frontend.
+- To stop the application, close the backend terminal window.
+- Ensure Node.js and npm are installed and configured correctly to run `npm start`.
+
+---
+
+### `start-react.sh`
+**Language:** Sh
+
+#### Module Overview
+
+The `start-react.sh` script is designed to streamline the startup process of the BharatTrip AI application. It first launches the backend server, waits for it to be ready, and then opens the React frontend in the default web browser. The script also handles different operating systems to ensure the browser opens correctly.
+
+**Dependencies**
+
+- `cd`: Changes the current directory.
+- `npm`: Node Package Manager, used to start the backend server.
+- `open`: Command to open files with the default application on macOS.
+- `xdg-open`: Command to open files with the default application on Linux.
+- `sleep`: Pauses the script for a specified amount of time.
+
+**Functions**
+
+| Function | Parameters | Returns | Description |
+| --- | --- | --- | --- |
+| None | None | None | This script does not define any functions. It is a linear script that performs a series of commands. |
+
+**Notes**
+
+- The script assumes that the backend and frontend directories are located in the same directory as the script.
+- The script uses `OSTYPE` to determine the operating system and open the browser accordingly.
+- The script captures the PID of the backend server to ensure it can be killed when the script is interrupted.
+- The script waits for the backend server to start before opening the frontend.
+
+---
+
+### `temp_planner.txt`
+**Language:** Txt
+
+#### Module Overview
+
+This file defines the `EnhancedTripPlannerPage` component, which is the core of our trip planning feature. It handles user input for trip details, communicates with the backend to generate an itinerary, and displays the results. The component uses React hooks for state management and integrates with our API for dynamic itinerary generation.
+
+#### Dependencies
+
+- `useState` and `useEffect` from `react`: For managing component state and side effects.
+- `fetch`: For making API requests to generate itineraries.
+- `localStorage`: To store selected location data for map view.
+
+#### Classes
+
+None
+
+#### Functions
+
+| Function              | Parameters                   | Returns | Description                                                                                       |
+|-----------------------|------------------------------|---------|---------------------------------------------------------------------------------------------------|
+| `EnhancedTripPlannerPage` | None                         | JSX     | Main component function that renders the trip planner UI and handles all related logic.           |
+| `generateItinerary`   | None                         | Promise | Asynchronously generates an itinerary based on user input and displays it.                         |
+| `toggleInterest`       | `interest` (string)          | None    | Toggles the selected state of a travel interest in the form data.                                 |
+| `handleViewOnMap`     | `location` (object)          | None    | Stores the selected location in local storage and navigates to the map view page.                  |
+
+#### Configuration
+
+- `API_BASE`: The base URL for API requests. Ensure this is correctly set in your environment variables.
+
+#### Constants
+
+None
+
+#### Notes
+
+- The `generateItinerary` function requires both a destination and at least one interest to be selected; otherwise, it alerts the user.
+- The component distinguishes between "AI Planner" and "Smart Planner" modes, affecting both UI and backend logic.
+- Error handling in `generateItinerary` includes alerts for the user and console logging for developers.
+
+---
+
+### `test.html`
+**Language:** Html
+
+#### Module Overview
+
+The `test.html` file sets up a basic HTML structure to host a React application. It includes necessary dependencies like React, ReactDOM, Babel, and Tailwind CSS. The page features a navigation bar with links to switch between the home and trip planner pages. The React component manages the state of the current page and renders different components based on the user's navigation.
+
+#### Dependencies
+
+| Dependency | Purpose |
+| --- | --- |
+| React | Core library for building user interfaces. |
+| ReactDOM | Provides DOM-specific methods to render React elements. |
+| Babel | JavaScript compiler to convert JSX and ES6+ code to ES5. |
+| Tailwind CSS | Utility-first CSS framework for styling. |
+| Font Awesome | Icon library for adding icons to the page. |
+
+#### Functions
+
+| Function | Parameters | Returns | Description |
+| --- | --- | --- | --- |
+| App | None | None | Main React component that manages the state and renders different pages. |
+
+#### Notes
+
+- The `test.html` file uses the `type="text/babel"` attribute in the script tag to enable Babel's in-browser transpilation of JSX.
+- The navigation bar dynamically changes its style based on the current page to provide visual feedback to the user.
+- The `PlannerPage` component is a placeholder and should be expanded with actual trip planning functionality.
+
+---
+
+### `trip-planner.html`
+**Language:** Html
+
+#### Module Overview
+
+The `trip-planner.html` file is the entry point for our AI-driven trip planner application. It sets up the HTML structure, includes necessary CSS and JavaScript libraries, and renders the React component responsible for the trip planning interface. This file integrates Tailwind CSS for styling, Font Awesome for icons, and React for the UI logic.
+
+#### Dependencies
+
+- **Tailwind CSS**: Provides utility-first CSS classes for styling.
+- **Font Awesome**: Offers a variety of icons used throughout the UI.
+- **React**: Enables the creation of dynamic and interactive UI components.
+- **Babel**: Allows the use of modern JavaScript features by transpiling them to compatible code.
+
+#### Classes
+
+| Class            | Purpose                        | Key Methods        |
+|------------------|--------------------------------|--------------------|
+| `TripPlannerPage` | Manages the trip planning UI  | `toggleInterest`, `isFormValid`, `generateItinerary` |
+
+#### Functions
+
+| Function         | Parameters     | Returns          | Description                                                  |
+|------------------|----------------|------------------|--------------------------------------------------------------|
+| `toggleInterest` | `interest`     | `void`           | Toggles the selection of an interest in the trip plan.       |
+| `isFormValid`    | `void`         | `boolean`        | Checks if the form inputs are valid for generating an itinerary. |
+| `generateItinerary` | `void`       | `Promise<void>`  | Asynchronously generates and sets the itinerary based on user inputs. |
+
+#### Configuration
+
+- The React component uses `useState` hooks to manage various states like `planType`, `destination`, `selectedInterests`, `startDate`, `endDate`, `budget`, `travelMode`, and `itinerary`.
+
+#### Constants
+
+- Interests array: `['Heritage', 'Nature', 'Food', 'Adventure', 'Wellness', 'Culture']`
+
+#### Notes
+
+- The `generateItinerary` function currently uses hardcoded data for demonstration purposes. In a production environment, this should be replaced with an API call to fetch real itinerary data.
+- Ensure to handle edge cases such as invalid dates or missing required fields gracefully.
+
+---
+
+### `backend/README.md`
+**Language:** Md
+
+#### Module Overview
+
+This README file serves as a comprehensive guide for setting up, configuring, and using the BharatTrip AI backend. It covers dependency installation, environment setup, API endpoint details, testing methods, troubleshooting tips, production deployment options, and API rate limits. This document is essential for developers to understand how to integrate and utilize the backend services effectively.
+
+#### Dependencies
+
+- **npm**: Package manager for installing backend dependencies.
+- **.env**: Environment variables file for storing API keys and configuration settings.
+- **Google Cloud Console**: Required for enabling necessary Google APIs.
+
+#### Classes
+
+None
+
+#### Functions
+
+None
+
+#### Configuration
+
+- **.env**: Must contain `OPENAI_API_KEY`, `WEATHER_API_KEY`, and `GOOGLE_MAPS_API_KEY`.
+
+#### Constants
+
+None
+
+#### Notes
+
+- Ensure all Google APIs are enabled in the Google Cloud Console.
+- Be mindful of API rate limits to avoid service disruptions.
+- For production deployment, secure API keys and configure proper CORS origins.
+
+---
+
+### `backend/env.example`
+#### Module Overview
+
+This file, `backend/env.example`, serves as a template for setting up environment variables required for the BharatTrip AI backend. It includes placeholders for various API keys and server configuration settings, which are essential for the proper functioning of the backend services. By copying this file to `.env` and filling in the actual keys, developers can ensure that the backend can securely access third-party services like OpenWeatherMap, Google Maps, and OpenAI.
+
+#### Dependencies
+
+This file does not directly import any modules but relies on environment variables that are accessed by various parts of the backend codebase.
+
+#### Configuration
+
+| Key | Purpose | Description |
+| --- | ------- | ----------- |
+| PORT | Server Configuration | Port number on which the server will run. |
+| OPENAI_API_KEY | OpenAI API Configuration | API key for accessing the OpenAI services. |
+| WEATHER_API_KEY | OpenWeatherMap API Configuration | API key for accessing weather data. |
+| GOOGLE_MAPS_API_KEY | Google Maps API Configuration | API key for accessing Google Maps services. |
+
+#### Notes
+
+- Ensure that the `.env` file is added to `.gitignore` to prevent sensitive keys from being committed to version control.
+- Replace the placeholder values (`your_openai_api_key_here`, etc.) with actual API keys obtained from the respective service providers.
+- The server will not start if these environment variables are missing or incorrect.
+
+---
+
+### `backend/generate-alternatives.js`
+**Language:** Javascript
+
+#### Module Overview
+
+The `generate-alternatives.js` file is designed to create alternative activity suggestions for a specific day in a travel itinerary. It leverages the `openai` API to generate creative and contextually relevant alternatives based on the current activities, destination, and user preferences. If the API call fails, it falls back to a predefined set of alternatives.
+
+#### Dependencies
+
+| Module | Purpose |
+| --- | --- |
+| `./openai-config` | Configuration for the `openai` API |
+| `./utils` | Utility functions for parsing responses and generating fallback alternatives |
+
+#### Functions
+
+| Function | Parameters | Returns | Description |
+| --- | --- | --- | --- |
+| `generateAlternatives` | `currentDay`, `currentActivities`, `destination`, `preferences` | `{ success: boolean, alternatives: array, error: string }` | Generates alternative activities using the `openai` API and fallbacks if necessary |
+
+#### Notes
+
+- The function `generateAlternatives` handles both successful API responses and errors, ensuring that alternative activities are always returned.
+- The fallback alternatives are predefined and cover a range of activities to maintain functionality even when the API is unavailable.
+- Ensure the `openai-config` module is correctly set up with valid API keys and configurations.
+
+---
+
+### `backend/package.json`
+**Language:** Json
+
+#### Module Overview
+
+This `package.json` file is the backbone of our backend server for the BharatTrip AI project. It outlines the project's dependencies, scripts for running and testing the server, and metadata like the project's name, version, and description. The file ensures that all necessary libraries and tools are installed and configured correctly, facilitating smooth development and deployment processes.
+
+#### Dependencies
+
+This section lists the key dependencies required for the backend server:
+
+| Package | Purpose | Version |
+|---------|---------|---------|
+| express | Web framework for Node.js | ^4.18.2 |
+| cors | Enables CORS support for Express | ^2.8.5 |
+| dotenv | Loads environment variables from .env file | ^16.3.1 |
+| axios | Promise-based HTTP client for making requests | ^1.5.0 |
+| openai | Official client for the OpenAPI service | ^3.3.0 |
+| multer | File upload middleware for Express | ^1.4.5-lts.1 |
+
+#### Scripts
+
+The `scripts` section defines various commands to run the server, start development server, and execute tests:
+
+| Script | Description |
+|--------|-------------|
+| start | Runs the server using `server.js` |
+| dev | Starts the server in development mode with `nodemon` |
+| test | Executes the test scripts in `test-apis.js` |
+| test:api | Runs API-specific tests in `test-apis.js` |
+
+#### Notes
+
+- Ensure all dependencies are installed by running `npm install`.
+- Use `npm start` to run the server in production mode.
+- For development, `npm run dev` is recommended to automatically restart the server on file changes.
+- Test scripts are located in `test-apis.js` and can be run using `npm test` or `npm test:api` for API-specific tests.
+
+---
+
+### `backend/server.js`
+**Language:** Javascript
+
+#### Module Overview
+
+The `server.js` file is the core of the BharatTrip AI backend. It sets up the Express server, configures middleware, defines API endpoints for reviews, tourist guides, chatbot, weather, places, and geocoding, and integrates with external services like OpenAI and Google Maps.
+
+#### Dependencies
+
+- `express`: Web framework for handling routes and middleware.
+- `cors`: Middleware to enable Cross-Origin Resource Sharing.
+- `axios`: HTTP client for making requests to external APIs.
+- `dotenv`: Loads environment variables from a `.env` file.
+- `path`: Provides utilities for working with file and directory paths.
+- `multer`: Middleware for handling `multipart/form-data`, primarily used for uploading files.
+- `openai`: Client library for interacting with the OpenAI API.
+- `fs`: File system module for reading and writing files.
+- `util`: Utility module for promisifying callback-based functions.
+
+#### Functions
+
+| Function      | Parameters               | Returns          | Description                                                                                       |
+|---------------|--------------------------|------------------|---------------------------------------------------------------------------------------------------|
+| `getReviews`  | None                     | Array of reviews | Reads and parses the reviews JSON file, returning an array of reviews or an empty array on error. |
+| `saveReviews` | `reviews` (Array)        | None             | Writes the provided reviews array to the reviews JSON file.                                       |
+
+#### Endpoints
+
+| Endpoint                      | Method | Description                                                                                           |
+|-------------------------------|--------|-------------------------------------------------------------------------------------------------------|
+| `/api/reviews`                | POST   | Uploads a new review with optional image.                                                             |
+| `/api/reviews/:placeId`       | GET    | Fetches reviews for a specific place.                                                                 |
+| `/api/tourist-guides/:location` | GET    | Fetches tourist guides for a specific location.                                                       |
+| `/api/health`                 | GET    | Health check endpoint to verify server status.                                                        |
+| `/api/chatbot`                | POST   | Chatbot endpoint for getting responses from the OpenAI API.                                           |
+| `/api/weather/:location`      | GET    | Fetches current weather and forecast for a location.                                                  |
+| `/api/places/search`          | POST   | Searches for places using Google Maps API.                                                            |
+| `/api/places/nearby`          | POST   | Fetches nearby places using Google Maps API.                                                          |
+| `/api/geocode/:address`       | GET    | Geocodes an address to get its latitude and longitude using Google Maps API, falls back to Nominatim. |
+
+#### Configuration
+
+- Environment variables are loaded using `dotenv`.
+- OpenAI API key is configured using `process.env.OPENAI_API_KEY`.
+- Weather API key and Google Maps API key are stored in environment variables.
+
+#### Notes
+
+- Ensure environment variables are correctly set in the `.env` file.
+- Error handling is implemented for most endpoints to return meaningful error messages.
+- Fallback to Nominatim for geocoding if Google Maps API returns no results.
+
+---
+
+### `backend/test-apis.js`
+**Language:** Javascript
+
+#### Module Overview
+
+The `backend/test-apis.js` file is designed to automate the testing of multiple API endpoints within the BharatTrip AI service. It uses the `axios` library to make HTTP requests and checks the responses to ensure the APIs are functioning as expected. The file also includes a health check for the server before running the tests.
+
+#### Dependencies
+
+| Module | Purpose |
+| --- | --- |
+| `axios` | Makes HTTP requests to the API endpoints. |
+| `dotenv` | Loads environment variables from a `.env` file. |
+| `./utils` | Contains utility functions, including `checkServerHealth`. |
+
+#### Functions
+
+| Function | Parameters | Returns | Description |
+| --- | --- | --- | --- |
+| `testAPIs` | None | None | Executes a series of tests for different API endpoints and logs the results. |
+
+#### Configuration
+
+- **API_BASE_URL**: The base URL for the BharatTrip AI APIs.
+- **.env**: Contains environment variables for various API keys required by the tests.
+
+#### Notes
+
+- Ensure the `.env` file is properly configured with all necessary API keys before running the tests.
+- The `checkServerHealth` function is called before running the tests to ensure the server is up and running.
+- If any test fails, the file provides guidance on what to check, such as API keys and enabled services.
+
+---
+
+### `nitinog10-Beta-20-ddc4040/AI_TRIP_ADVISOR_CONFIG.md`
+**Language:** Md
+
+#### Module Overview
+
+This markdown file provides comprehensive configuration details for the BharatTrip Maps AI, an intelligent voice assistant integrated into the BharatTrip AI travel planning application. It outlines the setup process, system prompts, interaction style, constraints, and example responses to ensure the assistant delivers accurate, culturally relevant, and user-friendly travel advice for Indian destinations.
+
+#### Dependencies
+
+- **ElevenLabs Conversational AI**: Platform for configuring and managing the voice assistant.
+- **Indian Destinations Database**: Optional knowledge base for enhanced location-specific recommendations.
+- **App-Specific Knowledge**: Integration points for syncing with map, trip planner, and chat features.
+
+#### Configuration Steps
+
+1. **Access ElevenLabs Dashboard**: Log in and navigate to the agent configuration.
+2. **Update Agent Settings**: Configure basic information, voice settings, and conversation style.
+3. **Knowledge Base Integration (Optional)**: Add Indian destinations and app-specific knowledge.
+4. **Testing Prompts**: Use provided queries to test the assistant's functionality.
+
+#### Widget Appearance
+
+- **Position**: Bottom-right corner, floating above content.
+- **Visual Style**: Red-orange gradient, compact size, smooth fade-in animation.
+
+#### User Experience Flow
+
+- **Scenario 1**: New user exploring the map.
+- **Scenario 2**: User planning a trip.
+- **Scenario 3**: User seeking food recommendations.
+
+#### Integration with App Features
+
+- **Sync with Map**: Reference current location, weather layer, map style, and search history.
+- **Sync with Trip Planner**: Suggest destinations, explain budget options, recommend travel modes, and optimize itinerary.
+- **Sync with Chat**: Log voice queries to text chat, use chat history for context, and ensure multilingual continuity.
+
+#### Sample Conversation Scripts
+
+- **Script 1**: Complete map guidance.
+- **Script 2**: Destination recommendation.
+- **Script 3**: Weather assistance.
+
+#### Success Metrics
+
+- **Usage Metrics**: Voice interactions, conversation length, common queries, user satisfaction.
+- **Feature Adoption**: Percentage of users trying the voice assistant, weather map usage, trip planning completion rate.
+- **Quality Metrics**: Response accuracy, average response time, user retention, language switch frequency.
+
+#### Continuous Improvement
+
+- **Regular Updates**: Monthly query reviews, seasonal festival updates, quarterly new destinations, yearly feature updates.
+- **User Feedback Integration**: Collect ratings, analyze drop-off points, identify confusing responses, add requested features.
+
+#### Troubleshooting
+
+- **Widget Not Appearing**: Check script load, verify agent ID, check browser console, ensure internet connection.
+- **Voice Not Working**: Check microphone permissions, test browser compatibility, verify ElevenLabs service status, refresh the page.
+- **AI Not Understanding Queries**: Speak clearly, use simple sentences, provide context, try text chat as backup.
+
+#### Additional Resources
+
+- [ElevenLabs Documentation](https://elevenlabs.io/docs)
+- [Conversational AI Best Practices](https://elevenlabs.io/conversational-ai)
+- Indian Tourism Guidelines
+- Google Maps API Documentation
+
+#### Notes
+
+- Ensure the voice assistant is configured to handle both English and Hindi queries seamlessly.
+- Regularly update the knowledge base with new destinations and cultural events to keep the assistant relevant.
+- Monitor user feedback closely to identify areas for improvement and new feature requests.
+
+---
+
+### `nitinog10-Beta-20-ddc4040/APPLY_FIXES.bat`
+#### Module Overview
+
+The `APPLY_FIXES.bat` file is a script designed to streamline the application of fixes to the BharatTrip AI project. It sequentially stops old backend processes, starts the updated backend, waits for it to initialize, and then opens the fixed application in a browser. This script ensures that all necessary changes are applied and the application is ready for use.
+
+#### Dependencies
+
+- **taskkill**: Used to forcefully terminate processes.
+- **timeout**: Used to introduce delays in the script.
+- **cd**: Changes the current directory.
+- **start**: Launches a new command prompt window or application.
+
+#### Functions
+
+| Command | Description |
+|---------|-------------|
+| `taskkill /F /IM node.exe` | Forcefully stops the `node.exe` process. |
+| `timeout /t 3 /nobreak` | Waits for 3 seconds without showing the countdown. |
+| `cd backend` | Changes the directory to the backend folder. |
+| `start /MIN cmd /k "echo Starting BharatTrip AI Backend... && npm start"` | Opens a new command prompt in minimized mode and starts the backend. |
+| `timeout /t 10 /nobreak` | Waits for 10 seconds without showing the countdown. |
+| `start "" "bharattrip-react.html"` | Opens the fixed application in a browser. |
+
+#### Notes
+
+- Ensure that the `bharattrip-react.html` file is located in the same directory as this batch file.
+- The script assumes that the backend is located in a `backend` subdirectory.
+- The script runs in a command prompt window and provides visual feedback on the progress of applying fixes.
+
+---
+
+### `nitinog10-Beta-20-ddc4040/CHECK_BACKEND.bat`
+#### Module Overview
+
+This batch file, `CHECK_BACKEND.bat`, is designed to verify the operational status of the BharatTrip AI Backend service. It performs two main checks: a health check to ensure the backend is running and a test of a new endpoint to confirm its functionality. This script is crucial for ensuring that the backend service is up and running and can handle requests properly.
+
+#### Dependencies
+
+This script does not rely on any external libraries or modules. It uses the `curl` command-line tool to make HTTP requests.
+
+#### Functions
+
+| Function | Parameters | Returns | Description |
+| --- | --- | --- | --- |
+| `curl` | URL, headers, data | HTTP response | Makes HTTP requests to the backend service endpoints. |
+
+#### Notes
+
+- If the health check returns "OK", the backend is confirmed to be running.
+- If the new endpoint test fails, the backend may need to be restarted.
+- To restart the backend, follow the solution steps listed in the script.
+- The `pause` command at the end keeps the command window open until the user presses a key, allowing them to read any error messages.
+
+---
+
+### `nitinog10-Beta-20-ddc4040/CLEANUP_COMPLETE.md`
+**Language:** Md
+
+#### Module Overview
+
+This markdown file serves as the final summary and confirmation of the cleanup process for the BharatTrip AI project. It details the removed files, the current structure of the project, and provides a comprehensive overview of what each remaining file does. It also includes final statistics, a production-ready checklist, and deployment instructions. This document is crucial for understanding the current state of the project, ensuring that all team members are aligned on the structure and functionality of the BharatTrip AI application.
+
+#### Dependencies
+
+None. This is a markdown file for documentation purposes only.
+
+#### Functions
+
+None. This is a markdown file for documentation purposes only.
+
+#### Configuration
+
+None. This is a markdown file for documentation purposes only.
+
+#### Constants
+
+None. This is a markdown file for documentation purposes only.
+
+#### Notes
+
+- Ensure all team members review the final structure and documentation to familiarize themselves with the project's current state.
+- The project is now production-ready and can be deployed using the provided scripts and instructions.
+- Keep the documentation up to date as the project evolves.
+
+---
+
+### `nitinog10-Beta-20-ddc4040/FEATURES_SHOWCASE.md`
+**Language:** Md
+
+#### Module Overview
+
+This markdown file serves as a comprehensive showcase of BharatTrip AI's features, highlighting its unique capabilities in providing intelligent travel recommendations for Indian destinations. It details the integration of AI-driven insights, real-time weather data, crowd predictions, and smart routing to enhance the travel planning experience.
 
 #### Dependencies
 
 - **OpenWeatherMap API**: Provides real-time weather data and forecasts.
 - **Google Maps API**: Offers location-based services, including geocoding and route optimization.
-- **OpenAI GPT-3.5**: Powers the text-based AI chat for detailed trip planning.
-- **ElevenLabs**: Enables the voice AI trip advisor for hands-free assistance.
-- **Leaflet**: Used for rendering the interactive weather intelligence map.
+- **OpenAI GPT-3.5**: Powers the text-based AI chat for detailed trip planning and recommendations.
+- **ElevenLabs**: Enables the voice AI trip advisor for hands-free guidance.
+- **Leaflet**: Utilized for rendering the interactive weather intelligence map.
+
+#### Classes
+
+No specific classes are documented within this markdown file. It primarily serves as a showcase document rather than a technical implementation guide.
+
+#### Functions
+
+| Function                         | Parameters                   | Returns                    | Description                                                                                           |
+|----------------------------------|------------------------------|----------------------------|-------------------------------------------------------------------------------------------------------|
+| `calculateVisitScore`            | `destination, date, interests` | `score (0-100)`            | Calculates a visit score based on weather, crowd levels, and transport conditions.                    |
+| `getSmartInsights`               | `destination, interests, dates` | `insights object`          | Retrieves comprehensive travel insights including weather, crowd density, and transport recommendations.|
+| `generateItinerary`              | `destination, interests, dates` | `itinerary object`         | Creates a day-by-day travel itinerary based on user inputs and AI recommendations.                    |
+
+#### Configuration
+
+- **API Keys**: Required for accessing OpenWeatherMap, Google Maps, and OpenAI services. Stored securely in environment variables.
+- **Map Styles**: Configurable map styles including Satellite, Dark Mode, Terrain, and Default.
+
+#### Constants
+
+- **OPTIMAL_TEMPERATURE_RANGE**: Defines the ideal temperature range for travel (15-28°C).
+- **OPTIMAL_HUMIDITY_RANGE**: Specifies the comfortable humidity level for travel (40-70%).
+
+#### Notes
+
+- Ensure API keys are kept secure and not exposed in the codebase.
+- The visit score algorithm penalizes destinations based on temperature, humidity, rain, and crowd levels to provide an optimal travel recommendation.
+- The crowd prediction algorithm considers day of the week, time of day, seasonal factors, and local events to estimate crowd levels accurately.
+
+---
+
+### `nitinog10-Beta-20-ddc4040/FINAL_SUMMARY.md`
+**Language:** Md
+
+#### Module Overview
+
+This markdown file serves as the final summary of the BharatTrip AI project after a major cleanup. It details the changes made, the current project structure, key features, and how to run the application. The document is designed to provide a clear and concise overview for both new and existing team members, ensuring everyone is on the same page regarding the project's status and functionality.
+
+#### Dependencies
+
+- **None**: This is a markdown file and does not import any modules or dependencies.
 
 #### Classes
 
@@ -533,201 +1477,156 @@ This file provides a comprehensive overview of BharatTrip AI's features, showcas
 
 #### Configuration
 
-- **Visit Score Algorithm**: Calculates a destination's visit score based on weather, crowd levels, and transport conditions.
-- **Crowd Prediction Algorithm**: Estimates crowd levels considering day of the week, time of day, seasonal factors, and local events.
-- **Route Optimization Algorithm**: Selects the best transport route based on user preferences, cost, time, and weather conditions.
+- **env.config**: Contains API keys and other environment-specific configurations.
 
 #### Constants
 
-- **Optimal Temperature Range**: 15-28°C for the visit score algorithm.
-- **Optimal Humidity Range**: 40-70% for the visit score algorithm.
-- **Rain Penalty**: -5 points per rainy day in the visit score algorithm.
-- **Crowd Level Indicators**:
-  - Green: Low crowd
-  - Yellow: Medium crowd
+- **N/A**
 
 #### Notes
 
-- The visit score algorithm penalizes destinations with temperatures outside the optimal range, high humidity, rainy days, and peak crowd times.
-- The crowd prediction algorithm significantly increases crowd levels for weekends, peak hours, tourist seasons, and local festivals.
-- Route optimization prioritizes cost-effectiveness, time efficiency, and user comfort, adapting to real-time weather conditions.
+- Ensure API keys are properly configured in `env.config` before running the application.
+- The project is now production-ready and can be deployed to various platforms as outlined in the documentation.
 
-### `FINAL_SUMMARY.md`
+---
 
-##### Module Overview
-This file provides a comprehensive summary of the BharatTrip AI project after cleanup, detailing the changes made, current project structure, removed files, and key features. It serves as a quick reference for team members and new collaborators.
+### `nitinog10-Beta-20-ddc4040/FIX_NOW.bat`
+#### Module Overview
+
+This batch file, `FIX_NOW.bat`, automates the reset and restart of the BharatTrip AI backend service and launches the frontend application. It stops any existing backend processes, starts a new backend server, waits for it to initialize, and then launches the frontend application in a browser window. This script is designed to help quickly resolve issues with the backend service and get the application running smoothly again.
 
 #### Dependencies
 
-- None. This is a markdown file for documentation purposes.
+- `taskkill`: A command used to terminate processes that are running on the local or remote computer.
+- `timeout`: A command that pauses the execution of a batch file for a specified amount of time.
+- `start`: A command that starts a separate window to run a specified program or command.
+- `cmd`: The command-line interpreter that executes the batch file commands.
 
 #### Functions
 
 | Function | Parameters | Returns | Description |
 |----------|------------|---------|-------------|
-| None | N/A | N/A | This file does not contain any functions. |
-
-#### Configuration
-
-- None. Configuration details are mentioned within the context of the project structure and features.
-
-#### Constants
-
-- None. This file does not define any constants.
+| `taskkill` | `/F`, `/IM node.exe`, `/FI "WINDOWTITLE eq npm*"` | None | Kills the running node.js process with the title "npm*". |
+| `timeout` | `/t 2` | None | Pauses for 2 seconds. |
+| `start` | `/MIN`, `cmd`, `/c "npm start"` | None | Starts a new command prompt window and runs `npm start` in the `backend` directory. |
+| `start` | `"bharattrip-react.html"` | None | Opens `bharattrip-react.html` in the default web browser. |
 
 #### Notes
 
-- This documentation is intended for internal use within the team and should not be exposed to external parties without review.
-- The project is now significantly easier to maintain and understand, thanks to the cleanup.
-- Ensure to follow the documentation order for onboarding new team members to get them up to speed quickly.
-- The project is marked as production-ready, making it suitable for immediate deployment or demonstration in hackathons.
+- Ensure that the `backend` directory contains the necessary npm scripts to start the backend service.
+- The script waits for 8 seconds for the backend to initialize. Adjust this timeout if the backend takes longer to start.
+- The script pauses at the end to allow the user to observe the backend running on `http://localhost:3001`.
+- The script assumes that the `node.exe` process with the window title "npm*" is the backend service to be terminated.
 
-### `FIX_NOW.bat`
+---
 
-This batch file automates the process of resetting the BharatTrip AI application by stopping the old backend, starting a fresh backend, and opening the application in a browser.
-
-#### Dependencies
-
-- **taskkill**: Used to forcefully terminate running processes.
-- **timeout**: Pauses the script execution for a specified number of seconds.
-- **start**: Launches a new command prompt window and runs a specified program.
-
-#### Functions
-
-| Function | Parameters | Returns | Description |
-| --- | --- | --- | --- |
-| `taskkill` | `/F /IM node.exe /FI "WINDOWTITLE eq npm*"` | None | Stops the old backend process. |
-| `timeout` | `/t 2 /nobreak` | None | Pauses script for 2 seconds. |
-| `timeout` | `/t 8 /nobreak` | None | Pauses script for 8 seconds. |
-| `start` | `/MIN cmd /c "npm start"` | None | Starts the backend in a minimized command prompt. |
-| `start` | `"bharattrip-react.html"` | None | Opens the application in the default browser. |
-
-#### Notes
-
-- Ensure that the backend directory is correctly referenced and contains the necessary `package.json` file.
-- The script assumes the backend runs on `http://localhost:3001`.
-- The script waits for the backend to initialize before opening the browser.
-- The script pauses at the end to allow the user to observe the backend running and the application loading in the browser.
-
-### `NEW_FEATURES.md`
-
-##### Module Overview
-
-This file documents the new features added to BharatTrip AI: Cultural Insights and Smart Multi-City Planner. It outlines what these features do, how to use them, example outputs, and technical implementation details.
-
-#### Dependencies
-
-- **OpenAI GPT-3.5**: For generating cultural insights.
-- **React**: Frontend framework for building UI components.
-- **Axios**: For making API calls.
-- **Styled-components**: For theming and styling components.
-
-#### Classes
-
-None.
-
-#### Functions
-
-None.
-
-#### Configuration
-
-- **API Endpoints**:
-  - `/api/cultural/insights`
-  - `/api/planner/smart`
-  - `/api/budget/calculate`
-  - `/api/eco/routes`
-
-#### Constants
-
-None.
-
-#### Notes
-
-- **Cultural Insights**:
-  - Uses AI to generate insights, so results may vary slightly.
-  - Supports multiple languages, but currently limited to English, Hindi, and Tamil.
-- **Smart Planner**:
-  - Optimizes routes based on AI calculations, which may not always align with user preferences.
-  - Eco score is an estimate and may not reflect actual carbon footprint.
-- **General**:
-  - Both features are fully responsive and work across desktop, tablet, and mobile devices.
-  - UI follows consistent theme with gradient buttons, card-based design, and color-coded information.
-
-### `PERSONALIZED_TRIP_PLANNER_INTEGRATION.md`
+### `nitinog10-Beta-20-ddc4040/NEW_FEATURES.md`
+**Language:** Md
 
 #### Module Overview
 
-This document outlines the integration of the personalized AI trip planner into the BharatTrip AI application. It replaces the previous basic trip planner with enhanced features and improved user experience.
+This markdown file details the newly added features to BharatTrip AI, specifically the Cultural Insights and Smart Multi-City Planner. It outlines what these features do, how to use them, their integration points with other features, backend API endpoints, UI design considerations, mobile responsiveness, use cases, quick start guides, key metrics, navigation updates, pro tips, and technical implementation details.
+
+### Dependencies
+- **OpenAI GPT-3.5**: For generating cultural insights.
+- **React**: Frontend framework for building UI components.
+- **Axios**: For making API calls.
+- **Styled-components**: For theming and styling UI elements.
+
+### Classes
+None.
+
+### Functions
+None.
+
+### Configuration
+None.
+
+### Constants
+None.
+
+### Notes
+- Ensure API rate limits are handled to prevent excessive calls to OpenAI.
+- Cultural insights are generated in real-time and can be cached for repeat queries to improve performance.
+- Smart Planner results are optimized based on current data and may vary slightly with new inputs.
+
+---
+
+### `nitinog10-Beta-20-ddc4040/PERSONALIZED_TRIP_PLANNER_INTEGRATION.md`
+**Language:** Md
+
+#### Overview
+
+`SUMMARY: This file documents the integration of the personalized AI trip planner into the BharatTrip application.`
+
+#### Module Overview
+
+This document provides a comprehensive overview of the integration of the personalized AI trip planner into the BharatTrip application. It details the enhancements added, technical changes made, and how the new system works. The integration aims to provide users with more detailed and personalized itineraries while maintaining backward compatibility with the previous trip planner.
 
 #### Dependencies
 
-| Import | Purpose |
-| --- | --- |
-| `axios` | For making HTTP requests to the backend API. |
-| `react` | Core library for building the user interface. |
-| `react-router-dom` | For handling navigation within the application. |
-| `moment` | For date and time manipulation. |
+| Dependency | Purpose |
+|------------|---------|
+| `OpenAI` | For generating personalized itineraries and activity suggestions |
+| `React` | For building the frontend components |
+| `Express` | For creating the backend API endpoints |
 
 #### Classes
 
 | Class | Purpose | Key Methods |
-| --- | --- | --- |
-| `TripPlannerPage` | Main component for the trip planner interface. | `handleInputChange`, `generateItinerary`, `fetchAlternatives` |
+|-------|---------|-------------|
+| `TripPlannerPage` | Enhanced trip planner component | `handleInputChange`, `generateItinerary`, `getAlternatives` |
 
 #### Functions
 
 | Function | Parameters | Returns | Description |
-| --- | --- | --- | --- |
-| `generateItinerary` | `destination`, `interests`, `dates`, `budget`, `travelMode` | `itinerary` | Sends a request to the backend to generate a personalized itinerary. |
-| `fetchAlternatives` | `activityId` | `alternatives` | Fetches alternative activities for a given activity ID. |
+|----------|------------|---------|-------------|
+| `generateItinerary` | destination, interests, dates, budget, travel mode | Itinerary JSON | Generates a structured itinerary based on user input |
+| `getAlternatives` | activity ID | Alternative activities JSON | Retrieves alternative activities for a given activity |
 
 #### Configuration
 
-| Key | Description |
-| --- | --- |
-| `API_BASE_URL` | The base URL for the backend API. |
+- **API Endpoints**: 
+  - `/api/generate-itinerary`
+  - `/api/get-alternatives`
 
 #### Notes
 
-- Ensure the backend server is running before testing the frontend.
-- The system has fallback mechanisms to handle cases where new API endpoints are not available.
-- The new design is responsive and should be tested on both mobile and desktop devices.
-- The personalization feature relies on user preferences, which should be handled securely.
+- Ensure the backend is running before testing the frontend.
+- The system gracefully falls back to the original planner if the new endpoints are unavailable.
+- Future enhancements include AI-generated destination images and multi-language support.
 
-### `QUICK_START.md`
+---
 
-##### 🚀 BharatTrip AI - Quick Start Guide
+### `nitinog10-Beta-20-ddc4040/QUICK_START.md`
+**Language:** Md
 
-This guide helps you set up and run the BharatTrip AI project quickly. It includes steps to configure your environment, install dependencies, and start the application.
+#### Module Overview
+
+The `QUICK_START.md` file is a comprehensive guide designed to help new developers quickly set up the BharatTrip AI project on their local machines. It outlines the necessary steps to configure the environment, install dependencies, and start the application. The guide also includes information on testing the setup and troubleshooting common issues.
 
 #### Dependencies
 
-- `npm`: Node Package Manager, used for installing project dependencies.
-- `dotenv`: Loads environment variables from a `.env` file into `process.env`.
+- **Node.js**: Required for running the backend.
+- **npm**: Node package manager used for installing dependencies.
+- **ElevenLabs**: For the voice assistant widget.
 
 #### Setup Environment
 
-Choose your OS to set up the environment:
-
-##### Windows:
-
+### Windows
 ```bash
-##### Double-click setup-env.bat
-##### OR run in terminal:
+# Double-click setup-env.bat
+# OR run in terminal:
 setup-env.bat
 ```
 
-##### Mac/Linux:
-
+### Mac/Linux
 ```bash
 chmod +x setup-env.sh
 ./setup-env.sh
 ```
 
 #### Install Backend
-
-Navigate to the backend directory and install dependencies:
 
 ```bash
 cd backend
@@ -737,1708 +1636,641 @@ cd..
 
 #### Start Everything
 
-Start the application:
-
-##### Windows:
-
+### Windows
 ```bash
-##### Double-click start.bat
-##### OR run:
+# Double-click start.bat
+# OR run:
 start.bat
 ```
 
-##### Mac/Linux:
-
+### Mac/Linux
 ```bash
 chmod +x start.sh
 ./start.sh
 ```
 
-#### That's it! 🎉
-
-- Backend will start at: `http://localhost:3001`
-- Your browser will open with BharatTrip AI
-- Look for the green "Backend Connected" indicator
-
-#### ✅ What's Working Now
-
-- ✨ **AI Chatbot** - Ask travel questions in multiple languages
-- 🗺️ **Interactive Maps** - With your Google Maps API
-- 🌤️ **Live Weather** - Real weather data
-- 🤖 **AI Trip Planning** - Personalized itineraries
-- 📍 **Location Search** - Find any place in India
-
-#### 🧪 Test Your Setup
+#### Test Your Setup
 
 ```bash
 cd backend
 npm test
 ```
 
-This will verify all your APIs are working correctly!
-
-#### 🔒 Security Note
+#### Security Note
 
 Your API keys are stored in `backend/.env`. **NEVER** share this file or commit it to Git!
 
----
-
-#### 🎤 AI Trip Advisor (Voice Assistant)
+#### AI Trip Advisor (Voice Assistant)
 
 The app includes an ElevenLabs voice assistant widget that appears as a floating button.
 
-##### What It Does
+### Configuration
+To customize the voice assistant, follow the guide in [AI_TRIP_ADVISOR_CONFIG.md](AI_TRIP_ADVISOR_CONFIG.md).
 
-- Voice-enabled travel guidance
-- Helps navigate the weather map
-- Recommends nearby attractions and food
-- Answers travel questions about India
+#### Troubleshooting
 
-##### Configuration
+### Backend Offline
+- Check if port 3001 is free.
+- Ensure you ran `npm install` in the backend folder.
 
-To customize the voice assistant, follow the guide in [AI_TRIP_ADVISOR_CONFIG.md](AI_TRIP_ADVISOR_CONFIG.md)
+### No AI Responses
+- Your OpenAI key might need credits.
+- Check the console for error messages.
 
-The agent should be configured as **"BharatTrip Maps AI"** with expertise in:
+### Map Not Loading
+- Refresh the page after the backend connects.
+- Check the browser console for errors.
 
-- Indian tourism and destinations
-- Map navigation and weather layers
-- Travel routes and recommendations
-- Local culture and food
+#### Notes
 
----
-
-#### 🚨 Troubleshooting
-
-**"Backend Offline"?**
-
-- Check if port 3001 is free
-- Make sure you ran `npm install` in backend folder
-
-**No AI Responses?**
-
-- Your OpenAI key might need credits
-- Check console for error messages
-
-**Map Not Loading?**
-
-- Refresh the page after backend connects
-- Check browser console for errors
+- Ensure all commands are run in the terminal with appropriate permissions.
+- Keep the `backend/.env` file secure and do not share it.
 
 ---
 
-**Enjoy exploring India with BharatTrip AI! 🇮🇳**
-
-### `REACT_VERSION_GUIDE.md`
+### `nitinog10-Beta-20-ddc4040/REACT_VERSION_GUIDE.md`
+**Language:** Md
 
 #### Module Overview
 
-This file provides a comprehensive guide to the React-based version of BharatTrip AI, detailing new features, architecture, usage, customization, performance, troubleshooting, security, deployment, and future enhancements.
+This markdown file serves as a comprehensive guide for the new React-based version of BharatTrip AI, detailing the features, improvements, architecture, usage examples, customization options, performance metrics, troubleshooting tips, security notes, and deployment instructions. It is designed to help developers understand and utilize the enhanced capabilities of the React version, including backend integration, AI features, and real-time data handling.
 
 #### Dependencies
 
-- **React**: Core library for building UI components.
+- **React**: Core library for building user interfaces.
 - **Tailwind CSS**: Utility-first CSS framework for styling.
 - **Leaflet**: JavaScript library for interactive maps.
-- **OpenAI API**: For AI-generated content and chatbot.
+- **OpenAI API**: For AI-generated content and chatbot functionality.
 - **Google Maps API**: For geocoding and map display.
 - **OpenWeather API**: For real-time weather data.
 
 #### Classes
 
-| Class | Purpose | Key Methods |
-|-------|---------|-------------|
-| App | Main application component | `render()` |
-| HomePage | Displays the home page | `render()` |
-| ExplorePage | Handles the explore page with map | `render()`, `handleSearch()` |
-| TripPlannerPage | Manages trip planning functionality | `render()`, `generateItinerary()` |
-| ChatPage | Interface for AI chatbot | `render()`, `sendMessage()` |
-| ProfilePage | User profile and settings | `render()` |
+| Class           | Purpose                              | Key Methods               |
+|-----------------|--------------------------------------|---------------------------|
+| App             | Main application component           | render()                  |
+| HomePage        | Home page component                  | render()                  |
+| ExplorePage     | Explore page component with map     | render(), handleSearch()  |
+| TripPlannerPage | Trip planner component               | render(), generateItinerary() |
+| ChatPage        | Chat interface component             | render(), sendMessage()   |
+| ProfilePage     | User profile component               | render()                  |
 
 #### Functions
 
-| Function | Parameters | Returns | Description |
-|----------|------------|---------|-------------|
-| `handleSearch` | `query` | `void` | Searches for a location and updates the map |
-| `generateItinerary` | `destination`, `interests`, `dates` | `void` | Generates a trip itinerary using AI |
-| `sendMessage` | `message` | `void` | Sends a message to the AI chatbot |
+| Function        | Parameters               | Returns | Description                                      |
+|-----------------|--------------------------|---------|--------------------------------------------------|
+| handleSearch    | query: string            | void    | Searches location and updates map                |
+| generateItinerary | destination: string, interests: string[], dates: Date[] | void    | Generates AI-based trip itinerary               |
+| sendMessage     | message: string          | void    | Sends message to AI chatbot                      |
 
 #### Configuration
 
 - **API_BASE**: Base URL for backend API, default is `localhost:3001/api`.
+- **Tailwind Config**: Custom Tailwind CSS configuration for theme colors.
 
 #### Constants
 
-- **WEATHER_LAYERS**: Array of weather layers for the map.
+- **WEATHER_LAYERS**: Array of weather layer options for the explore page.
 
 #### Notes
 
-- Ensure all API keys are securely stored in the backend `.env` file.
-- Frontend makes requests to the backend, which then calls external APIs.
-- CORS is enabled for development; restrict in production.
-- For production, deploy frontend to Vercel/Netlify and backend to Railway/Render.
-- Future enhancements include user authentication, trip saving, real-time collaboration, and a mobile app.
+- Ensure all API keys are securely stored in the backend environment variables.
+- Frontend only communicates with the backend, never directly with external APIs.
+- CORS is enabled for development but should be restricted in production environments.
+- For production deployment, update the `API_BASE` constant to point to your deployed backend URL.
 
-### `README.md`
+---
 
-#### Module Overview
-
-This file serves as the primary documentation for the `nitinog10/Beta-20` project, providing an overview of the project, its features, and instructions for getting started.
-
-#### Dependencies
-
-| Import | Purpose |
-| --- | --- |
-| `React` | Frontend framework for building user interfaces |
-| `Node.js` | Backend runtime environment |
-| `npm` | Node package manager for managing project dependencies |
-
-#### Project Structure
-
-| Directory | Description |
-| --- | --- |
-| `Root Directory` | Contains configuration files, automation scripts, documentation, HTML files, and image assets |
-| `backend/` | Houses backend services, server logic, environment configurations, and API test scripts |
-| `Beach images data/` | Stores images used for showcasing or integrating into trip planning features |
-
-#### Getting Started
-
-##### Prerequisites
-
-- Node.js
-- npm
-
-##### Installation
-
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/nitinog10/Beta-20.git
-   cd Beta-20
-   ```
-2. Install dependencies:
-   ```sh
-   npm install
-   ```
-3. Set up the environment:
-   ```sh
-  ./setup-env.sh
-   ```
-
-##### Running the Project
-
-- Start the React frontend:
-  ```sh
- ./start-react.sh
-  ```
-- Start the Node.js backend:
-  ```sh
-  cd backend
-  node server.js
-  ```
-
-#### Contributing
-
-Contributions are welcome! Please fork the repository and submit a pull request.
-
-#### License
-
-This project is licensed under the MIT License.
-
-#### Notes
-
-- Ensure you have the necessary permissions to execute the setup and start scripts.
-- The `setup-env.sh` script may require administrative privileges depending on your system configuration.
-
-### `RESTART_BACKEND.bat`
-
-This batch file automates the restart process for the BharatTrip AI Backend service. It stops any existing backend processes, starts a fresh server instance, and notifies the user when the backend is ready to use.
-
-#### Dependencies
-
-No external dependencies are required for this script to function.
-
-#### Classes
-
-| Class | Purpose | Key Methods |
-| --- | --- | --- |
-| N/A | N/A | N/A |
-
-#### Functions
-
-| Function | Parameters | Returns | Description |
-| --- | --- | --- | --- |
-| `taskkill` | `/F /IM node.exe /FI "WINDOWTITLE eq npm*"` | N/A | Kills any running node processes with a title containing "npm". |
-| `timeout` | `/t 2 /nobreak` | N/A | Pauses the script for 2 seconds. |
-| `start` | `cmd /k "npm start"` | N/A | Starts a new command prompt and runs `npm start` in the `backend` directory. |
-
-#### Configuration
-
-No configuration is required for this script to function.
-
-#### Notes
-
-- Ensure that the backend directory is present in the same location as this script.
-- This script assumes the backend runs on `http://localhost:3001`.
-- The `pause` command at the end keeps the command window open until the user presses a key, allowing for manual verification of the backend status.
-
-### `SMART_INSIGHTS_GUIDE.md`
-
-#### Module Overview
-
-This file provides a comprehensive guide on how the Smart Insights feature uses AI to analyze various data sources and deliver intelligent travel recommendations.
-
-#### Dependencies
-
-- **OpenWeatherMap API**: Provides real-time weather data.
-- **Google Maps Directions API**: Offers route optimization and transport data.
-- **Historical Data**: Used for crowd density pattern analysis.
-
-#### Classes
-
-| Class | Purpose | Key Methods |
-|-------|---------|-------------|
-| N/A | N/A | N/A |
-
-#### Functions
-
-| Function | Parameters | Returns | Description |
-|----------|------------|---------|-------------|
-| `calculateVisitScore` | `temp`, `humidity`, `rainDays` | `score` | Calculates a visit score based on temperature, humidity, and rain days. |
-
-#### Configuration
-
-- API keys for OpenWeatherMap and Google Maps stored in `.env` file.
-
-#### Constants
-
-- Ideal temperature range: 15-28°C
-- Ideal humidity range: 40-70%
-- Rain penalty: 5 points per rainy day
-
-#### Notes
-
-- Ensure backend is running and API keys are correctly set in `.env`.
-- Destination should be a valid Indian city; consider adding state names for clarity.
-- Low visit scores (<60) indicate unfavorable conditions; consider alternative dates or preparations.
-
-### `TROUBLESHOOTING.md`
-
-#### Module Overview
-
-This file provides a troubleshooting guide for common issues encountered while working with the BharatTrip AI backend. It offers quick fixes, diagnostic steps, and preventive measures to ensure smooth operation.
-
-#### Dependencies
-
-None. This is a markdown file for documentation purposes.
-
-#### Notes
-
-- **Most Common Fix:** Restarting the backend resolves 90% of issues.
-- Keep the backend terminal visible to catch errors immediately.
-- Always restart the backend after making code changes.
-
-#### Error Messages Decoded
-
-| Error                  | Meaning                 | Fix                  |
-|------------------------|-------------------------|----------------------|
-| "Check backend connection" | Can't reach API         | Restart backend      |
-| "404 Not Found"        | Endpoint missing        | Backend has old code |
-| "500 Internal Error"   | Backend crashed         | Check terminal for errors |
-| "Network error"        | Backend offline         | Start backend        |
-| "Invalid API key"      | Wrong credentials       | Check .env file      |
-
-#### Functions
-
-None. This is a markdown file for documentation purposes.
-
-#### Configuration
-
-- Ensure `backend/.env` contains valid API keys.
-- Verify `OPENAI_API_KEY` starts with `sk-`.
-- Check API credits/quota.
-
-#### Constants
-
-None. This is a markdown file for documentation purposes.
-
-### `bharattripai.html`
+### `nitinog10-Beta-20-ddc4040/README.md`
+**Language:** Md
 
 File too large for inline documentation.
 
-### `index.html`
+---
 
-Empty file.
-
-### `setup-env.bat`
-
-**Module Overview**
-
-This batch file sets up the environment for the BharatTrip AI project by creating a `.env` file from `env.config`. It checks if the `.env` file already exists and prompts the user to confirm if they want to overwrite it. If the file is created successfully, it informs the user that their API keys have been configured and provides important security notes.
-
-**Dependencies**
-
-This file does not rely on external libraries or dependencies.
-
-**Functions**
-
-| Function | Parameters | Returns | Description |
-| --- | --- | --- | --- |
-| `echo` | None | None | Prints messages to the console. |
-| `cd` | Directory path | None | Changes the current directory. |
-| `set /p` | Variable, Prompt | User input | Prompts the user for input and stores it in a variable. |
-| `if` | Condition | None | Conditionally executes code blocks. |
-| `copy` | Source, Destination | None | Copies files from source to destination. |
-| `pause` | None | None | Pauses execution and waits for user input. |
-
-**Configuration**
-
-No configuration settings are defined within this file.
-
-**Notes**
-
-- The `.env` file contains sensitive API keys for services like OpenAI, Weather API, and Google Maps.
-- Never share or commit the `.env` file to version control.
-- Keep API keys secret and consider regenerating them after development.
-- If the `.env` file creation fails, manually rename `env.config` to `.env`.
-
-### `setup-env.sh`
-
-This script sets up the environment for the BharatTrip AI project by creating a `.env` file from `env.config` and prompting the user to overwrite it if it already exists.
-
-#### Dependencies
-
-No external dependencies are used in this script.
-
-#### Functions
-
-| Function | Parameters | Returns | Description |
-|----------|------------|---------|-------------|
-| `setup-env` | None | None | Main function to set up the environment. |
-
-#### Configuration
-
-No configuration is required for this script.
-
-#### Notes
-
-- The script checks if the `.env` file already exists and asks for confirmation before overwriting it.
-- If the `.env` file creation fails, the user is instructed to manually rename `env.config` to `.env`.
-- Important security notes are printed to remind users to keep `.env` and API keys secure.
-
-### `start-react.bat`
-
-**Module Overview**
-
-This batch file initiates the BharatTrip AI application, starting both the backend server and the React frontend. It ensures the backend is running before launching the frontend in a browser.
-
-**Dependencies**
-
-- `cmd`: Command-line interpreter for executing backend server commands.
-- `npm`: Node Package Manager for running the backend server.
-
-**Functions**
-
-| Function | Parameters | Returns | Description |
-|----------|------------|---------|-------------|
-| `start`  | URL        | None    | Opens a URL in the default browser. |
-
-**Configuration**
-
-- `backend`: Directory where the backend server is located.
-- `bharattrip-react.html`: The entry point for the React frontend.
-
-**Notes**
-
-- The batch file waits 5 seconds after starting the backend to ensure it has time to initialize.
-- To stop the application, close the backend terminal window.
-- The backend runs on `http://localhost:3001` and the frontend is served via `bharattrip-react.html`.
-
-### `start-react.sh`
-
+### `nitinog10-Beta-20-ddc4040/RESTART_BACKEND.bat`
 #### Module Overview
 
-The `start-react.sh` script initializes and starts the BharatTrip AI application, specifically the React frontend, and ensures the backend server is running. It's designed to streamline the development process by automating the startup sequence and opening the application in the default web browser.
-
-#### Dependencies
-
-- **Bash**: The script is written in Bash, leveraging its scripting capabilities to automate tasks.
-- **Node.js**: Used to start the backend server via `npm start`.
-- **OS Detection**: The script uses the `$OSTYPE` variable to determine the operating system and open the React application in the default browser.
-
-#### Functions
-
-| Function | Parameters | Returns | Description |
-| --- | --- | --- | --- |
-| None | None | None | This script does not define functions but contains a sequence of commands to start the backend server and open the React frontend. |
-
-#### Notes
-
-- The script assumes the backend server code is located in the `backend` directory and the React frontend is accessible via `bharattrip-react.html`.
-- It waits for 5 seconds after starting the backend server to ensure it's up and running before opening the React application.
-- The script uses `xdg-open` on Linux to open the browser, which should be available in most Linux distributions. If not, it falls back to a manual instruction.
-- The script captures the backend server's PID and ensures it's terminated when the script is interrupted (e.g., by pressing Ctrl+C).
-- Ensure the script has execute permissions (`chmod +x start-react.sh`) before running it.
-
-By following these guidelines, you should be able to start the BharatTrip AI application with minimal manual intervention, streamlining your development workflow.
-
-### `temp_planner.txt`
-
-##### `temp_planner.txt` Documentation
-
-#### Module Overview
-
-This file defines the `EnhancedTripPlannerPage` component, which allows users to input travel preferences and generate a personalized itinerary using either an AI planner or a smart planner.
-
-#### Dependencies
-
-- `useState` from `react`: Manages component state.
-- `fetch`: Makes HTTP requests to the backend API.
-
-#### Functions
-
-| Function | Parameters | Returns | Description |
-| --- | --- | --- | --- |
-| `EnhancedTripPlannerPage` | None | JSX | Renders the trip planner page and handles user interactions. |
-| `generateItinerary` | None | Promise | Sends user input to the backend to generate an itinerary. |
-| `toggleInterest` | `interest` (string) | None | Toggles the selected interest in the form data. |
-| `handleViewOnMap` | `location` (object) | None | Stores the selected location in local storage and navigates to the explore page. |
-
-#### Notes
-
-- The `generateItinerary` function validates user input before making the API call.
-- The `activeTab` state determines which planner (AI or smart) is used to generate the itinerary.
-- The component uses Tailwind CSS for styling.
-
-### `test.html`
-
-#### Module Overview
-
-`test.html` is a simple web application showcasing a basic React setup with Tailwind CSS for styling. It includes a navigation bar that allows users to switch between a home page and a trip planner page.
-
-#### Dependencies
-
-| Dependency | Purpose |
-| --- | --- |
-| `react@17` | Core library for building user interfaces. |
-| `react-dom@17` | Provides DOM-specific methods to render React components. |
-| `@babel/standalone` | Allows us to write JSX and ES6+ code directly in HTML. |
-| `tailwindcss` | Utility-first CSS framework for styling. |
-| `font-awesome` | Provides icons for the navigation bar. |
-
-#### Functions
-
-| Function | Parameters | Returns | Description |
-| --- | --- | --- | --- |
-| `App` | None | None | The main component that manages the state and renders the navigation and pages. |
-
-#### Classes
-
-| Class | Purpose | Key Methods |
-| --- | --- | --- |
-| `App` | Main component for the application | `useState`, `setCurrentPage` |
-
-#### Notes
-
-- The application uses React hooks (`useState`) to manage state.
-- The navigation bar dynamically changes styles based on the current page.
-- The `type="text/babel"` attribute in the script tag allows Babel to transpile JSX and ES6+ syntax directly in the HTML file.
-- Ensure the `id="root"` div exists in the HTML body for React to attach the application.
-
-### `trip-planner.html`
-
-##### `trip-planner.html` Documentation
-
-#### Module Overview
-
-This file defines the main interface for the BharatTrip AI Planner, a tool that allows users to generate travel itineraries using AI. It includes the UI components and logic for selecting trip details and displaying the generated itinerary.
-
-#### Dependencies
-
-- **Tailwind CSS**: Provides utility classes for styling.
-- **Font Awesome**: Offers icon components.
-- **React**: Core library for building the UI.
-- **Babel**: Allows the use of modern JavaScript features.
-
-#### Functions
-
-| Function             | Parameters      | Returns         | Description                                                                                       |
-|----------------------|-----------------|-----------------|---------------------------------------------------------------------------------------------------|
-| `TripPlannerPage`    | None            | React Component | Main component that renders the trip planner interface and handles user interactions.            |
-| `toggleInterest`     | `interest`      | None            | Toggles the selection of an interest, updating the `selectedInterests` state.                    |
-| `isFormValid`        | None            | `boolean`       | Checks if the form inputs are valid before generating an itinerary.                              |
-| `generateItinerary`  | None            | None            | Asynchronously generates an itinerary based on user inputs and updates the `itinerary` state.     |
-
-#### Notes
-
-- The `generateItinerary` function currently uses hardcoded data for demonstration purposes. In a real-world scenario, this would involve an API call to an AI service.
-- The form validation in `isFormValid` ensures that essential fields are filled out before generating an itinerary.
-- The UI is designed to be responsive, utilizing Tailwind CSS classes for layout and styling.
-
-### `backend/README.md`
-
-##### BharatTrip AI Backend Setup Guide
-
-#### Module Overview
-
-This `README.md` file provides a comprehensive guide for setting up and running the BharatTrip AI backend. It covers dependency installation, environment configuration, API endpoint details, testing instructions, troubleshooting tips, and deployment methods.
-
-#### Dependencies
-
-- `npm`: Package manager for Node.js
-- `dotenv`: Loads environment variables from `.env` file
-- `express`: Web framework for Node.js
-- `axios`: Promise-based HTTP client for making API requests
-- `openai`: Official SDK for interacting with OpenAI APIs
-- `openweathermap`: SDK for accessing OpenWeatherMap APIs
-- `@googlemaps/node-js-client`: Client library for Google Maps APIs
-
-#### Configuration
-
-- `.env`: Contains API keys and environment-specific configurations
-
-#### API Endpoints
-
-| Endpoint | Method | Description |
-| --- | --- | --- |
-| `/api/health` | GET | Check if backend is running |
-| `/api/chatbot` | POST | Interact with AI chatbot |
-| `/api/weather/:location` | GET | Get weather for a location |
-| `/api/weather/:location?lat=x&lon=y` | GET | Get weather by coordinates |
-| `/api/places/search` | POST | Search for places |
-| `/api/places/nearby` | POST | Find nearby places |
-| `/api/geocode/:address` | GET | Convert address to coordinates |
-| `/api/trip/plan` | POST | Plan a trip |
-| `/api/landmark/recognize` | POST | Recognize landmarks from images |
-| `/api/recommendations/analyze` | POST | Get AI-powered travel recommendations |
-| `/api/crowd/density` | POST | Get real-time crowd density |
-| `/api/transport/routes` | POST | Get public transport routes |
-| `/api/climate/trends/:destination?months=x` | GET | Get climate trends analysis |
-
-#### Testing the Backend
-
-- Use `cURL` or the provided frontend (`bharattrip-integrated.html`) to test API endpoints.
-
-#### Troubleshooting
-
-- Check for common issues like port conflicts, missing dependencies, invalid API keys, and CORS settings.
-
-#### Production Deployment
-
-- Use `PM2` or `Docker` for deploying the backend in production.
-- Set `NODE_ENV=production` and configure secure API keys and CORS origins.
-
-#### API Rate Limits
-
-- Be mindful of rate limits for external APIs like OpenAI, OpenWeatherMap, and Google Maps.
-
-#### Support
-
-- For issues, check console logs, verify API keys, ensure required Google APIs are enabled, and check network connectivity.
-
-### `backend/env.example`
-
-##### Module Overview
-
-The `backend/env.example` file contains environment variable configurations for the BharatTrip AI backend. It serves as a template for developers to set up their local development environment by copying it to `.env` and filling in the necessary API keys and server configurations.
-
-#### Dependencies
-
-No direct imports are listed in this file, but it relies on environment variables to be set for the backend to function correctly.
-
-#### Configuration
-
-| Configuration | Purpose | Description |
-|--------------|---------|-------------|
-| `PORT`       | Server  | Port number for the backend server. |
-| `OPENAI_API_KEY` | API | API key for accessing the OpenAI services. |
-| `WEATHER_API_KEY` | API | API key for accessing the OpenWeatherMap services. |
-| `GOOGLE_MAPS_API_KEY` | API | API key for accessing the Google Maps services. |
-
-#### Notes
-
-- Developers must copy this file to `.env` and replace placeholder values with actual API keys from respective service providers.
-- Ensure the necessary APIs are enabled in the Google Cloud Console for the `GOOGLE_MAPS_API_KEY`.
-
-### `backend/generate-alternatives.js`
-
-##### Module Overview
-
-The `backend/generate-alternatives.js` file is designed to generate alternative activities for a given day in an itinerary, using an AI model to suggest options based on the current plan, destination, and user preferences.
-
-##### Dependencies
-
-| Import | Purpose |
-| --- | --- |
-| `openai` | Provides access to the AI model for generating alternative activities. |
-| `parseResponse`, `generateFallbackAlternatives` | Utility functions for handling the AI model's response and generating fallback alternatives. |
-
-##### Functions
-
-| Function | Parameters | Returns | Description |
-| --- | --- | --- | --- |
-| `generateAlternatives` | `currentDay`, `currentActivities`, `destination`, `preferences` | `{ success: boolean, error: string, alternatives: array }` | Fetches alternative activities from the AI model and returns them, or fallback alternatives if an error occurs. |
-
-##### Notes
-
-- The function `generateAlternatives` relies on the `openai` module to interact with the AI model. Ensure the `openai-config.js` file is correctly configured with the necessary API keys and settings.
-- The `parseResponse` function expects a JSON string from the AI model and validates its structure. If the response is invalid, an error is thrown.
-- In case of an error while generating alternatives, the function returns a set of fallback alternatives defined in `generateFallbackAlternatives`.
-- Always handle the `error` property in the returned object to manage any issues during the alternative generation process.
-
-### `backend/package.json`
-
-##### Backend `package.json`
-
-#### Module Overview
-
-This file defines the dependencies and scripts for the `bharattrip-ai-backend` project. It ensures that the backend server runs smoothly with necessary libraries and tools for development and testing.
-
-#### Dependencies
-
-| Package | Purpose |
-| --- | --- |
-| `express` | Provides a robust set of features for web and app servers. |
-| `cors` | Enables cross-origin resource sharing. |
-| `dotenv` | Loads environment variables from a `.env` file. |
-| `axios` | Promise-based HTTP client for making API requests. |
-| `openai` | Interface for interacting with the OpenAPI service. |
-| `multer` | Middleware for handling multipart/form-data, used mainly for uploading files. |
-| `nodemon` | Development tool that watches for file changes and restarts the server. |
-
-#### Scripts
-
-| Script | Purpose |
-| --- | --- |
-| `start` | Starts the server using `node server.js`. |
-| `dev` | Starts the server in development mode with `nodemon`. |
-| `test` | Runs the API tests using `node test-apis.js`. |
-| `test:api` | Runs the API tests using `node test-apis.js`. |
-
-#### Notes
-
-- Ensure that all environment variables are set in the `.env` file before running the server.
-- The `nodemon` script is only available in development mode. Use `start` for production.
-- The `test` and `test:api` scripts are aliases and perform the same function.
-
-### `backend/server.js`
-
-##### backend/server.js Documentation
-
-#### Module Overview
-
-This file sets up and configures the backend server for BharatTrip AI. It handles API endpoints for reviews, tourist guides, chatbot, weather, places, and geocoding.
-
-#### Dependencies
-
-- `express`: Web framework for handling HTTP requests.
-- `cors`: Middleware to enable Cross-Origin Resource Sharing.
-- `axios`: Promise-based HTTP client for making API requests.
-- `dotenv`: Loads environment variables from a `.env` file.
-- `path`: Provides utilities for working with file and directory paths.
-- `multer`: Middleware for handling `multipart/form-data`, primarily used for uploading files.
-- `openai`: SDK for interacting with the OpenAI API.
-- `fs`: Node.js file system module.
-- `util`: Provides utility functions.
-
-#### Functions
-
-| Function        | Parameters                  | Returns                    | Description                                                                                       |
-|-----------------|-----------------------------|----------------------------|---------------------------------------------------------------------------------------------------|
-| `getReviews`    | None                        | Promise resolving to array | Reads and returns the reviews from the JSON file.                                                 |
-| `saveReviews`   | `reviews` (array)           | Promise                    | Saves the reviews to the JSON file.                                                               |
-| `readFileAsync` | `filename` (string), `encoding` (string) | Promise resolving to data  | Promisified version of `fs.readFile`.                                                             |
-| `writeFileAsync`| `filename` (string), `data` (string), `encoding` (string) | Promise                    | Promisified version of `fs.writeFile`.                                                            |
-
-#### Configuration
-
-- `PORT`: Server port, defaults to 3001 if not set in environment variables.
-- `WEATHER_API_KEY`: API key for OpenWeatherMap.
-- `GOOGLE_MAPS_API_KEY`: API key for Google Maps.
-- `OPENAI_API_KEY`: API key for OpenAI.
-
-#### Constants
-
-- `touristGuides`: Object containing predefined tourist guides for specific locations.
-- `defaultGuides`: Array of default tourist guides to be used if no specific guides are found.
-
-#### Notes
-
-- Ensure environment variables are correctly set for API keys.
-- File uploads are stored in `../uploads/reviews` directory.
-- Geocoding fallback to Nominatim if Google Geocoding API returns no results.
-
-### `backend/test-apis.js`
-
-#### Module Overview
-
-This file contains a script to test various API endpoints of the BharatTrip AI service. It ensures that all core, AI, and smart insights features are functioning correctly by sending requests and logging the responses.
-
-#### Dependencies
-
-| Import | Purpose |
-|--------|---------|
-| `axios` | HTTP client for making API requests. |
-| `dotenv` | Loads environment variables from a `.env` file. |
-| `checkServerHealth` | Utility function to check if the server is up before running tests. |
-
-#### Functions
-
-| Function | Parameters | Returns | Description |
-|----------|------------|---------|-------------|
-| `testAPIs` | None | None | Executes a series of tests for different API endpoints and logs the results. |
-
-#### Configuration
-
-- `API_BASE_URL`: The base URL for the BharatTrip AI APIs.
-- `colors`: An object containing ANSI color codes for console output.
-
-#### Notes
-
-- Ensure the `.env` file is properly configured with all necessary API keys.
-- Verify that required Google APIs are enabled in the Google Cloud Console.
-- Check for sufficient API credits/quota for each service being tested.
-- The script will log specific troubleshooting tips if a test fails.
-
-### `nitinog10-Beta-20-fe6032d/AI_TRIP_ADVISOR_CONFIG.md`
-
-#### Module Overview
-
-This file provides configuration details for the BharatTrip Maps AI voice assistant, a conversational AI integrated into the BharatTrip AI travel planning application. It guides users on setting up the assistant on the ElevenLabs dashboard, customizing its behavior, and integrating it with app features for an enhanced user experience.
-
-#### Dependencies
-
-- **ElevenLabs Conversational AI**: The platform hosting the voice assistant.
-- **BharatTrip AI Application**: The travel planning app where the assistant is embedded.
-
-#### Configuration
-
-##### Agent Details
-- **Name**: BharatTrip Maps AI
-- **Agent ID**: `agent_1101k8xp04j6ebesx1jnqhm7djwb`
-- **Type**: Conversational AI with voice capabilities
-- **Language Support**: English, Hindi, and other Indian languages
-
-##### System Prompt / Agent Instructions
-Provides detailed instructions to be copied into the ElevenLabs agent configuration, defining the assistant's role, interaction style, constraints, and example responses.
-
-##### Configuration Steps
-Steps to access the ElevenLabs dashboard, update agent settings, and optionally integrate a knowledge base.
-
-##### Widget Appearance
-Specifies the position, visual style, and animation of the AI widget within the BharatTrip AI application.
-
-##### User Experience Flow
-Describes user scenarios for interacting with the AI, including exploring the map, planning a trip, and seeking food recommendations.
-
-##### Integration with App Features
-Details how the AI syncs with the map, trip planner, and chat features for a cohesive user experience.
-
-##### Sample Conversation Scripts
-Provides example dialogues between users and the AI for map guidance, destination recommendations, and weather assistance.
-
-##### Success Metrics
-Outlines metrics to track the effectiveness of the AI, including usage, feature adoption, and quality metrics.
-
-##### Continuous Improvement
-Guidelines for regular updates and integrating user feedback to enhance the AI's performance.
-
-##### Troubleshooting
-Common issues and solutions for problems like the widget not appearing, voice not working, and the AI not understanding queries.
-
-##### Additional Resources
-Links to ElevenLabs documentation, conversational AI best practices, Indian tourism guidelines, and Google Maps API documentation.
-
-#### Notes
-
-- Ensure the agent ID is correctly entered in the ElevenLabs dashboard.
-- Regularly review and update the system prompt to align with app updates and user feedback.
-- Monitor success metrics to identify areas for improvement.
-- Keep user privacy and data security in mind when configuring and updating the AI.
-
-### `nitinog10-Beta-20-fe6032d/APPLY_FIXES.bat`
-
-##### nitin0g10-Beta-20-fe6032d/APPLY_FIXES.bat
-
-#### Module Overview
-
-This batch script automates the process of applying fixes to the BharatTrip AI application. It stops any running backend processes, starts the updated backend, waits for it to initialize, and then opens the fixed application in a browser.
+This batch script, `RESTART_BACKEND.bat`, automates the restart of the BharatTrip AI backend service. It first stops any existing backend processes running under the `node.exe` process with an `npm` title, waits for a few seconds, then starts a fresh backend server instance. The script navigates to the backend directory, initiates the server using `npm start`, and finally outputs the URL where the backend service is running.
 
 #### Dependencies
 
 - **taskkill**: Used to forcefully terminate processes.
-- **timeout**: Used to add delays between steps.
+- **timeout**: Pauses the script execution for a specified time.
 - **cd**: Changes the current directory.
-- **start**: Launches a new command prompt window or a program.
+- **start**: Starts a new command prompt window and runs a command in that window.
 
 #### Functions
 
 | Function | Parameters | Returns | Description |
 | --- | --- | --- | --- |
-| `taskkill /F /IM node.exe` | None | None | Forcefully terminates all `node.exe` processes. |
-| `start /MIN cmd /k "echo Starting BharatTrip AI Backend... && npm start"` | None | None | Opens a new command prompt in minimized mode to start the backend. |
-| `start "" "bharattrip-react.html"` | None | None | Opens the fixed application in the default web browser. |
+| `taskkill` | `/F /IM node.exe /FI "WINDOWTITLE eq npm*"` | None | Kills any running backend processes. |
+| `timeout` | `/t 2 /nobreak` | None | Pauses the script for 2 seconds. |
+| `cd` | `backend` | None | Changes the current directory to the backend folder. |
+| `start` | `cmd /k "npm start"` | None | Starts the backend server in a new command prompt window. |
+| `pause` | None | None | Pauses the script and waits for user input before closing. |
 
 #### Notes
 
-- Ensure that the `bharattrip-react.html` file is in the same directory as this script.
-- The script assumes that the backend is located in a `backend` subdirectory.
-- The script runs in a Windows environment and uses batch commands.
-- The `timeout` commands add a delay to ensure that the backend has enough time to start and initialize.
-- The script uses `echo` to provide visual feedback on the progress of the fixes being applied.
-- After the browser opens, wait 5 seconds before pressing F5 to refresh and test the fixes.
-
-### `nitinog10-Beta-20-fe6032d/CHECK_BACKEND.bat`
-
-##### Module Overview
-
-This file, `nitinog10-Beta-20-fe6032d/CHECK_BACKEND.bat`, is a batch script designed to verify the operational status of the BharatTrip AI Backend service. It performs health checks on the backend's main endpoint and tests a specific endpoint to ensure it's functioning correctly.
-
-##### Dependencies
-
-This script does not rely on external libraries or imports. It uses built-in `curl` commands to make HTTP requests.
-
-##### Functions
-
-| Function | Parameters | Returns | Description |
-| --- | --- | --- | --- |
-| `curl` | URL, HTTP method, headers, data | HTTP response | Makes HTTP requests to backend endpoints |
-
-##### Configuration
-
-No configurable parameters are present in this script. It operates on fixed endpoints and data.
-
-##### Notes
-
-- The script checks the health endpoint at `http://localhost:3001/api/health`.
-- If the backend is not running, it will return an error when testing the endpoint at `http://localhost:3001/api/cultural/insights`.
-- In case of an error, the script provides a solution to restart the backend using `RESTART_BACKEND.bat`.
-- The `pause` command at the end keeps the command window open until the user presses a key, allowing for manual inspection of the output.
-
-### `nitinog10-Beta-20-fe6032d/CLEANUP_COMPLETE.md`
-
-##### Module Overview
-This file documents the final cleanup and organization of the BharatTrip AI project, detailing removed files, current structure, and essential documentation.
-
-#### Dependencies
-
-None. This is a markdown file providing project overview and cleanup summary.
-
-#### Configuration
-
-None. This file does not contain any configuration settings.
-
-#### Notes
-
-- The project is now production-ready and well-documented.
-- All unnecessary files have been removed, leaving only essential components.
-- The backend and frontend are fully integrated and tested.
-- Deployment instructions and checklists are provided for easy setup.
-- Comprehensive documentation ensures all team members can quickly get up to speed.
-
-### `nitinog10-Beta-20-fe6032d/FEATURES_SHOWCASE.md`
-
-##### Module Overview
-This file showcases the complete features of BharatTrip AI, the intelligent travel platform for India. It highlights the unique selling points, technical innovations, and user benefits of the platform.
-
-#### Dependencies
-
-- **OpenWeatherMap API**: Provides real-time weather data.
-- **Google Maps API**: Offers location search, geocoding, and route optimization.
-- **OpenAI GPT-3.5**: Powers the text-based AI chat for trip planning.
-- **ElevenLabs**: Enables the voice AI trip advisor.
-- **Leaflet**: Used for rendering the interactive weather map.
-
-#### Classes
-
-No classes are defined in this markdown file.
-
-#### Functions
-
-No functions are defined in this markdown file.
-
-#### Configuration
-
-No configuration settings are specified in this markdown file.
-
-#### Constants
-
-No constants are defined in this markdown file.
-
-#### Notes
-
-- The file is primarily a showcase document, not a technical implementation.
-- It highlights the competitive advantages and unique features of BharatTrip AI.
-- The technical innovation section provides a high-level overview of the AI architecture and algorithms used.
-- The impact metrics section demonstrates the benefits users can expect from using the platform.
-
-### `nitinog10-Beta-20-fe6032d/FINAL_SUMMARY.md`
-
-##### Module Overview
-This file provides a comprehensive summary of the BharatTrip AI project after cleanup, detailing the changes made, current project structure, removed files, and key features. It serves as a guide for understanding the project's current state, how to run it, and what to showcase in a hackathon.
-
-#### Dependencies
-
-- None. This is a markdown file intended for documentation purposes only.
-
-#### Configuration
-
-- **Project Structure**: Clearly outlines the organization of the project post-cleanup.
-- **Start Scripts**: Provides scripts for starting the project on different operating systems.
-- **Environment Configuration**: Points to the `env.config` file within the backend folder for API keys.
-
-#### Notes
-
-- **Security**: Emphasizes the secure handling of API keys and the configuration of CORS.
-- **Deployment**: Offers guidance on deploying both the frontend and backend, highlighting free and paid options.
-- **Success Metrics**: Quantifies the improvements made through the cleanup process.
-- **Next Steps**: Simplifies the process for running the project post-cleanup.
-
-### `nitinog10-Beta-20-fe6032d/FIX_NOW.bat`
-
-##### Module Overview
-
-This batch file `FIX_NOW.bat` automates the process of fixing the BharatTrip AI system by stopping the old backend, starting a fresh backend, and opening the application in a browser. It ensures the system is reset and ready for use.
-
-#### Dependencies
-
-No explicit dependencies are listed in this file, but it relies on the following to be present in the environment:
-- `node.exe` for running the backend.
-- `npm` for managing the backend dependencies.
-- A web browser to open `bharattrip-react.html`.
-
-#### Functions
-
-| Function | Parameters | Returns | Description |
-|----------|------------|---------|-------------|
-| `taskkill` | `/F /IM node.exe /FI "WINDOWTITLE eq npm*"` | None | Kills the old backend process. |
-| `timeout` | `/t 2 /nobreak` | None | Pauses execution for 2 seconds. |
-| `start` | `/MIN cmd /c "npm start"` | None | Starts the backend in a minimized command window. |
-| `timeout` | `/t 8 /nobreak` | None | Pauses execution for 8 seconds to allow backend initialization. |
-| `start` | `"bharattrip-react.html"` | None | Opens the application in the default web browser. |
-
-#### Notes
-
-- The script assumes the backend runs on `http://localhost:3001`.
-- It waits for the user to confirm the backend is running and the application is ready before pausing.
-- Ensure the backend directory exists and contains the necessary `package.json` and `node_modules`.
-- The script does not handle errors or exceptions; it assumes the environment is correctly set up.
-
-### `nitinog10-Beta-20-fe6032d/NEW_FEATURES.md`
-
-##### Module Overview
-This file documents the new features added to BharatTrip AI: Cultural Insights and Smart Multi-City Planner. It outlines what each feature does, how to use them, example outputs, and technical implementation details.
-
-#### Dependencies
-
-- **OpenAI GPT-3.5**: For generating cultural insights.
-- **React**: Frontend framework for building UI components.
-- **Axios**: For making API requests.
-- **Styled-components**: For theming and styling UI elements.
-
-#### Classes
-
-None
-
-#### Functions
-
-None
-
-#### Configuration
-
-None
-
-#### Constants
-
-None
-
-#### Notes
-
-- **Cultural Insights** uses AI to generate comprehensive cultural information for Indian destinations. It supports multiple languages and provides detailed insights on festivals, customs, etiquette, language, food, and tips.
-- **Smart Multi-City Planner** allows users to plan trips across multiple Indian cities with AI-optimized routes, budget splitting, and eco-scores. It supports unlimited destinations and provides detailed cost estimates and eco-friendly recommendations.
-- Both features are fully responsive and match the existing theme of BharatTrip AI.
-- The navigation has been updated to include the new features, maintaining consistent design elements across all pages.
-
-### `nitinog10-Beta-20-fe6032d/PERSONALIZED_TRIP_PLANNER_INTEGRATION.md`
-
-##### Module Overview
-
-This document outlines the integration of the personalized AI trip planner into the BharatTrip AI application. The integration replaces the previous basic trip planner with enhanced AI features and improved user experience.
-
-#### Dependencies
-
-| Import | Purpose |
-| --- | --- |
-| `OpenAI` | Provides AI capabilities for itinerary generation and activity suggestions. |
-| `Axios` | Handles HTTP requests to the backend API. |
-| `React` | Framework used for building the frontend components. |
-
-#### Classes
-
-| Class | Purpose | Key Methods |
-| --- | --- | --- |
-| `TripPlannerPage` | Main component for the trip planner interface. | `handleInputChange`, `generateItinerary`, `getAlternatives` |
-
-#### Functions
-
-| Function | Parameters | Returns | Description |
-| --- | --- | --- | --- |
-| `generateItinerary` | `destination`, `interests`, `dates`, `budget`, `travelMode` | `itinerary` | Calls the backend API to generate a structured itinerary. |
-| `getAlternatives` | `activityId` | `alternatives` | Fetches alternative activities for a given activity ID. |
-
-#### Configuration
-
-| Key | Description |
-| --- | --- |
-| `API_ENDPOINT` | Base URL for the backend API. |
-| `OPENAI_API_KEY` | API key for accessing the OpenAI service. |
-
-#### Notes
-
-- Ensure the backend API is running before testing the frontend.
-- The system gracefully falls back to the original planner if the new endpoints are unavailable.
-- The new endpoints `/api/generate-itinerary` and `/api/get-alternatives` should be tested thoroughly for reliability and performance.
-
-### `nitinog10-Beta-20-fe6032d/QUICK_START.md`
-
-##### Module Overview
-
-This document provides a quick start guide for setting up and running the BharatTrip AI project. It outlines the necessary steps to configure the environment, install dependencies, and run the application. It also includes information on the features available, security considerations, and troubleshooting tips.
-
-#### Dependencies
-
-- **Node.js**: Required to run the backend.
-- **npm**: Node package manager used to install dependencies.
-- **ElevenLabs**: Voice assistant widget for the AI Trip Advisor.
-
-#### Classes
-
-| Class | Purpose | Key Methods |
-|-------|---------|-------------|
-| N/A | N/A | N/A |
-
-#### Functions
-
-| Function | Parameters | Returns | Description |
-|----------|------------|---------|-------------|
-| N/A | N/A | N/A | N/A |
-
-#### Configuration
-
-- **Environment Variables**: API keys and configuration settings are stored in `backend/.env`.
-
-#### Constants
-
-- **Port**: The backend runs on `http://localhost:3001`.
-
-#### Notes
-
-- **Security**: Never share or commit the `.env` file containing API keys.
-- **Troubleshooting**: Refer to the troubleshooting section for common issues and solutions.
-- **Voice Assistant**: The AI Trip Advisor is configured as "BharatTrip Maps AI" with expertise in Indian tourism, map navigation, and travel recommendations.
+- Ensure that the backend directory is correctly referenced.
+- The script waits for 2 seconds after killing processes to ensure they are fully terminated before starting a new instance.
+- The backend service runs on `http://localhost:3001`. Refresh your browser to connect after restarting.
+- This script should be run with administrative privileges to ensure all processes can be terminated and new ones started.
 
 ---
 
-Enjoy exploring India with BharatTrip AI! 🇮🇳
-
-### `nitinog10-Beta-20-fe6032d/REACT_VERSION_GUIDE.md`
-
-##### Module Overview
-
-This file provides a comprehensive guide for the React version of BharatTrip AI, detailing new features, architecture, usage, customization, performance, troubleshooting, security, deployment, and future enhancements.
-
-#### Dependencies
-
-- **React**: Core library for building UI components.
-- **Tailwind CSS**: Utility-first CSS framework for styling.
-- **Leaflet**: JavaScript library for interactive maps.
-- **OpenAI API**: For AI-driven features like chatbot and trip planning.
-- **Google Maps API**: For geocoding and map display.
-- **OpenWeather API**: For real-time weather data.
-
-#### Classes
-
-| Class         | Purpose                        | Key Methods            |
-|---------------|--------------------------------|------------------------|
-| App           | Main application component     | render()               |
-| HomePage      | Home page component            | render()               |
-| ExplorePage   | Explore page component         | render(), searchLocation() |
-| TripPlannerPage | Trip planner component        | render(), generateItinerary() |
-| ChatPage      | Chat interface component       | render(), sendMessage() |
-| ProfilePage   | User profile component         | render()               |
-
-#### Functions
-
-| Function          | Parameters               | Returns     | Description                                        |
-|-------------------|--------------------------|-------------|----------------------------------------------------|
-| searchLocation    | location: string          | void        | Geocodes and centers map on the provided location  |
-| generateItinerary | destination: string, interests: string[], dates: DateRange | void        | Generates AI-driven trip itinerary                |
-| sendMessage       | message: string           | void        | Sends user message to AI chatbot                   |
-
-#### Configuration
-
-- **API_BASE**: Base URL for backend API, default is `localhost:3001/api`.
-
-#### Constants
-
-- **WEATHER_LAYERS**: Array of weather layers available on the map.
-
-#### Notes
-
-- Ensure backend is running before using frontend features.
-- All API keys are stored server-side in the `.env` file.
-- CORS is enabled for development; restrict in production.
-- Frontend only communicates with the backend, never directly with external APIs.
-
-### `nitinog10-Beta-20-fe6032d/README.md`
+### `nitinog10-Beta-20-ddc4040/SMART_INSIGHTS_GUIDE.md`
+**Language:** Md
 
 #### Module Overview
 
-This README file provides an overview of the `nitinog10-Beta-20-fe6032d` module, detailing its purpose, dependencies, and usage instructions for the AI-driven travel advisory system.
-
-#### Dependencies
-
-| Import | Purpose |
-| --- | --- |
-| `express` | Web framework for Node.js |
-| `mongoose` | ODM for MongoDB |
-| `dotenv` | Loads environment variables from a `.env` file |
-| `axios` | Promise-based HTTP client for making requests |
-
-#### Classes
-
-| Class | Purpose | Key Methods |
-| --- | --- | --- |
-| `TravelAdvisor` | Manages trip recommendations and cultural insights | `getRecommendations()`, `getCulturalInsights()` |
-| `EnvironmentSetup` | Handles environment setup and configuration | `initialize()`, `validate()` |
-
-#### Functions
-
-| Function | Parameters | Returns | Description |
-| --- | --- | --- | --- |
-| `startServer` | `port` | `void` | Starts the Node.js server |
-| `fetchData` | `url` | `Promise<data>` | Fetches data from a given URL |
-| `logError` | `message` | `void` | Logs an error message |
-
-#### Configuration
-
-- `.env`: Environment variables file for sensitive data.
-- `config.json`: Configuration settings for the application.
-
-#### Notes
-
-- Ensure the `.env` file is properly configured before running the server.
-- The `setup-env.sh` script must be executed to set up the environment correctly.
-- Always validate the environment configuration before starting the server.
-
-### `nitinog10-Beta-20-fe6032d/RESTART_BACKEND.bat`
-
-##### Module Overview
-
-This batch file, `RESTART_BACKEND.bat`, is designed to restart the backend server for the BharatTrip AI application. It stops any existing backend processes and then starts a fresh instance of the backend server.
-
-##### Dependencies
-
-- **taskkill**: Used to forcefully terminate running processes.
-- **timeout**: Introduces a delay in the script execution.
-- **cd**: Changes the current directory.
-- **start**: Launches a new command prompt window and runs a command in that window.
-
-##### Functions
-
-| Function | Parameters | Returns | Description |
-| --- | --- | --- | --- |
-| `taskkill` | `/F /IM node.exe /FI "WINDOWTITLE eq npm*"` | None | Kills any running node processes with a title containing "npm". |
-| `timeout` | `/t 2 /nobreak` | None | Pauses the script for 2 seconds. |
-| `cd` | `backend` | None | Changes the current directory to the `backend` folder. |
-| `start` | `cmd /k "npm start"` | None | Starts a new command prompt and runs `npm start` to start the backend server. |
-
-##### Configuration
-
-- **Backend URL**: `http://localhost:3001`
-
-##### Notes
-
-- Ensure that the backend directory is present in the root of the project.
-- The script assumes that the backend server runs on port `3001`. Adjust the URL in the script if this changes.
-- The `pause` command at the end keeps the command window open until the user presses a key, allowing for manual inspection of the backend output.
-
-### `nitinog10-Beta-20-fe6032d/SMART_INSIGHTS_GUIDE.md`
-
-##### 🧠 Smart Travel Insights - AI-Powered Analysis Guide
-
-#### Module Overview
-
-This file provides a comprehensive guide for the Smart Insights feature, which uses AI to analyze multiple data sources and deliver intelligent recommendations for the best time to visit destinations, optimal routes, and crowd avoidance strategies.
+This markdown file serves as a comprehensive guide for leveraging the Smart Insights feature, which utilizes AI to analyze various data sources and deliver intelligent recommendations for the best travel times, routes, and strategies to avoid crowds. It covers the analysis of weather and climate trends, crowd density patterns, public transport intelligence, and the calculation of a visit score. The guide also includes practical steps for users to generate and interpret insights, along with troubleshooting tips and future enhancements.
 
 #### Dependencies
 
 - **OpenWeatherMap API**: Provides real-time weather data.
 - **Google Maps Directions API**: Offers route optimization and transport data.
-- **AI-powered pattern analysis**: Analyzes crowd density and seasonal trends.
+- **Historical Data**: Used for AI-powered crowd predictions and trend analysis.
 
 #### Classes
 
 | Class | Purpose | Key Methods |
 |-------|---------|-------------|
-| N/A | N/A | N/A |
+| N/A | This guide does not define classes. | N/A |
 
 #### Functions
 
 | Function | Parameters | Returns | Description |
-|----------|------------|---------|-------------|
-| `calculateVisitScore` | `temp`, `humidity`, `rainDays` | `score` | Calculates a visit score based on temperature, humidity, and rain days. |
+|-----------|------------|---------|-------------|
+| calculateVisitScore | temp, humidity, rainDays | score | Calculates a visit score based on temperature, humidity, and rainy days. |
 
 #### Configuration
 
-- **API Endpoints**:
-  - `/api/recommendations/analyze`
-  - `/api/crowd/density`
-  - `/api/transport/routes`
-  - `/api/climate/trends/:destination?months=6`
+- **API Keys**: Required for accessing OpenWeatherMap and Google Maps APIs. Stored in `.env` file.
+- **Endpoints**: Specific URLs for accessing weather, crowd, transport, and climate data.
 
 #### Constants
 
-- **Visit Score Interpretation**:
-  - `80-100`: Excellent
-  - `60-79`: Good
-  - `40-59`: Fair
-  - `0-39`: Poor
-
-- **Weather Comfort Levels**:
-  - `Pleasant (15-25°C)`
-  - `Warm (25-35°C)`
-  - `Hot (>35°C)`
-
-- **Crowd Levels**:
-  - `Low (0-30%)`
-  - `Medium (30-60%)`
-  - `High (60-100%)`
+- **Ideal Temperature Range**: 15-28°C for optimal travel conditions.
+- **Ideal Humidity Range**: 40-70% for comfort.
+- **Rain Penalty**: 5 points deducted per rainy day in the visit score calculation.
 
 #### Notes
 
-- Ensure valid Indian city names are used for destination input.
-- Check API keys in `.env` if insights are not generating.
-- Consider different dates or prepare accordingly if the visit score is below 60.
+- Ensure API keys are correctly configured in the `.env` file for the feature to work.
+- The visit score is a comprehensive metric that considers multiple factors, including weather, crowd levels, and transport accessibility.
+- The AI analysis is based on historical data and real-time inputs, providing dynamic and context-aware recommendations.
 
-### `nitinog10-Beta-20-fe6032d/TROUBLESHOOTING.md`
+---
 
-##### Module Overview
-This file provides a troubleshooting guide for common issues encountered while working with the Nitinog10-Beta-20-fe6032d project. It outlines steps to diagnose and resolve problems related to the backend, API endpoints, and feature functionality.
+### `nitinog10-Beta-20-ddc4040/TROUBLESHOOTING.md`
+**Language:** Md
+
+#### Module Overview
+
+This troubleshooting guide provides solutions for common issues encountered with the Nitinog10-Beta-20-ddc4040 backend. It covers specific error messages, quick fixes, common problems, testing checklists, diagnostics, and preventive measures to ensure smooth operation of the backend services.
 
 #### Dependencies
 
-None. This is a markdown file intended for human readers, not a code module.
+- **Batch files**: `RESTART_BACKEND.bat`, `start-react.bat`, `CHECK_BACKEND.bat` for automating common tasks.
+- **Environment variables**: Located in `backend/.env` for API keys and configuration settings.
 
 #### Notes
 
-- **Most Common Fix:** Restarting the backend resolves 90% of issues.
-- **Keep Backend Terminal Visible:** This allows you to see errors immediately and take action.
-- **Always Restart After Code Changes:** Follow the prevention steps outlined in the document to avoid common pitfalls.
+- **Most Common Fix**: Restarting the backend resolves 90% of issues.
+- Ensure the backend terminal is kept visible to monitor errors in real-time.
+- Always restart the backend after making code changes.
 
-### `nitinog10-Beta-20-fe6032d/bharattripai.html`
+---
+
+### `nitinog10-Beta-20-ddc4040/bharattripai.html`
+**Language:** Html
 
 File too large for inline documentation.
 
-### `nitinog10-Beta-20-fe6032d/index.html`
+---
+
+### `nitinog10-Beta-20-ddc4040/index.html`
+**Language:** Html
 
 Empty file.
 
-### `nitinog10-Beta-20-fe6032d/setup-env.bat`
+---
 
-##### Module Overview
+### `nitinog10-Beta-20-ddc4040/setup-env.bat`
+#### Module Overview
 
-This batch file, `nitinog10-Beta-20-fe6032d/setup-env.bat`, automates the setup of the development environment for the BharatTrip AI project. It creates a `.env` file from `env.config`, ensuring all necessary API keys are configured for local development.
+This batch script, `setup-env.bat`, is designed to streamline the setup process for the BharatTrip AI project's development environment. It checks for the existence of an existing `.env` file and, if not present, copies configuration settings from `env.config` to create a new `.env` file. This file contains essential API keys for services like OpenAI, Weather, and Google Maps. The script also includes prompts to ensure the user understands the importance of securing these API keys.
 
-##### Dependencies
+#### Dependencies
 
-No external dependencies are used in this script.
+This script does not rely on external libraries or modules. It operates directly within the command line environment.
 
-##### Functions
-
-| Function | Parameters | Returns | Description |
-| --- | --- | --- | --- |
-| `copy` | `env.config .env /Y` | N/A | Copies `env.config` to `.env` if it doesn't already exist, overwriting it if prompted. |
-
-##### Configuration
-
-No configuration settings are defined within this script.
-
-##### Notes
-
-- The script checks if the `.env` file already exists and prompts the user to overwrite it if necessary.
-- If the `.env` file creation fails, the user is instructed to manually rename `env.config` to `.env`.
-- Security notes are printed to remind users to keep API keys secure and not to share or commit the `.env` file.
-
-### `nitinog10-Beta-20-fe6032d/setup-env.sh`
-
-##### Module Overview
-
-This script, `setup-env.sh`, sets up the environment for the BharatTrip AI project by creating a `.env` file from `env.config`. It ensures that the `.env` file, which contains essential API keys, is correctly configured and warns about security best practices for handling these keys.
-
-##### Dependencies
-
-- **Bash**: The shell in which this script runs.
-
-##### Functions
+#### Functions
 
 | Function | Parameters | Returns | Description |
 | --- | --- | --- | --- |
-| `setup-env.sh` | None | 0 or 1 | Sets up the `.env` file and checks for its existence. |
+| `copy` | `source_file destination_file` | `None` | Copies `env.config` to `.env` if `.env` does not already exist. |
 
-##### Configuration
+#### Configuration
+
+No specific configuration is required for this script to function. It operates based on the presence of `env.config` in the same directory.
+
+#### Notes
+
+- Always ensure the `.env` file is not shared or committed to version control to avoid exposing sensitive API keys.
+- Never commit the `.env` file to your repository. Use `.gitignore` to exclude it.
+- Regularly regenerate API keys after development to maintain security.
+- If the `.env` file creation fails, manually rename `env.config` to `.env`.
+
+---
+
+### `nitinog10-Beta-20-ddc4040/setup-env.sh`
+**Language:** Sh
+
+#### Module Overview
+
+This shell script, `setup-env.sh`, is designed to configure the development environment for the BharatTrip AI backend. It ensures that the `.env` file, which holds essential API keys and configurations, is correctly set up. The script checks if the `.env` file already exists and prompts the user for confirmation before overwriting it. It then creates the `.env` file from the `env.config` template, ensuring that all necessary API keys are configured for services like OpenAI, Weather, and Google Maps.
+
+#### Dependencies
 
 - **env.config**: Template file used to create the `.env` file.
-- **.env**: Final configuration file containing API keys.
-
-##### Notes
-
-- The script checks if `.env` already exists and prompts the user to confirm if they want to overwrite it.
-- If the `.env` file fails to create, the user is instructed to manually rename `env.config` to `.env`.
-- Security notes are printed to remind users to handle API keys securely.
-
-### `nitinog10-Beta-20-fe6032d/start-react.bat`
-
-##### Module Overview
-
-This batch file `nitinog10-Beta-20-fe6032d/start-react.bat` automates the startup process for the BharatTrip AI application. It starts the backend server and opens the React frontend in a browser, ensuring both components are running and accessible.
-
-##### Dependencies
-
-No explicit imports are listed in this file, but it relies on the following:
-- `npm` for starting the backend server.
-- A local HTML file `bharattrip-react.html` for the React frontend.
-
-##### Functions
-
-| Function | Parameters | Returns | Description |
-|----------|------------|---------|-------------|
-| `@echo off` | None | None | Disables command echoing for cleaner output. |
-| `echo` | Text | None | Prints text to the console. |
-| `cd` | Directory | None | Changes the current directory. |
-| `start` | Command/URL | None | Opens a new command window to run the command or opens the URL. |
-| `timeout` | Duration | None | Pauses execution for a specified time. |
-
-##### Configuration
-
-No explicit configuration settings are defined within this file. It assumes the backend server runs on `http://localhost:3001` and the React frontend is served from `bharattrip-react.html`.
-
-##### Notes
-
-- The script waits 5 seconds after starting the backend server to ensure it has time to initialize.
-- To stop the application, close the backend terminal window.
-- Ensure `npm` is installed and configured correctly to start the backend server.
-- The script opens the frontend in a new browser window. Ensure your default browser settings allow new tabs to open.
-
-### `nitinog10-Beta-20-fe6032d/start-react.sh`
-
-##### `nitinog10-Beta-20-fe6032d/start-react.sh`
-
-#### Module Overview
-
-This script initiates the BharatTrip AI application, starting both the backend server and the React frontend, and then opens the application in the default web browser.
-
-#### Dependencies
-
-- **Bash**: The script is written in Bash, leveraging its scripting capabilities to automate the startup process.
+- **.env**: Configuration file containing API keys and other environment-specific settings.
 
 #### Functions
 
 | Function | Parameters | Returns | Description |
 | --- | --- | --- | --- |
-| None | None | None | This script does not define any functions. It is a linear script that executes commands in sequence. |
+| `setup-env.sh` | None | None | Main script to set up the environment. |
 
 #### Configuration
 
-- **OSTYPE**: The script uses the `OSTYPE` environment variable to determine the operating system and open the appropriate browser.
+- **env.config**: Template file used to generate the `.env` file.
 
 #### Notes
 
-- The script assumes that the `backend` directory contains a Node.js application that can be started with `npm start`.
-- The script waits for 5 seconds after starting the backend server before attempting to open the React frontend in the browser.
-- The script uses `xdg-open` on Linux to open the browser, which may not work on all Linux distributions.
-- The script sets up a trap to handle the `INT` signal (Ctrl+C) to gracefully shut down the backend server when the script is terminated.
+- Always ensure the `.env` file is not shared or committed to version control to maintain security.
+- API keys should be kept secret and regenerated periodically for security reasons.
+- If the `.env` file creation fails, rename `env.config` to `.env` manually.
 
-Feel free to ask if you have any questions or need further clarification on any part of the script.
+---
 
-### `nitinog10-Beta-20-fe6032d/temp_planner.txt`
-
-##### `nitinog10-Beta-20-fe6032d/temp_planner.txt` Documentation
-
+### `nitinog10-Beta-20-ddc4040/start-react.bat`
 #### Module Overview
 
-This file defines the `EnhancedTripPlannerPage` component, which allows users to input travel preferences and generate a personalized itinerary using either an AI planner or a smart planner.
+This batch file, `start-react.bat`, initiates the backend server and launches the BharatTrip AI React frontend application in a web browser. It ensures that both the backend and frontend components of the application are running and accessible. The script waits for the backend to start before opening the frontend, ensuring a smooth startup experience.
 
 #### Dependencies
 
-- `useState` from `react`: Manages component state.
-- `fetch`: Makes HTTP requests to the backend API.
+- **npm**: Node.js package manager used to run the backend server.
+- **React**: JavaScript library for building the user interface of the frontend application.
 
 #### Functions
 
 | Function | Parameters | Returns | Description |
 | --- | --- | --- | --- |
-| `EnhancedTripPlannerPage` | None | JSX | Renders the trip planner page and handles itinerary generation. |
-| `generateItinerary` | None | Promise | Sends user input to the backend to generate an itinerary. |
-| `toggleInterest` | `interest` (string) | None | Toggles the selected interest in the form data. |
-| `handleViewOnMap` | `location` (object) | None | Stores the selected location in local storage and navigates to the explore page. |
+| `start-react.bat` | None | None | Starts the backend server and opens the BharatTrip AI React frontend in a browser. |
 
 #### Configuration
 
-- `API_BASE`: The base URL for the backend API.
+- **Backend Server Port**: `http://localhost:3001`
+- **Frontend URL**: `bharattrip-react.html`
 
 #### Notes
 
-- The `generateItinerary` function requires both a destination and at least one interest to be selected.
-- The `handleViewOnMap` function is currently unused in this component but is included for future functionality.
+- Ensure Node.js and npm are installed on the system before running this script.
+- The script waits for 5 seconds after starting the backend server to ensure it has enough time to fully start up.
+- To stop the application, close the backend terminal window where the backend server is running.
 
-### `nitinog10-Beta-20-fe6032d/test.html`
+---
 
-##### `nitinog10-Beta-20-fe6032d/test.html`
+### `nitinog10-Beta-20-ddc4040/start-react.sh`
+**Language:** Sh
+
+#### Overview
+
+This script starts the BharatTrip AI project, launching both the backend server and opening the React frontend in the browser.
 
 #### Module Overview
 
-This file is a simple HTML document that serves as a test environment for a React application. It sets up a basic web page with a navigation bar and a couple of pages: a home page and a trip planner page. The purpose is to demonstrate the use of React for creating a single-page application with dynamic routing.
+The `start-react.sh` script is designed to streamline the process of starting the BharatTrip AI project. It initiates the backend server, waits for it to be fully operational, and then opens the React frontend in the user's default web browser. The script also handles different operating systems to ensure compatibility.
+
+#### Dependencies
+
+- **Bash**: The script is written in Bash, which is necessary for executing shell commands.
+- **Node.js**: Required to run the backend server.
+- **npm**: Used to start the backend server.
+
+#### Notes
+
+- Ensure you have Node.js and npm installed on your system.
+- The script assumes the backend server is located in the `backend` directory and the React frontend file is `bharattrip-react.html` in the root directory.
+- The script uses `open` for macOS and `xdg-open` for Linux to open the browser. For other operating systems, it prompts the user to open the HTML file manually.
+
+---
+
+### `nitinog10-Beta-20-ddc4040/temp_planner.txt`
+**Language:** Txt
+
+#### Module Overview
+
+This file defines the `EnhancedTripPlannerPage` component, which is the main interface for users to input their travel preferences and generate a customized itinerary. It handles form data, user interactions, and displays the results from the backend.
+
+#### Dependencies
+
+- `useState` from `react`: Manages local component state.
+- `fetch`: Used for making API requests to generate the itinerary.
+
+#### Classes
+
+None
+
+#### Functions
+
+| Function              | Parameters                  | Returns | Description                                                                                       |
+|-----------------------|-----------------------------|---------|---------------------------------------------------------------------------------------------------|
+| `EnhancedTripPlannerPage` | None                        | JSX     | Main component rendering the trip planner UI and handling user interactions.                      |
+| `generateItinerary`  | None                        | Promise | Asynchronously generates an itinerary based on user input and displays it.                        |
+| `toggleInterest`      | `interest` (string)         | None    | Toggles the inclusion of a specific interest in the user's preferences.                           |
+| `handleViewOnMap`     | `location` (object)         | None    | Stores the selected location in local storage and navigates to the explore page.                  |
+
+#### Configuration
+
+- `API_BASE`: Base URL for API requests. Ensure this is correctly set in your environment variables.
+
+#### Constants
+
+None
+
+#### Notes
+
+- The `generateItinerary` function requires both a destination and at least one interest to be selected; otherwise, it alerts the user.
+- The component uses local storage to persist the selected location for viewing on the map.
+
+---
+
+### `nitinog10-Beta-20-ddc4040/test.html`
+**Language:** Html
+
+#### Module Overview
+
+This HTML file sets up a basic React application for a travel planning website called "BharatTrip AI". It includes a navigation bar and two pages: a home page and a trip planner page. The application uses React for state management and conditional rendering to switch between pages.
 
 #### Dependencies
 
 | Dependency | Purpose |
 | --- | --- |
-| React | Core library for building user interfaces. |
-| ReactDOM | Library for rendering React components to the DOM. |
-| Babel | JavaScript compiler that allows us to use JSX and ES6+ syntax. |
-| Tailwind CSS | Utility-first CSS framework for styling. |
-| Font Awesome | Icon library for adding icons to the web page. |
+| React | JavaScript library for building user interfaces |
+| ReactDOM | Library for rendering React components to the DOM |
+| Babel | JavaScript compiler for converting JSX to JavaScript |
+| Tailwind CSS | Utility-first CSS framework for styling |
+| Font Awesome | Icon library for adding icons to the application |
 
 #### Functions
 
 | Function | Parameters | Returns | Description |
 | --- | --- | --- | --- |
-| `App` | None | React Component | Main component that manages state and renders other components. |
+| App | None | None | Main React component that renders the application |
+| Navigation | None | None | Navigation bar component |
+| HomePage | None | None | Home page component |
+| PlannerPage | None | None | Trip planner page component |
+
+#### Notes
+
+- The application uses functional components and hooks for state management.
+- The navigation bar changes its appearance based on the current page.
+- The application is styled using Tailwind CSS and Font Awesome for icons.
+- The `currentPage` state is used to conditionally render the appropriate page component.
+
+---
+
+### `nitinog10-Beta-20-ddc4040/trip-planner.html`
+**Language:** Html
+
+#### Module Overview
+
+The `trip-planner.html` file is the front-end component of the BharatTrip AI Planner. It provides a user-friendly interface for users to input their travel preferences and generate a customized itinerary. The file integrates React for dynamic UI updates, Tailwind CSS for styling, and Font Awesome for icons. It also includes a simple animation for a fade-in effect.
+
+#### Dependencies
+
+- **Tailwind CSS**: Provides utility classes for styling.
+- **Font Awesome**: Offers a variety of icons used throughout the UI.
+- **React**: Enables dynamic and interactive UI components.
+- **Babel**: Transpiles modern JavaScript for broader browser compatibility.
 
 #### Classes
 
 | Class | Purpose | Key Methods |
 | --- | --- | --- |
-| `App` | Main component for the application | `render` |
-
-#### Notes
-
-- The `App` component uses React hooks (`useState`) to manage the state of the current page.
-- The navigation bar dynamically changes its appearance based on the current page.
-- The `PlannerPage` component is currently a placeholder and does not contain any functionality.
-- This file uses external libraries and CDN links for simplicity in testing. For production, consider bundling and optimizing these resources.
-
-### `nitinog10-Beta-20-fe6032d/trip-planner.html`
-
-##### `nitinog10-Beta-20-fe6032d/trip-planner.html`
-
-#### Module Overview
-
-This HTML file renders the BharatTrip AI Planner, a React-based interface for generating travel itineraries. It allows users to input their travel preferences and receive a customized itinerary.
-
-#### Dependencies
-
-- **Tailwind CSS**: Provides utility classes for styling.
-- **Font Awesome**: Offers icons used throughout the interface.
-- **React**: Core library for building the UI components.
-- **Babel**: Allows the use of JSX syntax within script tags.
+| `TripPlannerPage` | Manages the state and UI for the trip planner | `toggleInterest`, `isFormValid`, `generateItinerary` |
 
 #### Functions
 
-| Function             | Parameters       | Returns          | Description                                                                                      |
-|----------------------|------------------|------------------|--------------------------------------------------------------------------------------------------|
-| `TripPlannerPage`    | None             | React Component  | Main component rendering the trip planner interface.                                             |
-| `toggleInterest`     | `interest`       | None             | Toggles the selection of an interest, updating the `selectedInterests` state.                    |
-| `isFormValid`        | None             | `boolean`        | Checks if the form inputs are valid before generating an itinerary.                              |
-| `generateItinerary`  | None             | None             | Asynchronously generates an itinerary based on user inputs and updates the `itinerary` state.    |
+| Function | Parameters | Returns | Description |
+| --- | --- | --- | --- |
+| `toggleInterest` | `interest` (string) | void | Toggles the selection of an interest. |
+| `isFormValid` | None | boolean | Checks if the form inputs are valid. |
+| `generateItinerary` | None | void | Asynchronously generates and sets the itinerary. |
 
 #### Configuration
 
-- **React Component State**: 
-  - `planType`: Type of trip plan (`single` or `multi`).
-  - `destination`: User-selected destination.
-  - `selectedInterests`: Array of user-selected interests.
-  - `startDate`: Start date of the trip.
-  - `endDate`: End date of the trip.
-  - `budget`: User-selected budget level.
-  - `travelMode`: User-selected travel mode.
-  - `itinerary`: Generated itinerary object.
+- The default plan type is set to'single'.
+- The default budget is set to 'Medium'.
+- The default travel mode is set to 'Train'.
+
+#### Constants
+
+- The interests array contains predefined options: `['Heritage', 'Nature', 'Food', 'Adventure', 'Wellness', 'Culture']`.
 
 #### Notes
 
-- The `generateItinerary` function currently returns a hardcoded itinerary for demonstration purposes. In a production environment, this should be replaced with an API call to fetch a real itinerary based on user inputs.
-- Ensure to handle edge cases such as invalid dates or missing inputs gracefully.
-- The UI is designed to be responsive, leveraging Tailwind CSS classes for layout and styling.
+- The `generateItinerary` function currently uses hardcoded data for demonstration purposes. In a production environment, this should be replaced with an API call to fetch real data.
+- The fade-in animation is applied to elements with the class `animate-fade-in`.
 
-### `nitinog10-Beta-20-fe6032d/backend/README.md`
+---
 
-##### BharatTrip AI Backend Setup Guide
+### `nitinog10-Beta-20-ddc4040/backend/README.md`
+**Language:** Md
 
 #### Module Overview
 
-This file provides a comprehensive guide for setting up and running the BharatTrip AI backend. It covers dependency installation, environment configuration, API endpoint details, testing procedures, troubleshooting tips, production deployment, and API rate limits.
+This README provides a comprehensive guide for setting up, configuring, and testing the BharatTrip AI backend. It covers dependency installation, environment variable setup, enabling required Google APIs, starting the server, and details about various API endpoints. Additionally, it includes troubleshooting tips, deployment instructions, and information on API rate limits.
 
 #### Dependencies
 
-- **npm**: Package manager for Node.js
-- **dotenv**: Loads environment variables from `.env` file
-- **express**: Web framework for Node.js
-- **axios**: Promise-based HTTP client for making API requests
-- **openai**: Client library for interacting with the OpenAI API
-- **openweathermap**: Client library for fetching weather data
-- **google-maps**: Client library for accessing Google Maps APIs
+- **npm**: For installing project dependencies.
+- **dotenv**: For loading environment variables from a `.env` file.
+- **express**: Web framework for building the API server.
+- **axios**: For making HTTP requests to external APIs.
+- **openai**: For integrating with the OpenAI API.
+- **google-maps**: For interacting with Google Maps APIs.
 
 #### Configuration
 
-- **.env**: Contains API keys and environment-specific configurations
+- **.env**: Contains API keys and other environment-specific configurations.
   - `OPENAI_API_KEY`
   - `WEATHER_API_KEY`
   - `GOOGLE_MAPS_API_KEY`
 
 #### API Endpoints
 
-##### Health Check
-- **GET** `/api/health` - Check if backend is running
+### Health Check
 
-##### AI Chatbot
-- **POST** `/api/chatbot`
-```json
-{
-  "message": "Tell me about places to visit in Jaipur",
-  "language": "en"
-}
-```
+- **GET** `/api/health`: Check if the backend is running.
 
-##### Weather Data
-- **GET** `/api/weather/:location` - Get weather for a location
-- **GET** `/api/weather/:location?lat=28.6139&lon=77.2090` - Get weather by coordinates
+### AI Chatbot
 
-##### Places Search
-- **POST** `/api/places/search`
-```json
-{
-  "query": "restaurants in Mumbai",
-  "location": {"lat": 19.0760, "lng": 77.2097},
-  "radius": 5000,
-  "type": "restaurant"
-}
-```
+- **POST** `/api/chatbot`: Send a message to the AI chatbot.
+  ```json
+  {
+    "message": "Tell me about places to visit in Jaipur",
+    "language": "en"
+  }
+  ```
 
-##### Nearby Places
-- **POST** `/api/places/nearby`
-```json
-{
-  "location": {"lat": 28.6139, "lng": 77.2090},
-  "radius": 5000,
-  "types": ["tourist_attraction", "restaurant"]
-}
-```
+### Weather Data
 
-##### Geocoding
-- **GET** `/api/geocode/:address` - Convert address to coordinates
+- **GET** `/api/weather/:location`: Get weather for a location.
+- **GET** `/api/weather/:location?lat=28.6139&lon=77.2090`: Get weather by coordinates.
 
-##### Trip Planning
-- **POST** `/api/trip/plan`
-```json
-{
-  "destination": "Goa",
-  "interests": ["beaches", "food", "culture"],
-  "duration": 5,
-  "budget": "medium",
-  "travelMode": "flight"
-}
-```
+### Places Search
 
-##### Landmark Recognition
-- **POST** `/api/landmark/recognize`
-```json
-{
-  "imageBase64": "base64_encoded_image_data"
-}
-```
+- **POST** `/api/places/search`: Search for places.
+  ```json
+  {
+    "query": "restaurants in Mumbai",
+    "location": {"lat": 19.0760, "lng": 72.8777},
+    "radius": 5000,
+    "type": "restaurant"
+  }
+  ```
 
-##### Smart Insights & Analysis (NEW) 🆕
+### Nearby Places
 
-##### AI-Powered Travel Recommendations
-- **POST** `/api/recommendations/analyze`
-```json
-{
-  "destination": "Jaipur",
-  "dates": { "start": "2024-11-01", "end": "2024-11-05" },
-  "interests": ["heritage", "food", "culture"]
-}
-```
-**Returns:** Weather forecast, crowd analysis, transport recommendations, visit score
+- **POST** `/api/places/nearby`: Find nearby places.
+  ```json
+  {
+    "location": {"lat": 28.6139, "lng": 77.2090},
+    "radius": 5000,
+    "types": ["tourist_attraction", "restaurant"]
+  }
+  ```
 
-##### Real-time Crowd Density
-- **POST** `/api/crowd/density`
-```json
-{
-  "placeId": "ChIJL_P_CXMEDTkRw0ZdG-0GVvw",
-  "name": "India Gate",
-  "location": { "lat": 28.6129, "lng": 77.2295 }
-}
-```
-**Returns:** Current crowd level, best times to visit, AI analysis
+### Geocoding
 
-##### Public Transport Routes
-- **POST** `/api/transport/routes`
-```json
-{
-  "origin": { "lat": 28.7041, "lng": 77.1025 },
-  "destination": { "lat": 28.6139, "lng": 77.2090 },
-  "mode": "transit"
-}
-```
-**Returns:** Optimized routes, cost estimates, travel tips, alternatives
+- **GET** `/api/geocode/:address`: Convert address to coordinates.
 
-##### Climate Trends Analysis
-- **GET** `/api/climate/trends/:destination?months=6`
-**Returns:** Monthly climate patterns, best months to visit, seasonal recommendations
+### Trip Planning
+
+- **POST** `/api/trip/plan`: Plan a trip.
+  ```json
+  {
+    "destination": "Goa",
+    "interests": ["beaches", "food", "culture"],
+    "duration": 5,
+    "budget": "medium",
+    "travelMode": "flight"
+  }
+  ```
+
+### Landmark Recognition
+
+- **POST** `/api/landmark/recognize`: Recognize landmarks from an image.
+  ```json
+  {
+    "imageBase64": "base64_encoded_image_data"
+  }
+  ```
+
+### Smart Insights & Analysis
+
+#### AI-Powered Travel Recommendations
+
+- **POST** `/api/recommendations/analyze`: Get AI-powered travel recommendations.
+  ```json
+  {
+    "destination": "Jaipur",
+    "dates": { "start": "2024-11-01", "end": "2024-11-05" },
+    "interests": ["heritage", "food", "culture"]
+  }
+  ```
+
+#### Real-time Crowd Density
+
+- **POST** `/api/crowd/density`: Get real-time crowd density.
+  ```json
+  {
+    "placeId": "ChIJL_P_CXMEDTkRw0ZdG-0GVvw",
+    "name": "India Gate",
+    "location": { "lat": 28.6129, "lng": 77.2295 }
+  }
+  ```
+
+#### Public Transport Routes
+
+- **POST** `/api/transport/routes`: Get optimized public transport routes.
+  ```json
+  {
+    "origin": { "lat": 28.7041, "lng": 77.1025 },
+    "destination": { "lat": 28.6139, "lng": 77.2090 },
+    "mode": "transit"
+  }
+  ```
+
+#### Climate Trends Analysis
+
+- **GET** `/api/climate/trends/:destination?months=6`: Get climate trends analysis.
 
 #### Testing the Backend
 
-##### Using cURL
+### Using cURL
+
 ```bash
-##### Test health check
+# Test health check
 curl http://localhost:3001/api/health
 
-##### Test chatbot
+# Test chatbot
 curl -X POST http://localhost:3001/api/chatbot \
   -H "Content-Type: application/json" \
   -d '{"message": "Best time to visit Kerala?", "language": "en"}'
 
-##### Test geocoding
+# Test geocoding
 curl http://localhost:3001/api/geocode/Taj%20Mahal%20Agra
 ```
 
-##### Using the Frontend
-1. Open `bharattrip-integrated.html` in your browser
-2. Check the backend status indicator (bottom right)
+### Using the Frontend
+
+1. Open `bharattrip-integrated.html` in your browser.
+2. Check the backend status indicator (bottom right).
 3. Test features:
-   - **Chatbot**: Ask travel questions
-   - **Trip Planner**: Generate AI itineraries
-   - **Explore Map**: Search and view places
-   - **Weather**: See weather overlays on map
+   - **Chatbot**: Ask travel questions.
+   - **Trip Planner**: Generate AI itineraries.
+   - **Explore Map**: Search and view places.
+   - **Weather**: See weather overlays on map.
 
 #### Troubleshooting
 
-##### Backend won't start
-- Check if port 3001 is already in use
-- Verify all dependencies are installed
-- Check `.env` file exists with valid API keys
+### Backend won't start
 
-##### API errors
-- Ensure API keys are valid and have proper permissions
-- Check API quotas and limits
-- Verify internet connection
+- Check if port 3001 is already in use.
+- Verify all dependencies are installed.
+- Check `.env` file exists with valid API keys.
 
-##### CORS issues
-- Backend is configured to allow all origins in development
-- For production, update CORS settings in `server.js`
+### API errors
+
+- Ensure API keys are valid and have proper permissions.
+- Check API quotas and limits.
+- Verify internet connection.
+
+### CORS issues
+
+- Backend is configured to allow all origins in development.
+- For production, update CORS settings in `server.js`.
 
 #### Production Deployment
 
-##### Using PM2
+### Using PM2
+
 ```bash
 npm install -g pm2
 pm2 start server.js --name bharattrip-backend
@@ -2446,26 +2278,29 @@ pm2 save
 pm2 startup
 ```
 
-##### Using Docker
+### Using Docker
+
 ```dockerfile
 FROM node:16
 WORKDIR /app
 COPY package*.json./
 RUN npm install
-COPY ..
+COPY..
 EXPOSE 3001
 CMD ["node", "server.js"]
 ```
 
-##### Environment Variables for Production
-- Set `NODE_ENV=production`
-- Use secure API keys
-- Configure proper CORS origins
-- Enable HTTPS
+### Environment Variables for Production
+
+- Set `NODE_ENV=production`.
+- Use secure API keys.
+- Configure proper CORS origins.
+- Enable HTTPS.
 
 #### API Rate Limits
 
 Be aware of rate limits for external APIs:
+
 - **OpenAI**: 3 requests/minute (free tier)
 - **OpenWeatherMap**: 60 calls/minute (free tier)
 - **Google Maps**: $200 free credit/month
@@ -2473,126 +2308,150 @@ Be aware of rate limits for external APIs:
 #### Support
 
 For issues or questions:
+
 1. Check console logs for errors
-2. Verify API keys are correct
-3. Ensure all required Google APIs are
 
-### `nitinog10-Beta-20-fe6032d/backend/env.example`
+---
 
-##### Module Overview
+### `nitinog10-Beta-20-ddc4040/backend/env.example`
+#### Module Overview
 
-This file, `nitinog10-Beta-20-fe6032d/backend/env.example`, serves as a template for environment variables required by the BharatTrip AI backend. It contains placeholders for sensitive API keys and server configuration settings that the backend service needs to operate correctly.
+This file, `env.example`, is a template for environment variables that are essential for configuring the BharatTrip AI backend. It includes placeholders for various API keys and server configuration settings. When setting up the backend, you should copy this file to `.env` and replace the placeholder values with your actual API keys and configuration details.
 
 #### Dependencies
 
-No direct dependencies are listed here as this file is purely for configuration and does not import any modules.
+This file does not import any external modules. It is a plain text file used to store configuration values that are required by the backend services.
 
 #### Configuration
 
 | Key | Purpose | Description |
 | --- | --- | --- |
-| `PORT` | Server Configuration | Port number on which the backend server will run. |
-| `OPENAI_API_KEY` | API Configuration | API key for accessing the OpenAI services. |
-| `WEATHER_API_KEY` | API Configuration | API key for accessing the OpenWeatherMap services. |
-| `GOOGLE_MAPS_API_KEY` | API Configuration | API key for accessing the Google Maps services. |
+| PORT | Server Configuration | The port number on which the backend server will run. |
+| OPENAI_API_KEY | OpenAI API Configuration | API key for accessing the OpenAI services. |
+| WEATHER_API_KEY | OpenWeatherMap API Configuration | API key for accessing weather data from OpenWeatherMap. |
+| GOOGLE_MAPS_API_KEY | Google Maps API Configuration | API key for accessing Google Maps services. |
 
 #### Notes
 
-- Copy this file to `.env` and replace the placeholder values with actual API keys from respective services.
-- Ensure that the environment variables are kept secure and not exposed in version control.
-- The backend will fail to start if these environment variables are not correctly set.
+- Ensure that the `.env` file is included in your `.gitignore` to prevent sensitive information from being committed to version control.
+- Replace the placeholder values in this file with actual keys from the respective services before running the backend.
+- The keys should be kept secure and not exposed in public repositories or shared environments.
 
-### `nitinog10-Beta-20-fe6032d/backend/generate-alternatives.js`
+---
 
-##### `generate-alternatives.js` Module Overview
+### `nitinog10-Beta-20-ddc4040/backend/generate-alternatives.js`
+**Language:** Javascript
 
-This file defines an asynchronous function `generateAlternatives` that leverages the `openai` API to generate alternative activities for a given day in an itinerary. It's designed to provide users with diverse options that cater to their preferences, the destination's local culture, and practical considerations like weather and seasonality.
+#### Module Overview
+
+The `generate-alternatives.js` file is designed to create alternative activities for a specific day in a travel itinerary. It leverages the `openai` API to generate suggestions based on the current plan, destination, and user preferences. If the API call fails, it falls back to a predefined set of alternatives.
 
 #### Dependencies
 
-| Import | Description |
-|--------|-------------|
-| `openai` | Configuration and utility functions for interacting with the `openai` API. |
-| `parseResponse`, `generateFallbackAlternatives` | Utility functions from `./utils` to handle response parsing and fallback alternative generation. |
+| Module | Purpose |
+| --- | --- |
+| `./openai-config` | Configuration for the `openai` API |
+| `./utils` | Utility functions for parsing responses and generating fallback alternatives |
 
 #### Functions
 
 | Function | Parameters | Returns | Description |
-|----------|------------|---------|-------------|
-| `generateAlternatives` | `currentDay`, `currentActivities`, `destination`, `preferences` | `{ success: boolean, error: string, alternatives: array }` | Asynchronously generates alternative activities for a specified day in an itinerary, using the `openai` API. Returns a success status, an error message if applicable, and the generated alternatives. |
+| --- | --- | --- | --- |
+| `generateAlternatives` | `currentDay`, `currentActivities`, `destination`, `preferences` | `{ success: boolean, alternatives: array, error: string }` | Generates alternative activities for a given day using the `openai` API. If the API call fails, it returns fallback alternatives. |
 
 #### Notes
 
-- The function relies on the `openai` API for generating alternatives. Ensure the API key and configuration are correctly set up in `openai-config.js`.
-- If the `openai` API call fails, the function falls back to generating a set of predefined alternatives using `generateFallbackAlternatives`.
-- The `parseResponse` function expects the API response to be in a specific JSON format. Any deviation from this format will result in an error.
-- Always handle the returned `alternatives` array with care, as it may be empty or contain fallback values in case of an error.
+- The function expects `currentDay`, `currentActivities`, `destination`, and `preferences` as input parameters.
+- It uses a system prompt to guide the `openai` API in generating the alternatives.
+- If the API call fails, it logs the error and returns a predefined set of fallback alternatives.
+- The `parseResponse` function is used to format the API response into a usable format.
+- The `generateFallbackAlternatives` function provides a set of default alternatives if the API call fails.
 
-### `nitinog10-Beta-20-fe6032d/backend/package.json`
+---
 
-##### Module Overview
+### `nitinog10-Beta-20-ddc4040/backend/package.json`
+**Language:** Json
 
-This `package.json` file defines the configuration for the backend server of the BharatTrip AI project. It specifies the dependencies required to run the server, the scripts to start and test the server, and metadata about the project.
+#### Module Overview
 
-##### Dependencies
+This `package.json` file is the heart of our backend server for BharatTrip AI. It outlines the project's dependencies, the scripts used to run and test the server, and metadata like the project's name, version, and description. The file ensures that anyone setting up the project knows exactly which libraries to install and how to run the server and tests.
 
-| Package | Purpose |
-| --- | --- |
-| `express` | Provides a robust set of features for web and mobile applications. |
-| `cors` | Enables cross-origin resource sharing. |
-| `dotenv` | Loads environment variables from a `.env` file. |
-| `axios` | Promise-based HTTP client for the browser and Node.js. |
-| `openai` | Interface for the OpenAPI service. |
-| `multer` | Middleware for handling `multipart/form-data`, used for uploading files. |
+#### Dependencies
 
-##### Functions
+This section lists the key libraries that our backend server relies on:
 
-There are no explicit functions defined in this `package.json` file. It primarily serves configuration purposes.
+| Library | Purpose | Version |
+| --- | --- | --- |
+| express | Web framework for handling HTTP requests | ^4.18.2 |
+| cors | Middleware to handle Cross-Origin Resource Sharing | ^2.8.5 |
+| dotenv | Loads environment variables from .env file | ^16.3.1 |
+| axios | Promise-based HTTP client for making API requests | ^1.5.0 |
+| openai | Official client for interacting with the OpenAPI service | ^3.3.0 |
+| multer | File upload middleware for express | ^1.4.5-lts.1 |
 
-##### Configuration
+#### Scripts
 
-There are no explicit configuration settings defined within this file. However, it relies on environment variables loaded via the `dotenv` package.
+The `scripts` section defines commands to start, develop, and test the server:
 
-##### Notes
+| Script | Parameters | Description |
+| --- | --- | --- |
+| start | None | Starts the server using `node server.js` |
+| dev | None | Starts the server in development mode using `nodemon server.js` |
+| test | None | Runs the API tests using `node test-apis.js` |
+| test:api | None | Runs the API tests using `node test-apis.js` |
 
-- The `start` script runs the server using `node server.js`.
-- The `dev` script uses `nodemon` to automatically restart the server when files change.
-- The `test` and `test:api` scripts run tests using `node test-apis.js`.
-- Ensure environment variables are set in the `.env` file for services like OpenAPI, Weather, and Google Maps to function correctly.
+#### Notes
 
-### `nitinog10-Beta-20-fe6032d/backend/server.js`
+- Ensure all dependencies listed in `dependencies` and `devDependencies` are installed before running the server.
+- Environment variables for sensitive information like API keys should be stored in a `.env` file referenced by `dotenv`.
+- The `nodemon` utility is used in development mode to automatically restart the server when files change.
 
-##### Module Overview
-This file sets up the backend server for BharatTrip AI. It handles API requests, integrates with external services, and manages data storage.
+---
+
+### `nitinog10-Beta-20-ddc4040/backend/server.js`
+**Language:** Javascript
+
+#### Module Overview
+
+The `server.js` file sets up the backend server for BharatTrip AI, handling various API endpoints for reviews, tourist guides, chatbot interactions, weather data, and place searches. It integrates with external services like OpenAI, OpenWeatherMap, and Google Maps.
 
 #### Dependencies
 
 - `express`: Web framework for handling HTTP requests.
-- `cors`: Middleware to enable Cross-Origin Resource Sharing.
+- `cors`: Middleware to enable CORS.
 - `axios`: HTTP client for making requests to external APIs.
 - `dotenv`: Loads environment variables from a `.env` file.
 - `path`: Provides utilities for working with file and directory paths.
 - `multer`: Middleware for handling `multipart/form-data`, primarily used for uploading files.
-- `openai`: Client library for interacting with the OpenAI API.
-- `fs`: Node.js file system module.
-- `util`: Provides utility functions.
+- `fs`: File system module for reading and writing files.
+- `util`: Utility module for promisifying callback-based functions.
+- `openai`: Client for interacting with the OpenAI API.
 
 #### Functions
 
-| Function         | Parameters                 | Returns         | Description                                                                                       |
-| ---------------- | -------------------------- | --------------- | ------------------------------------------------------------------------------------------------- |
-| `getReviews`     | None                       | Promise<Array>  | Reads and parses the reviews JSON file, returning an array of reviews.                            |
-| `saveReviews`    | `reviews` (Array)          | Promise         | Writes the provided reviews array to the reviews JSON file.                                       |
-| `readFileAsync`  | `filename`, `encoding`     | Promise<string> | Promisified version of `fs.readFile`.                                                             |
-| `writeFileAsync` | `filename`, `data`, `encoding` | Promise        | Promisified version of `fs.writeFile`.                                                            |
+| Function      | Parameters               | Returns         | Description                                                                                           |
+|---------------|--------------------------|-----------------|-------------------------------------------------------------------------------------------------------|
+| `getReviews`  | None                     | Array           | Reads and returns the reviews from the JSON file.                                                     |
+| `saveReviews` | `reviews` (Array)        | None            | Saves the provided reviews to the JSON file.                                                          |
+
+#### Endpoints
+
+| Endpoint                      | Method | Description                                                                                           |
+|-------------------------------|--------|-------------------------------------------------------------------------------------------------------|
+| `/api/reviews`                | POST   | Uploads a new review with an optional image.                                                          |
+| `/api/reviews/:placeId`       | GET    | Fetches reviews for a specific place.                                                                 |
+| `/api/tourist-guides/:location` | GET    | Fetches tourist guides for a specific location.                                                       |
+| `/api/health`                 | GET    | Health check endpoint to verify the server is running.                                                |
+| `/api/chatbot`                | POST   | Chatbot endpoint for getting responses from OpenAI.                                                   |
+| `/api/weather/:location`      | GET    | Fetches current weather and forecast for a location.                                                  |
+| `/api/places/search`           | POST   | Searches for places using Google Maps API.                                                            |
+| `/api/places/nearby`           | POST   | Fetches nearby places using Google Maps API.                                                          |
+| `/api/geocode/:address`       | GET    | Geocodes an address to get its latitude and longitude.                                                |
 
 #### Configuration
 
-- `PORT`: Server port, defaults to 3001 if not set in environment variables.
-- `storage`: Multer storage configuration for file uploads.
-- `configuration`: Configuration object for the OpenAI API.
-- `WEATHER_API_KEY`: API key for OpenWeatherMap.
-- `GOOGLE_MAPS_API_KEY`: API key for Google Maps.
+- Environment variables are loaded using `dotenv`.
+- API keys for OpenAI, OpenWeatherMap, and Google Maps are stored in environment variables.
 
 #### Constants
 
@@ -2601,43 +2460,43 @@ This file sets up the backend server for BharatTrip AI. It handles API requests,
 
 #### Notes
 
-- Ensure environment variables are correctly set for API keys and other configurations.
-- Error handling is implemented for most API calls; check console logs for detailed error messages.
-- File uploads are stored in the `../uploads/reviews` directory.
-- The `getReviews` and `saveReviews` functions manage the reviews data stored in `reviews.json`.
-- Fallback to Nominatim for geocoding if Google Maps API returns no results.
+- Ensure environment variables are correctly set up in the `.env` file.
+- The `reviews` are stored in a JSON file located at `../uploads/reviews/reviews.json`.
+- The geocoding endpoint falls back to Nominatim if Google Maps API returns no results.
 
-### `nitinog10-Beta-20-fe6032d/backend/test-apis.js`
+---
 
-##### `nitinog10-Beta-20-fe6032d/backend/test-apis.js`
+### `nitinog10-Beta-20-ddc4040/backend/test-apis.js`
+**Language:** Javascript
 
-This file contains a script to test various API endpoints of the BharatTrip AI service. It ensures that the APIs are functioning as expected by running a series of test cases.
+#### Module Overview
+
+This file, `test-apis.js`, is designed to automate the testing of multiple API endpoints within the BharatTrip AI service. It uses the `axios` library to make HTTP requests to the backend APIs and checks their responses. The script also utilizes environment variables for API keys, which are loaded using `dotenv`. The primary function, `testAPIs`, sequentially tests each API endpoint, logs the results, and provides feedback on any failures.
 
 #### Dependencies
 
-| Module | Purpose |
+| Dependency | Purpose |
 | --- | --- |
-| `axios` | HTTP client for making requests to the API endpoints. |
-| `dotenv` | Loads environment variables from a `.env` file into `process.env`. |
-| `./utils` | Utility functions, including `checkServerHealth`. |
+| `axios` | Makes HTTP requests to the API endpoints. |
+| `dotenv` | Loads environment variables from a `.env` file. |
+| `./utils` | Contains utility functions, including `checkServerHealth`. |
 
 #### Functions
 
 | Function | Parameters | Returns | Description |
 | --- | --- | --- | --- |
-| `testAPIs` | None | None | Executes a series of tests for different API endpoints and logs the results. |
+| `testAPIs` | None | None | Executes a series of tests on the BharatTrip AI APIs and logs the results. |
 
 #### Configuration
 
-- `API_BASE_URL`: The base URL for the BharatTrip AI APIs.
-- `colors`: An object containing ANSI color codes for console output.
+- **API_BASE_URL**: The base URL for the BharatTrip AI API endpoints.
 
 #### Notes
 
-- Ensure that the `.env` file contains all necessary API keys for the services being tested.
-- The `testAPIs` function checks the health of the server before running the tests.
-- If any test fails, the script provides guidance on what to check, such as API keys and enabled services.
+- Ensure the `.env` file contains all necessary API keys for the tests to run successfully.
+- The script checks for specific API failures and provides hints on potential issues, such as missing or invalid API keys.
+- The `checkServerHealth` function from `./utils` is called to verify the server's health before running the tests.
 
 ---
 
-*Documentation auto-generated by DocuVerse*
+*This documentation was automatically generated and formatted by DocuSense AI.*
